@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MauiAppGestaoImoveis.Views.MainPageApp"
+             Title="MainPageApp"
+             BackgroundColor="White">
+
+    <Grid RowDefinitions="*, Auto">
+        <!-- Conteúdo principal -->
+        <ScrollView>
+            <VerticalStackLayout Padding="0" Spacing="20">
+                <Label Text="Gestão de Imóveis
+                            Página Inicial"
+                       FontSize="Title"
+                       TextColor="White"
+                       BackgroundColor="Blue"
+                       Padding="20"
+                       HorizontalTextAlignment="Center"
+                       />
+
+                <!-- Card Inquilinos -->
+                <Frame BackgroundColor="Blue" CornerRadius="20">
+                    <Frame.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="GoRenterPage_Clicked"/>
+                    </Frame.GestureRecognizers>
+                    <HorizontalStackLayout Padding="20" Spacing="20" HorizontalOptions="Center">
+                        <Image Source="house_icon2.png" WidthRequest="50" HeightRequest="50"/>
+                        <Label Text="Inquilinos" TextColor="White" FontSize="24" VerticalTextAlignment="Center"/>
+                    </HorizontalStackLayout>
+                </Frame>
+
+                <!-- Card Contas Mensais -->
+                <Frame BackgroundColor="Green" CornerRadius="20">
+                    <Frame.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="GoMonthlyBills_Clicked"/>
+                    </Frame.GestureRecognizers>
+                    <HorizontalStackLayout Padding="20" Spacing="20" HorizontalOptions="Center">
+                        <Image Source="month_bills.png" WidthRequest="50" HeightRequest="50"/>
+                        <Label Text="Contas Mensais" TextColor="White" FontSize="24" VerticalTextAlignment="Center"/>
+                    </HorizontalStackLayout>
+                </Frame>
+            </VerticalStackLayout>
+        </ScrollView>
+
+        <!-- Barra de Navegação Inferior -->
+        <Grid Grid.Row="1" BackgroundColor="Blue" Padding="10">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+
+            <StackLayout Grid.Column="0" HorizontalOptions="Center">
+                <ImageButton Source="late_clock.png" WidthRequest="30" HeightRequest="30"/>
+                <Label Text="Atrasos" FontSize="14" TextColor="White" HorizontalTextAlignment="Center"/>
+            </StackLayout>
+
+            <StackLayout Grid.Column="1" HorizontalOptions="Center">
+                <ImageButton Source="payments_icon.png" WidthRequest="30" HeightRequest="30"/>
+                <Label Text="Pagamentos" FontSize="14" TextColor="White" HorizontalTextAlignment="Center"/>
+            </StackLayout>
+
+            <StackLayout Grid.Column="2" HorizontalOptions="Center">
+                <ImageButton Source="person_icon.png" WidthRequest="30" HeightRequest="30"/>
+                <Label Text="Perfil" FontSize="14" TextColor="White" HorizontalTextAlignment="Center"/>
+            </StackLayout>
+        </Grid>
+    </Grid>
+</ContentPage>

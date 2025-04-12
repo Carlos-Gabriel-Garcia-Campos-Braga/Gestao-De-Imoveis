@@ -1,0 +1,39 @@
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MauiAppGestaoImoveis.Views.RenterPage"
+             Title="Inquilinos">
+
+    <VerticalStackLayout Padding="0">
+        <Label Text="Gestão de Imóveis
+               Inquilinos" FontSize="24"
+               HorizontalTextAlignment="Center"
+               BackgroundColor="Blue"
+               TextColor="White"
+               />
+
+        <ImageButton Source="add_icon.png" Clicked="AddRenter_Clicked" 
+                     HorizontalOptions="End" 
+                     WidthRequest="50"
+                     HeightRequest="50"
+                     BackgroundColor="Blue"
+                     Margin="10"
+                     Padding="5"
+                     CornerRadius="16"/>
+
+
+        <CollectionView x:Name="RenterList">
+            <CollectionView.ItemTemplate>
+                <DataTemplate>
+                    <Frame BackgroundColor="Blue" CornerRadius="15" Padding="10" Margin="5">
+                        <VerticalStackLayout>
+                            <Label Text="{Binding Name}" FontSize="18" TextColor="White"/>
+                            <Label Text="{Binding HouseLocation}" FontSize="14" TextColor="White"/>
+                            <Label Text="{Binding CPF}" FontSize="14" TextColor="White"/>
+                        </VerticalStackLayout>
+                    </Frame>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+
+    </VerticalStackLayout>
+</ContentPage>

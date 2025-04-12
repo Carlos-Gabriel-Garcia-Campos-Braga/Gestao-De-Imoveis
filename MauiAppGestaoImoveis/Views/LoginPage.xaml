@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MauiAppGestaoImoveis.Views.LoginPage"
+             Title="LoginPage">
+    <VerticalStackLayout Spacing="8" Padding="10">
+        <Label Text="Bem-Vindo ao Gestão de Imóveis Brandão"
+               HorizontalTextAlignment="Center"
+               FontSize="Title"/>
+
+        <Label Text="E-mail" x:Name="EmailLabel"/>
+        <Entry x:Name="EmailInput" Placeholder="Digite seu E-mail"/>
+
+        <Label Text="Senha" x:Name="SenhaLabel"/>
+        <Entry x:Name="SenhaInput" Placeholder="Digite sua Senha"/>
+
+        <Button x:Name="LoginButton" Clicked="LoginButton_Clicked" Text="Login"/>
+    </VerticalStackLayout>
+</ContentPage>

@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <_PostProcessingItem Include="MauiAppGestaoImoveis.app/MauiAppGestaoImoveis">
+      <IsAppExtension>false</IsAppExtension>
+      <BCSymbolMapName>MauiAppGestaoImoveis.bcsymbolmap</BCSymbolMapName>
+      <NoDSymUtil>true</NoDSymUtil>
+      <dSYMSourcePathExists>false</dSYMSourcePathExists>
+      <NoSymbolStrip>true</NoSymbolStrip>
+      <dSYMInfoPlistRelativePath>MauiAppGestaoImoveis.app.dSYM\Contents\Info.plist</dSYMInfoPlistRelativePath>
+      <SymbolFile>\Users\carlosgabriel\Library\Caches\Xamarin\mtbs\builds\MauiAppGestaoImoveis\59d534c5a4707c92b9683be290399f63962f5ddaf124bd849b69be8d11781d44\obj\Debug\net8.0-ios\iossimulator-x64\mtouch-symbols.list</SymbolFile>
+      <DSymName>MauiAppGestaoImoveis.app.dSYM</DSymName>
+      <SourceProjectPath>C:\Users\carlo\Desktop\PC\GestaoImoveis\MauiAppGestaoImoveis\MauiAppGestaoImoveis</SourceProjectPath>
+      <IsXPCService></IsXPCService>
+    </_PostProcessingItem>
+  </ItemGroup>
+</Project>
