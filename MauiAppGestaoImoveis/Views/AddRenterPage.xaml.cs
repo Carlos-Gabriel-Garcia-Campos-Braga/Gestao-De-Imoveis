@@ -14,6 +14,7 @@ public partial class AddRenterPage : ContentPage
     {
         try
         {
+            Bills BillsTest = new Bills(141.90, 78.70, 900.00, 300.00);
             if (!string.IsNullOrWhiteSpace(NameInput.Text) &&
                 !string.IsNullOrWhiteSpace(PhoneInput.Text) &&
                 !string.IsNullOrWhiteSpace(CPFInput.Text) && CPFInput.Text.Length == 11 &&
@@ -22,7 +23,8 @@ public partial class AddRenterPage : ContentPage
                 NewRenters.Instance.AddRenter(new Renter(NameInput.Text,
                                                          CPFInput.Text,
                                                          PhoneInput.Text,
-                                                         AdressInput.Text)
+                                                         AdressInput.Text,
+                                                         BillsTest)
                                               );
                 await Shell.Current.GoToAsync("renters");
             }

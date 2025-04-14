@@ -3,8 +3,52 @@
   "WorkspaceRootPath": "C:\\Users\\carlo\\Desktop\\PC\\GestaoImoveis\\MauiAppGestaoImoveis\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{385D5469-E627-4993-B65A-F8A3C6AD8908}|MauiAppGestaoImoveis\\MauiAppGestaoImoveis.csproj|c:\\users\\carlo\\desktop\\pc\\gestaoimoveis\\mauiappgestaoimoveis\\mauiappgestaoimoveis\\views\\renterpage.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{385D5469-E627-4993-B65A-F8A3C6AD8908}|MauiAppGestaoImoveis\\MauiAppGestaoImoveis.csproj|solutionrelative:mauiappgestaoimoveis\\views\\renterpage.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{385D5469-E627-4993-B65A-F8A3C6AD8908}|MauiAppGestaoImoveis\\MauiAppGestaoImoveis.csproj|c:\\users\\carlo\\desktop\\pc\\gestaoimoveis\\mauiappgestaoimoveis\\mauiappgestaoimoveis\\views\\mainpageapp.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{385D5469-E627-4993-B65A-F8A3C6AD8908}|MauiAppGestaoImoveis\\MauiAppGestaoImoveis.csproj|solutionrelative:mauiappgestaoimoveis\\views\\mainpageapp.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{385D5469-E627-4993-B65A-F8A3C6AD8908}|MauiAppGestaoImoveis\\MauiAppGestaoImoveis.csproj|c:\\users\\carlo\\desktop\\pc\\gestaoimoveis\\mauiappgestaoimoveis\\mauiappgestaoimoveis\\appshell.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{385D5469-E627-4993-B65A-F8A3C6AD8908}|MauiAppGestaoImoveis\\MauiAppGestaoImoveis.csproj|solutionrelative:mauiappgestaoimoveis\\appshell.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{385D5469-E627-4993-B65A-F8A3C6AD8908}|MauiAppGestaoImoveis\\MauiAppGestaoImoveis.csproj|c:\\users\\carlo\\desktop\\pc\\gestaoimoveis\\mauiappgestaoimoveis\\mauiappgestaoimoveis\\appshell.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{385D5469-E627-4993-B65A-F8A3C6AD8908}|MauiAppGestaoImoveis\\MauiAppGestaoImoveis.csproj|solutionrelative:mauiappgestaoimoveis\\appshell.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{385D5469-E627-4993-B65A-F8A3C6AD8908}|MauiAppGestaoImoveis\\MauiAppGestaoImoveis.csproj|c:\\users\\carlo\\desktop\\pc\\gestaoimoveis\\mauiappgestaoimoveis\\mauiappgestaoimoveis\\views\\addrenterpage.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{385D5469-E627-4993-B65A-F8A3C6AD8908}|MauiAppGestaoImoveis\\MauiAppGestaoImoveis.csproj|solutionrelative:mauiappgestaoimoveis\\views\\addrenterpage.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{385D5469-E627-4993-B65A-F8A3C6AD8908}|MauiAppGestaoImoveis\\MauiAppGestaoImoveis.csproj|c:\\users\\carlo\\desktop\\pc\\gestaoimoveis\\mauiappgestaoimoveis\\mauiappgestaoimoveis\\views\\addrenterpage.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{385D5469-E627-4993-B65A-F8A3C6AD8908}|MauiAppGestaoImoveis\\MauiAppGestaoImoveis.csproj|solutionrelative:mauiappgestaoimoveis\\views\\addrenterpage.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{385D5469-E627-4993-B65A-F8A3C6AD8908}|MauiAppGestaoImoveis\\MauiAppGestaoImoveis.csproj|c:\\users\\carlo\\desktop\\pc\\gestaoimoveis\\mauiappgestaoimoveis\\mauiappgestaoimoveis\\views\\monthlybillspage.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{385D5469-E627-4993-B65A-F8A3C6AD8908}|MauiAppGestaoImoveis\\MauiAppGestaoImoveis.csproj|solutionrelative:mauiappgestaoimoveis\\views\\monthlybillspage.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{385D5469-E627-4993-B65A-F8A3C6AD8908}|MauiAppGestaoImoveis\\MauiAppGestaoImoveis.csproj|c:\\users\\carlo\\desktop\\pc\\gestaoimoveis\\mauiappgestaoimoveis\\mauiappgestaoimoveis\\views\\monthlybillspage.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{385D5469-E627-4993-B65A-F8A3C6AD8908}|MauiAppGestaoImoveis\\MauiAppGestaoImoveis.csproj|solutionrelative:mauiappgestaoimoveis\\views\\monthlybillspage.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{385D5469-E627-4993-B65A-F8A3C6AD8908}|MauiAppGestaoImoveis\\MauiAppGestaoImoveis.csproj|c:\\users\\carlo\\desktop\\pc\\gestaoimoveis\\mauiappgestaoimoveis\\mauiappgestaoimoveis\\models\\renter.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{385D5469-E627-4993-B65A-F8A3C6AD8908}|MauiAppGestaoImoveis\\MauiAppGestaoImoveis.csproj|solutionrelative:mauiappgestaoimoveis\\models\\renter.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{385D5469-E627-4993-B65A-F8A3C6AD8908}|MauiAppGestaoImoveis\\MauiAppGestaoImoveis.csproj|c:\\users\\carlo\\desktop\\pc\\gestaoimoveis\\mauiappgestaoimoveis\\mauiappgestaoimoveis\\models\\bills.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{385D5469-E627-4993-B65A-F8A3C6AD8908}|MauiAppGestaoImoveis\\MauiAppGestaoImoveis.csproj|solutionrelative:mauiappgestaoimoveis\\models\\bills.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{385D5469-E627-4993-B65A-F8A3C6AD8908}|MauiAppGestaoImoveis\\MauiAppGestaoImoveis.csproj|c:\\users\\carlo\\desktop\\pc\\gestaoimoveis\\mauiappgestaoimoveis\\mauiappgestaoimoveis\\views\\mainpageapp.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{385D5469-E627-4993-B65A-F8A3C6AD8908}|MauiAppGestaoImoveis\\MauiAppGestaoImoveis.csproj|solutionrelative:mauiappgestaoimoveis\\views\\mainpageapp.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{385D5469-E627-4993-B65A-F8A3C6AD8908}|MauiAppGestaoImoveis\\MauiAppGestaoImoveis.csproj|c:\\users\\carlo\\desktop\\pc\\gestaoimoveis\\mauiappgestaoimoveis\\mauiappgestaoimoveis\\views\\loginpage.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{385D5469-E627-4993-B65A-F8A3C6AD8908}|MauiAppGestaoImoveis\\MauiAppGestaoImoveis.csproj|solutionrelative:mauiappgestaoimoveis\\views\\loginpage.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{385D5469-E627-4993-B65A-F8A3C6AD8908}|MauiAppGestaoImoveis\\MauiAppGestaoImoveis.csproj|c:\\users\\carlo\\desktop\\pc\\gestaoimoveis\\mauiappgestaoimoveis\\mauiappgestaoimoveis\\views\\renterpage.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{385D5469-E627-4993-B65A-F8A3C6AD8908}|MauiAppGestaoImoveis\\MauiAppGestaoImoveis.csproj|solutionrelative:mauiappgestaoimoveis\\views\\renterpage.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
     }
   ],
   "DocumentGroupContainers": [
@@ -23,14 +67,157 @@
             {
               "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "RenterPage.xaml.cs",
-              "DocumentMoniker": "C:\\Users\\carlo\\Desktop\\PC\\GestaoImoveis\\MauiAppGestaoImoveis\\MauiAppGestaoImoveis\\Views\\RenterPage.xaml.cs",
-              "RelativeDocumentMoniker": "MauiAppGestaoImoveis\\Views\\RenterPage.xaml.cs",
-              "ToolTip": "C:\\Users\\carlo\\Desktop\\PC\\GestaoImoveis\\MauiAppGestaoImoveis\\MauiAppGestaoImoveis\\Views\\RenterPage.xaml.cs",
-              "RelativeToolTip": "MauiAppGestaoImoveis\\Views\\RenterPage.xaml.cs",
+              "Title": "MainPageApp.xaml.cs",
+              "DocumentMoniker": "C:\\Users\\carlo\\Desktop\\PC\\GestaoImoveis\\MauiAppGestaoImoveis\\MauiAppGestaoImoveis\\Views\\MainPageApp.xaml.cs",
+              "RelativeDocumentMoniker": "MauiAppGestaoImoveis\\Views\\MainPageApp.xaml.cs",
+              "ToolTip": "C:\\Users\\carlo\\Desktop\\PC\\GestaoImoveis\\MauiAppGestaoImoveis\\MauiAppGestaoImoveis\\Views\\MainPageApp.xaml.cs",
+              "RelativeToolTip": "MauiAppGestaoImoveis\\Views\\MainPageApp.xaml.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-04-12T13:02:21.874Z",
+              "WhenOpened": "2025-04-13T03:32:58.716Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "AppShell.xaml.cs",
+              "DocumentMoniker": "C:\\Users\\carlo\\Desktop\\PC\\GestaoImoveis\\MauiAppGestaoImoveis\\MauiAppGestaoImoveis\\AppShell.xaml.cs",
+              "RelativeDocumentMoniker": "MauiAppGestaoImoveis\\AppShell.xaml.cs",
+              "ToolTip": "C:\\Users\\carlo\\Desktop\\PC\\GestaoImoveis\\MauiAppGestaoImoveis\\MauiAppGestaoImoveis\\AppShell.xaml.cs",
+              "RelativeToolTip": "MauiAppGestaoImoveis\\AppShell.xaml.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAAjAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-13T03:30:50.008Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "AppShell.xaml",
+              "DocumentMoniker": "C:\\Users\\carlo\\Desktop\\PC\\GestaoImoveis\\MauiAppGestaoImoveis\\MauiAppGestaoImoveis\\AppShell.xaml",
+              "RelativeDocumentMoniker": "MauiAppGestaoImoveis\\AppShell.xaml",
+              "ToolTip": "C:\\Users\\carlo\\Desktop\\PC\\GestaoImoveis\\MauiAppGestaoImoveis\\MauiAppGestaoImoveis\\AppShell.xaml",
+              "RelativeToolTip": "MauiAppGestaoImoveis\\AppShell.xaml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAAcAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2025-04-13T03:30:47.444Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "AddRenterPage.xaml",
+              "DocumentMoniker": "C:\\Users\\carlo\\Desktop\\PC\\GestaoImoveis\\MauiAppGestaoImoveis\\MauiAppGestaoImoveis\\Views\\AddRenterPage.xaml",
+              "RelativeDocumentMoniker": "MauiAppGestaoImoveis\\Views\\AddRenterPage.xaml",
+              "ToolTip": "C:\\Users\\carlo\\Desktop\\PC\\GestaoImoveis\\MauiAppGestaoImoveis\\MauiAppGestaoImoveis\\Views\\AddRenterPage.xaml",
+              "RelativeToolTip": "MauiAppGestaoImoveis\\Views\\AddRenterPage.xaml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAQAAAAUAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2025-04-13T03:23:22.857Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
+              "Title": "RenterPage.xaml",
+              "DocumentMoniker": "C:\\Users\\carlo\\Desktop\\PC\\GestaoImoveis\\MauiAppGestaoImoveis\\MauiAppGestaoImoveis\\Views\\RenterPage.xaml",
+              "RelativeDocumentMoniker": "MauiAppGestaoImoveis\\Views\\RenterPage.xaml",
+              "ToolTip": "C:\\Users\\carlo\\Desktop\\PC\\GestaoImoveis\\MauiAppGestaoImoveis\\MauiAppGestaoImoveis\\Views\\RenterPage.xaml",
+              "RelativeToolTip": "MauiAppGestaoImoveis\\Views\\RenterPage.xaml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAMAAAAUAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2025-04-13T03:23:09.196Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "LoginPage.xaml",
+              "DocumentMoniker": "C:\\Users\\carlo\\Desktop\\PC\\GestaoImoveis\\MauiAppGestaoImoveis\\MauiAppGestaoImoveis\\Views\\LoginPage.xaml",
+              "RelativeDocumentMoniker": "MauiAppGestaoImoveis\\Views\\LoginPage.xaml",
+              "ToolTip": "C:\\Users\\carlo\\Desktop\\PC\\GestaoImoveis\\MauiAppGestaoImoveis\\MauiAppGestaoImoveis\\Views\\LoginPage.xaml",
+              "RelativeToolTip": "MauiAppGestaoImoveis\\Views\\LoginPage.xaml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAQAAAAUAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2025-04-13T03:23:02.751Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "MainPageApp.xaml",
+              "DocumentMoniker": "C:\\Users\\carlo\\Desktop\\PC\\GestaoImoveis\\MauiAppGestaoImoveis\\MauiAppGestaoImoveis\\Views\\MainPageApp.xaml",
+              "RelativeDocumentMoniker": "MauiAppGestaoImoveis\\Views\\MainPageApp.xaml",
+              "ToolTip": "C:\\Users\\carlo\\Desktop\\PC\\GestaoImoveis\\MauiAppGestaoImoveis\\MauiAppGestaoImoveis\\Views\\MainPageApp.xaml",
+              "RelativeToolTip": "MauiAppGestaoImoveis\\Views\\MainPageApp.xaml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAUAAAAkAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2025-04-13T03:22:46.336Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "AddRenterPage.xaml.cs",
+              "DocumentMoniker": "C:\\Users\\carlo\\Desktop\\PC\\GestaoImoveis\\MauiAppGestaoImoveis\\MauiAppGestaoImoveis\\Views\\AddRenterPage.xaml.cs",
+              "RelativeDocumentMoniker": "MauiAppGestaoImoveis\\Views\\AddRenterPage.xaml.cs",
+              "ToolTip": "C:\\Users\\carlo\\Desktop\\PC\\GestaoImoveis\\MauiAppGestaoImoveis\\MauiAppGestaoImoveis\\Views\\AddRenterPage.xaml.cs",
+              "RelativeToolTip": "MauiAppGestaoImoveis\\Views\\AddRenterPage.xaml.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABoAAABCAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-13T03:04:12.837Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "Bills.cs",
+              "DocumentMoniker": "C:\\Users\\carlo\\Desktop\\PC\\GestaoImoveis\\MauiAppGestaoImoveis\\MauiAppGestaoImoveis\\Models\\Bills.cs",
+              "RelativeDocumentMoniker": "MauiAppGestaoImoveis\\Models\\Bills.cs",
+              "ToolTip": "C:\\Users\\carlo\\Desktop\\PC\\GestaoImoveis\\MauiAppGestaoImoveis\\MauiAppGestaoImoveis\\Models\\Bills.cs",
+              "RelativeToolTip": "MauiAppGestaoImoveis\\Models\\Bills.cs",
+              "ViewState": "AgIAAAcAAAAAAAAAAAAswBQAAAAOAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-13T02:59:28.387Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "Renter.cs",
+              "DocumentMoniker": "C:\\Users\\carlo\\Desktop\\PC\\GestaoImoveis\\MauiAppGestaoImoveis\\MauiAppGestaoImoveis\\Models\\Renter.cs",
+              "RelativeDocumentMoniker": "MauiAppGestaoImoveis\\Models\\Renter.cs",
+              "ToolTip": "C:\\Users\\carlo\\Desktop\\PC\\GestaoImoveis\\MauiAppGestaoImoveis\\MauiAppGestaoImoveis\\Models\\Renter.cs",
+              "RelativeToolTip": "MauiAppGestaoImoveis\\Models\\Renter.cs",
+              "ViewState": "AgIAAAgAAAAAAAAAAAA1wBEAAAAbAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-13T02:59:21.745Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "MonthlyBillsPage.xaml.cs",
+              "DocumentMoniker": "C:\\Users\\carlo\\Desktop\\PC\\GestaoImoveis\\MauiAppGestaoImoveis\\MauiAppGestaoImoveis\\Views\\MonthlyBillsPage.xaml.cs",
+              "RelativeDocumentMoniker": "MauiAppGestaoImoveis\\Views\\MonthlyBillsPage.xaml.cs",
+              "ToolTip": "C:\\Users\\carlo\\Desktop\\PC\\GestaoImoveis\\MauiAppGestaoImoveis\\MauiAppGestaoImoveis\\Views\\MonthlyBillsPage.xaml.cs",
+              "RelativeToolTip": "MauiAppGestaoImoveis\\Views\\MonthlyBillsPage.xaml.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAA9AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-13T02:55:17.703Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "MonthlyBillsPage.xaml",
+              "DocumentMoniker": "C:\\Users\\carlo\\Desktop\\PC\\GestaoImoveis\\MauiAppGestaoImoveis\\MauiAppGestaoImoveis\\Views\\MonthlyBillsPage.xaml",
+              "RelativeDocumentMoniker": "MauiAppGestaoImoveis\\Views\\MonthlyBillsPage.xaml",
+              "ToolTip": "C:\\Users\\carlo\\Desktop\\PC\\GestaoImoveis\\MauiAppGestaoImoveis\\MauiAppGestaoImoveis\\Views\\MonthlyBillsPage.xaml",
+              "RelativeToolTip": "MauiAppGestaoImoveis\\Views\\MonthlyBillsPage.xaml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAUAAAAkAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2025-04-13T02:53:12.529Z",
               "EditorCaption": ""
             }
           ]

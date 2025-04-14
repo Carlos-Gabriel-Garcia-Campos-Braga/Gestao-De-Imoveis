@@ -9,16 +9,16 @@ namespace MauiAppGestaoImoveis.Models
 {
     internal class Bills : IBillsPayment
     {
-        private double WaterBill;
+        public double WaterBill { get; set; }
         private DateTime PassWater;
 
-        private double EletricBill;
+        public double EletricBill { get; set; }
         private DateTime PassEnergy;
 
-        private double RentBill;
+        public double RentBill { get; set; }
         private DateTime PassRent;
 
-        private double IPTUBill;
+        public double IPTUBill { get; set; }
         private DateTime PassIPTU;
 
         private double TotalBill;

@@ -13,12 +13,13 @@ namespace MauiAppGestaoImoveis.Models
         public string PhoneNumber { get; set; }
         public string HouseLocation { get; set; }
         public Bills RenterBills { get; set; }
-        public Renter(string Name, string CPF, string PhoneNumber, string HouseLocation)
+        public Renter(string Name, string CPF, string PhoneNumber, string HouseLocation, Bills RenterBills)
         {
             this.CPF = CPF;
             this.Name = Name;
             this.PhoneNumber = PhoneNumber;
             this.HouseLocation = HouseLocation;
+            this.RenterBills = RenterBills;
         }
 
         public double PayBills()

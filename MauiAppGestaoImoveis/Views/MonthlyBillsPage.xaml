@@ -2,11 +2,32 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="MauiAppGestaoImoveis.Views.MonthlyBillsPage"
-             Title="MonthlyBillsPage">
+             Title=""
+             BackgroundColor="White">
     <VerticalStackLayout>
-        <Label 
-            Text="Welcome to .NET MAUI!"
-            VerticalOptions="Center" 
-            HorizontalOptions="Center" />
+        <Label Text="Gestão de Imóveis
+               Contas Mensais"
+               FontSize="24"
+               HorizontalTextAlignment="Center"
+               BackgroundColor="Green"
+               TextColor="White"
+               />
+
+        <CollectionView x:Name="RenterList" Margin="12">
+            <CollectionView.ItemTemplate>
+                <DataTemplate>
+                    <Frame BackgroundColor="Green" CornerRadius="15" Padding="10" Margin="5">
+                        <VerticalStackLayout>
+                            <Label Text="{Binding Name}" FontSize="18" TextColor="White"/>
+                            <Label Text="{Binding RenterBills.WaterBill, StringFormat='Água: {0:C}'}" FontSize="14" TextColor="White"/>
+                            <Label Text="{Binding RenterBills.EletricBill, StringFormat='Energia: {0:C}'}" FontSize="14" TextColor="White"/>
+                            <Label Text="{Binding RenterBills.RentBill, StringFormat='Aluguel: {0:C}'}" FontSize="14" TextColor="White"/>
+                            <Label Text="{Binding RenterBills.IPTUBill, StringFormat='IPTU: {0:C}'}" FontSize="14" TextColor="White"/>
+                        </VerticalStackLayout>
+                    </Frame>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+
     </VerticalStackLayout>
 </ContentPage>
