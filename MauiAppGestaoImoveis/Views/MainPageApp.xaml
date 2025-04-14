@@ -51,12 +51,12 @@
             </Grid.ColumnDefinitions>
 
             <StackLayout Grid.Column="0" HorizontalOptions="Center">
-                <ImageButton Source="late_clock.png" WidthRequest="30" HeightRequest="30"/>
+                <ImageButton Source="late_clock.png" WidthRequest="30" HeightRequest="30" x:Name="LateBillsBtn" Clicked="LateBillsBtn_Clicked"/>
                 <Label Text="Atrasos" FontSize="14" TextColor="White" HorizontalTextAlignment="Center"/>
             </StackLayout>
 
             <StackLayout Grid.Column="1" HorizontalOptions="Center">
-                <ImageButton Source="payments_icon.png" WidthRequest="30" HeightRequest="30"/>
+                <ImageButton Source="payments_icon.png" WidthRequest="30" HeightRequest="30" x:Name="PaymentsBtn"/>
                 <Label Text="Pagamentos" FontSize="14" TextColor="White" HorizontalTextAlignment="Center"/>
             </StackLayout>
 

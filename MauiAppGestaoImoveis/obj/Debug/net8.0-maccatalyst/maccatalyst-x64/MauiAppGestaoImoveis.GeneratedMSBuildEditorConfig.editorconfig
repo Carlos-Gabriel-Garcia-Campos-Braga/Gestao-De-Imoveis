@@ -54,6 +54,12 @@ build_metadata.AdditionalFiles.ManifestResourceName = MauiAppGestaoImoveis.Views
 build_metadata.AdditionalFiles.TargetPath = Views\AddRenterPage.xaml
 build_metadata.AdditionalFiles.RelativePath = Views\AddRenterPage.xaml
 
+[C:/Users/carlo/Desktop/PC/GestaoImoveis/MauiAppGestaoImoveis/MauiAppGestaoImoveis/Views/LateBillsPage.xaml]
+build_metadata.AdditionalFiles.GenKind = Xaml
+build_metadata.AdditionalFiles.ManifestResourceName = MauiAppGestaoImoveis.Views.LateBillsPage.xaml
+build_metadata.AdditionalFiles.TargetPath = Views\LateBillsPage.xaml
+build_metadata.AdditionalFiles.RelativePath = Views\LateBillsPage.xaml
+
 [C:/Users/carlo/Desktop/PC/GestaoImoveis/MauiAppGestaoImoveis/MauiAppGestaoImoveis/Views/LoginPage.xaml]
 build_metadata.AdditionalFiles.GenKind = Xaml
 build_metadata.AdditionalFiles.ManifestResourceName = MauiAppGestaoImoveis.Views.LoginPage.xaml

@@ -17,4 +17,8 @@ public partial class MainPageApp : ContentPage
         await Shell.Current.GoToAsync("monthly_bills");
     }
 
+    private async void LateBillsBtn_Clicked(object sender, EventArgs e)
+    {
+        await Shell.Current.GoToAsync("late_bills");
+    }
 }

@@ -10,13 +10,13 @@ namespace MauiAppGestaoImoveis.Models
     internal class Bills : IBillsPayment
     {
         public double WaterBill { get; set; }
-        private DateTime PassWater;
+        public DateTime PassWater;
 
         public double EletricBill { get; set; }
-        private DateTime PassEnergy;
+        public DateTime PassEnergy;
 
         public double RentBill { get; set; }
-        private DateTime PassRent;
+        public DateTime PassRent;
 
         public double IPTUBill { get; set; }
         private DateTime PassIPTU;
@@ -28,17 +28,27 @@ namespace MauiAppGestaoImoveis.Models
             EletricBill = eletricBill;
             RentBill = rentBill;
             IPTUBill = iPTUBill;
+            PassWater = DateTime.Today;
+            PassRent = new DateTime(2024, 4, 1);
+            PassEnergy = new DateTime(2024, 4, 10);
             TotalBill = waterBill + eletricBill + rentBill + iPTUBill;
         }
-        public double LateBills()
+        public double LateWater
         {
-            if (WaterBill != 0 || EletricBill != 0 || IPTUBill != 0 || RentBill != 0)
+            get
             {
-                return TotalBill;
+                return PassWater <= DateTime.Today ? WaterBill : 0;
             }
-
-            return 0;
         }
+
+        public double LateEnergy
+        {
+            get
+            {
+                return PassEnergy <= DateTime.Today ? EletricBill : 0;
+            }
+        }
+
         public double MonthPayment(double Amount)
         {
             return Amount -= (WaterBill + EletricBill + RentBill + IPTUBill);
@@ -62,6 +72,11 @@ namespace MauiAppGestaoImoveis.Models
         public double getIPUBill()
         {
             return IPTUBill;
+        }
+
+        public double LateBills()
+        {
+            throw new NotImplementedException();
         }
     }
 }

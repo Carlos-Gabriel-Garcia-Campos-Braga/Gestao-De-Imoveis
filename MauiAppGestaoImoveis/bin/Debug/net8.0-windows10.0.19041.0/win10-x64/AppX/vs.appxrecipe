@@ -30,13 +30,13 @@
     <AppXManifest Include="C:\Users\carlo\Desktop\PC\GestaoImoveis\MauiAppGestaoImoveis\MauiAppGestaoImoveis\bin\Debug\net8.0-windows10.0.19041.0\win10-x64\AppxManifest.xml">
       <PackagePath>AppxManifest.xml</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2025-04-14T15:34:50.301</Modified>
+      <Modified>2025-04-14T16:52:42.380</Modified>
     </AppXManifest>
   </ItemGroup>
   <ItemGroup>
     <AppxPackagedFile Include="C:\Users\carlo\Desktop\PC\GestaoImoveis\MauiAppGestaoImoveis\MauiAppGestaoImoveis\bin\Debug\net8.0-windows10.0.19041.0\win10-x64\resources.pri">
       <PackagePath>resources.pri</PackagePath>
-      <Modified>2025-04-13T03:23:29.087</Modified>
+      <Modified>2025-04-14T15:50:32.959</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\carlo\Desktop\PC\GestaoImoveis\MauiAppGestaoImoveis\MauiAppGestaoImoveis\bin\Debug\net8.0-windows10.0.19041.0\win10-x64\MauiAppGestaoImoveis.runtimeconfig.json">
       <PackagePath>MauiAppGestaoImoveis.runtimeconfig.json</PackagePath>
@@ -44,11 +44,11 @@
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\carlo\Desktop\PC\GestaoImoveis\MauiAppGestaoImoveis\MauiAppGestaoImoveis\bin\Debug\net8.0-windows10.0.19041.0\win10-x64\MauiAppGestaoImoveis.dll">
       <PackagePath>MauiAppGestaoImoveis.dll</PackagePath>
-      <Modified>2025-04-14T15:34:49.490</Modified>
+      <Modified>2025-04-14T16:52:42.123</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\carlo\Desktop\PC\GestaoImoveis\MauiAppGestaoImoveis\MauiAppGestaoImoveis\obj\Debug\net8.0-windows10.0.19041.0\win10-x64\apphost.exe">
       <PackagePath>MauiAppGestaoImoveis.exe</PackagePath>
-      <Modified>2025-04-14T15:34:49.533</Modified>
+      <Modified>2025-04-14T16:52:42.128</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\carlo\Desktop\PC\GestaoImoveis\MauiAppGestaoImoveis\MauiAppGestaoImoveis\Resources\Raw\AboutAssets.txt">
       <PackagePath>AboutAssets.txt</PackagePath>
@@ -312,7 +312,7 @@
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\carlo\Desktop\PC\GestaoImoveis\MauiAppGestaoImoveis\MauiAppGestaoImoveis\bin\Debug\net8.0-windows10.0.19041.0\win10-x64\MauiAppGestaoImoveis.deps.json">
       <PackagePath>MauiAppGestaoImoveis.deps.json</PackagePath>
-      <Modified>2025-04-13T03:23:28.932</Modified>
+      <Modified>2025-04-14T15:50:32.692</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\carlo\.nuget\packages\microsoft.windows.sdk.net.ref\10.0.19041.57\lib\net8.0\Microsoft.Windows.SDK.NET.dll">
       <PackagePath>Microsoft.Windows.SDK.NET.dll</PackagePath>
