@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MauiAppGestaoImoveis.Views.PaymentsPage"
+             Title=""
+             BackgroundColor="White">
+    <Grid RowDefinitions="*, Auto">
+        <!-- Conteúdo principal -->
+        <ScrollView>
+            <VerticalStackLayout Padding="0" Spacing="20">
+                <Label 
+                Text="Gestão de Imóveis
+                Atrasos"
+                HorizontalTextAlignment="Center"
+                FontSize="Title"
+                BackgroundColor="Blue"
+                Padding="20"
+                />
+
+                <CollectionView x:Name="MonthlyBills" Margin="12">
+                    <CollectionView.ItemTemplate>
+                        <DataTemplate>
+                            <Frame BackgroundColor="Blue" CornerRadius="15" Padding="10" Margin="5">
+                                <VerticalStackLayout>
+                                    <Label Text="{Binding Name}" FontSize="18" TextColor="White"/>
+                                    <Label Text="{Binding RenterBills.getTotalMonthPayment, StringFormat='Pagemento Total: {0:C}'}" FontSize="14" TextColor="White"/>
+                                </VerticalStackLayout>
+                            </Frame>
+                        </DataTemplate>
+                    </CollectionView.ItemTemplate>
+                </CollectionView>
+
+            </VerticalStackLayout>
+        </ScrollView>
+
+        <!-- Barra de Navegação Inferior -->
+        <Grid Grid.Row="1" BackgroundColor="Blue" Padding="10">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+
+            <StackLayout Grid.Column="0" HorizontalOptions="Center">
+                <ImageButton Source="late_clock.png" WidthRequest="30" HeightRequest="30"/>
+                <Label Text="Atrasos" FontSize="14" TextColor="White" HorizontalTextAlignment="Center"/>
+            </StackLayout>
+
+            <StackLayout Grid.Column="1" HorizontalOptions="Center">
+                <ImageButton Source="payments_icon.png" WidthRequest="30" HeightRequest="30"/>
+                <Label Text="Pagamentos" FontSize="14" TextColor="White" HorizontalTextAlignment="Center"/>
+            </StackLayout>
+
+            <StackLayout Grid.Column="2" HorizontalOptions="Center">
+                <ImageButton Source="person_icon.png" WidthRequest="30" HeightRequest="30"/>
+                <Label Text="Perfil" FontSize="14" TextColor="White" HorizontalTextAlignment="Center"/>
+            </StackLayout>
+        </Grid>
+    </Grid>
+</ContentPage>

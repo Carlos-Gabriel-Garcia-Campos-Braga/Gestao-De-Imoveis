@@ -8,7 +8,7 @@ namespace MauiAppGestaoImoveis.Models.Interfaces
 {
     internal interface IBillsPayment
     {
-        public double MonthPayment(double Amount);
+        public double MonthPayment();
         public double LateBills();
     }
 }

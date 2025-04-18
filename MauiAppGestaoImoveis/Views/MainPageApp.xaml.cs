@@ -1,3 +1,5 @@
+using System.Threading.Tasks;
+
 namespace MauiAppGestaoImoveis.Views;
 
 public partial class MainPageApp : ContentPage
@@ -20,5 +22,10 @@ public partial class MainPageApp : ContentPage
     private async void LateBillsBtn_Clicked(object sender, EventArgs e)
     {
         await Shell.Current.GoToAsync("late_bills");
+    }
+
+    private async void PaymentsBtn_Clicked(object sender, EventArgs e)
+    {
+        await Shell.Current.GoToAsync("payments");
     }
 }

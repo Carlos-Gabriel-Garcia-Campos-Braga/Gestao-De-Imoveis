@@ -56,7 +56,7 @@
             </StackLayout>
 
             <StackLayout Grid.Column="1" HorizontalOptions="Center">
-                <ImageButton Source="payments_icon.png" WidthRequest="30" HeightRequest="30" x:Name="PaymentsBtn"/>
+                <ImageButton Source="payments_icon.png" WidthRequest="30" HeightRequest="30" x:Name="PaymentsBtn" Clicked="PaymentsBtn_Clicked" />
                 <Label Text="Pagamentos" FontSize="14" TextColor="White" HorizontalTextAlignment="Center"/>
             </StackLayout>
 

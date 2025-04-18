@@ -22,17 +22,32 @@ namespace MauiAppGestaoImoveis.Models
 
         public override string ToString()
         {
-            return $"Name: {Name}";
+            return $"Nome: {Name}" +
+                   $"\nE-mail: {Email}" +
+                   $"\nSenha: {Password}";
         }
 
-        public string getEmail()
-        {
-            return Email;
-        }
 
-        public string getPassword()
+        public string getName
         {
-            return Password;
+            get
+            {
+                return Name;
+            }
+        }
+        public string getEmail
+        {
+            get
+            {
+                return Email;
+            }
+        }
+        public string getPassword
+        {
+            get
+            {
+                return Password;
+            }
         }
     }
 }
