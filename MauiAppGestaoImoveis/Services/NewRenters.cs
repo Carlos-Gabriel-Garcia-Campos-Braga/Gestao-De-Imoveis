@@ -29,7 +29,7 @@ namespace MauiAppGestaoImoveis.Services
         {
             Renters = new List<Renter>
             {
-                new Renter("Carlos", "030.244.301-05", "(62)99259-1792", "Rua A",
+                new Renter("Carlos", "03024430105", "(62)99259-1792", "Rua A",
                 new Bills(141.90, 78.70, 900.00, 300.00))
             };
         }

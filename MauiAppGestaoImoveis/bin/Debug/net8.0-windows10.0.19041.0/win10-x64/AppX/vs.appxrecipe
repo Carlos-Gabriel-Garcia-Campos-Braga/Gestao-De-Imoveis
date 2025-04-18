@@ -30,7 +30,7 @@
     <AppXManifest Include="C:\Users\carlo\Desktop\PC\GestaoImoveis\MauiAppGestaoImoveis\MauiAppGestaoImoveis\bin\Debug\net8.0-windows10.0.19041.0\win10-x64\AppxManifest.xml">
       <PackagePath>AppxManifest.xml</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2025-04-18T19:09:10.247</Modified>
+      <Modified>2025-04-18T21:09:48.714</Modified>
     </AppXManifest>
   </ItemGroup>
   <ItemGroup>
@@ -44,11 +44,11 @@
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\carlo\Desktop\PC\GestaoImoveis\MauiAppGestaoImoveis\MauiAppGestaoImoveis\bin\Debug\net8.0-windows10.0.19041.0\win10-x64\MauiAppGestaoImoveis.dll">
       <PackagePath>MauiAppGestaoImoveis.dll</PackagePath>
-      <Modified>2025-04-18T19:09:09.406</Modified>
+      <Modified>2025-04-18T21:09:48.449</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\carlo\Desktop\PC\GestaoImoveis\MauiAppGestaoImoveis\MauiAppGestaoImoveis\obj\Debug\net8.0-windows10.0.19041.0\win10-x64\apphost.exe">
       <PackagePath>MauiAppGestaoImoveis.exe</PackagePath>
-      <Modified>2025-04-18T19:09:09.472</Modified>
+      <Modified>2025-04-18T21:09:48.454</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\carlo\Desktop\PC\GestaoImoveis\MauiAppGestaoImoveis\MauiAppGestaoImoveis\Resources\Raw\AboutAssets.txt">
       <PackagePath>AboutAssets.txt</PackagePath>

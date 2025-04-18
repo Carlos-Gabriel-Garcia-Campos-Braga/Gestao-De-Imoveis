@@ -27,9 +27,9 @@
                 <DataTemplate>
                     <Frame BackgroundColor="Blue" CornerRadius="15" Padding="10" Margin="5">
                         <VerticalStackLayout>
-                            <Label Text="{Binding Name}" FontSize="18" TextColor="White"/>
+                            <Label Text="{Binding _name}" FontSize="18" TextColor="White"/>
                             <Label Text="{Binding HouseLocation}" FontSize="14" TextColor="White"/>
-                            <Label Text="{Binding CPF}" FontSize="14" TextColor="White"/>
+                            <Label Text="{Binding _cpf}" FontSize="14" TextColor="White"/>
                         </VerticalStackLayout>
                     </Frame>
                 </DataTemplate>

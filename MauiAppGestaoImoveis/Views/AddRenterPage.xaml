@@ -3,20 +3,27 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="MauiAppGestaoImoveis.Views.AddRenterPage"
              Title=""
-             BackgroundColor="White">
+             >
     <VerticalStackLayout>
         <Label Text="Nome: "/>
-        <Entry Placeholder="Digite o nome do inquilino" x:Name="NameInput"/>
+        <Entry Placeholder="Digite o nome do inquilino" x:Name="NameInput" TextChanged="NameInput_TextChanged"/>
 
         <Label Text="CPF"/>
-        <Entry Placeholder="Digite o CPF do inquilino" x:Name="CPFInput"/>
+        <Entry x:Name="CPFInput"
+               Placeholder="Digite o CPF do inquilino" 
+               Unfocused="CPFInput_Unfocused"
+               TextChanged="CPFInput_TextChanged"
+               Keyboard="Numeric"
+               />
 
         <Label Text="Telefone"/>
         <Entry Placeholder="Digite o telefone do inquilino" x:Name="PhoneInput"/>
-
+        
+        
         <Label Text="Endereço"/>
         <Entry Placeholder="Digite o endereco do inquilino" x:Name="AdressInput"/>
 
+        <Label x:Name="ErrorLabel" TextColor="Red"/>
         <Button Text="Adicionar inquilino" x:Name="AddRenterButton" Clicked="AddRenterButton_Clicked"/>
     </VerticalStackLayout>
 </ContentPage>
