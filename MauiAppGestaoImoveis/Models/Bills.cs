@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace MauiAppGestaoImoveis.Models
 {
-    internal class Bills
+    public class Bills
     {
         public string Type { get; set; }
         public DateTime ValidationDate { get; set; }

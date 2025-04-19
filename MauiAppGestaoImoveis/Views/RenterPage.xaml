@@ -1,8 +1,8 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="MauiAppGestaoImoveis.Views.RenterPage"
-             Title=""
-             BackgroundColor="White">
+             BackgroundColor="White"
+             >
 
     <VerticalStackLayout Padding="0">
         <Label Text="Gestão de Imóveis
@@ -22,15 +22,18 @@
                      CornerRadius="16"/>
 
 
-        <CollectionView x:Name="RenterList">
+        <CollectionView ItemsSource="{Binding Renters}" Margin="20">
             <CollectionView.ItemTemplate>
                 <DataTemplate>
-                    <Frame BackgroundColor="Blue" CornerRadius="15" Padding="10" Margin="5">
-                        <VerticalStackLayout>
-                            <Label Text="{Binding _name}" FontSize="18" TextColor="White"/>
-                            <Label Text="{Binding HouseLocation}" FontSize="14" TextColor="White"/>
-                            <Label Text="{Binding _cpf}" FontSize="14" TextColor="White"/>
-                        </VerticalStackLayout>
+                    <Frame BackgroundColor="Blue" CornerRadius="15">
+                        <HorizontalStackLayout>
+                            <Image Source="person_icon.png" WidthRequest="50" HeightRequest="50"/>
+                            <VerticalStackLayout>
+                                <Label Text="{Binding Name}" FontSize="18" TextColor="White"/>
+                                <Label Text="{Binding CPF}" FontSize="14" TextColor="White"/>
+                                <Label Text="{Binding HouseLocation}" FontSize="14" TextColor="White"/>
+                            </VerticalStackLayout>
+                        </HorizontalStackLayout>
                     </Frame>
                 </DataTemplate>
             </CollectionView.ItemTemplate>

@@ -1,5 +1,4 @@
-using MauiAppGestaoImoveis.Services;
-
+using MauiAppGestaoImoveis.ViewModels;
 namespace MauiAppGestaoImoveis.Views;
 
 public partial class RenterPage : ContentPage
@@ -8,8 +7,8 @@ public partial class RenterPage : ContentPage
 	{
 		InitializeComponent();
 
-        RenterList.ItemsSource = NewRenters.Instance.Renters;
-	}
+        
+    }
 
     private async void AddRenter_Clicked(object sender, EventArgs e)
     {
@@ -19,9 +18,7 @@ public partial class RenterPage : ContentPage
     protected override void OnAppearing()
     {
         base.OnAppearing();
-
-        // Recarrega os dados sempre que a tela reaparece
-        RenterList.ItemsSource = null;
-        RenterList.ItemsSource = NewRenters.Instance.Renters;
+        BindingContext = new RenterViewModel(); //Isso conecta a ViewModel com minha pagina XAML
+        //Dizendo assim: Precisa de algo? Pesquisa neste lugar aqui
     }
 }

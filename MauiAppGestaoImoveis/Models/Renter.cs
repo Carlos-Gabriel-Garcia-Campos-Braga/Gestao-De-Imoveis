@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace MauiAppGestaoImoveis.Models
 {
-    internal class Renter
+    public class Renter
     {
         private string _Name;
         public string Name
@@ -68,12 +68,13 @@ namespace MauiAppGestaoImoveis.Models
         }
         public string HouseLocation { get; set; }
         public List<Bills> RenterBills = new List<Bills>();
-        public Renter(string Name, string CPF, string PhoneNumber, string HouseLocation, Bills RenterBills)
+        public Renter(string Name, string CPF, string PhoneNumber, string HouseLocation, List<Bills> Bills)
         {
             _CPF = CPF;
             _Name = Name;
             _PhoneNumber = PhoneNumber;
             this.HouseLocation = HouseLocation;
+            RenterBills = Bills;
         }
 
         public double PayBills()

@@ -308,3 +308,4 @@ C:\Users\carlo\Desktop\PC\GestaoImoveis\MauiAppGestaoImoveis\MauiAppGestaoImovei
 C:\Users\carlo\Desktop\PC\GestaoImoveis\MauiAppGestaoImoveis\MauiAppGestaoImoveis\obj\Debug\net8.0-maccatalyst\maccatalyst-x64\MauiAppGestaoImoveis.pdb
 C:\Users\carlo\Desktop\PC\GestaoImoveis\MauiAppGestaoImoveis\MauiAppGestaoImoveis\obj\Debug\net8.0-maccatalyst\maccatalyst-x64\MauiAppGestaoImoveis.genruntimeconfig.cache
 C:\Users\carlo\Desktop\PC\GestaoImoveis\MauiAppGestaoImoveis\MauiAppGestaoImoveis\obj\Debug\net8.0-maccatalyst\maccatalyst-x64\ref\MauiAppGestaoImoveis.dll
+C:\Users\carlo\Desktop\PC\GestaoImoveis\MauiAppGestaoImoveis\MauiAppGestaoImoveis\obj\Debug\net8.0-maccatalyst\maccatalyst-x64\MauiAppGestaoImoveis.sourcelink.json

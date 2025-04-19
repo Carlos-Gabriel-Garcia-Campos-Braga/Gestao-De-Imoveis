@@ -1,4 +1,4 @@
-using MauiAppGestaoImoveis.Services;
+
 
 namespace MauiAppGestaoImoveis.Views;
 
@@ -8,6 +8,6 @@ public partial class PaymentsPage : ContentPage
 	{
 		InitializeComponent();
 
-        MonthlyBills.ItemsSource = NewRenters.Instance.Renters;
+        
 	}
 }

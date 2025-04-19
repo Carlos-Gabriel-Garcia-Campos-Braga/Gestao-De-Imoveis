@@ -1,5 +1,4 @@
 using MauiAppGestaoImoveis.Models;
-using MauiAppGestaoImoveis.Services;
 using System.Text.RegularExpressions;
 
 namespace MauiAppGestaoImoveis.Views;
@@ -25,11 +24,7 @@ public partial class AddRenterPage : ContentPage
             {
                 string unformattedCpf = Regex.Replace(CPFInput.Text, @"\D", "");
 
-                NewRenters.Instance.AddRenter(new Renter(NameInput.Text,
-                                                         unformattedCpf,
-                                                         PhoneInput.Text,
-                                                         AdressInput.Text,
-                                                         BillsTest));
+                
                 await Shell.Current.GoToAsync("renters");
             }
             else

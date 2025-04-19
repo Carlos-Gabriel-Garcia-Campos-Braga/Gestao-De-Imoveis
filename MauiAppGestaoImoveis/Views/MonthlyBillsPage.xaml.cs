@@ -1,15 +1,14 @@
-using MauiAppGestaoImoveis.Services;
+
 
 namespace MauiAppGestaoImoveis.Views;
 
 public partial class MonthlyBillsPage : ContentPage
 {
-	public MonthlyBillsPage()
-	{
-		InitializeComponent();
+    public MonthlyBillsPage()
+    {
+        InitializeComponent();
 
-        RenterList.ItemsSource = NewRenters.Instance.Renters;
-	}
+    }
 
     protected override void OnAppearing()
     {
@@ -17,6 +16,6 @@ public partial class MonthlyBillsPage : ContentPage
 
         // Recarrega os dados sempre que a tela reaparece
         RenterList.ItemsSource = null;
-        RenterList.ItemsSource = NewRenters.Instance.Renters;
+
     }
 }
