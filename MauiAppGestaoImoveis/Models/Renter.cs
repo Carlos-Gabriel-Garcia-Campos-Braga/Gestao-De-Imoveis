@@ -8,18 +8,18 @@ namespace MauiAppGestaoImoveis.Models
 {
     internal class Renter
     {
-        private string Name;
-        public string _name
+        private string _Name;
+        public string Name
         {
             get
             {
-                return Name;
+                return _Name;
             }
             set
             {
                 if(System.Text.RegularExpressions.Regex.IsMatch(value, @"^[\p{L}\s]+$"))
                 {
-                    Name = value;
+                    _Name = value;
                 }
                 else
                 {
@@ -28,18 +28,18 @@ namespace MauiAppGestaoImoveis.Models
             }
         }
 
-        private string CPF;
-        public string _cpf
+        private string _CPF;
+        public string CPF
         {
             get
             {
-                return CPF;
+                return _CPF;
             }
             set
             {
                 if(System.Text.RegularExpressions.Regex.IsMatch(value, @"^\d{11}$"))
                 {
-                    CPF = value;
+                    _CPF = value;
                 }
                 else
                 {
@@ -47,18 +47,18 @@ namespace MauiAppGestaoImoveis.Models
                 }
             }
         }
-        private string PhoneNumber;
-        public string _phoneNumber
+        private string _PhoneNumber;
+        public string PhoneNumber
         {
             get
             {
-                return PhoneNumber;
+                return _PhoneNumber;
             }
             set
             {
                 if(System.Text.RegularExpressions.Regex.IsMatch(value, @"^\(?\d{2}\)?\s?\d{4,5}-?\d{4}$"))
                 {
-                    PhoneNumber = value;
+                    _PhoneNumber = value;
                 }
                 else
                 {
@@ -67,14 +67,13 @@ namespace MauiAppGestaoImoveis.Models
             }
         }
         public string HouseLocation { get; set; }
-        public Bills RenterBills { get; set; }
+        public List<Bills> RenterBills = new List<Bills>();
         public Renter(string Name, string CPF, string PhoneNumber, string HouseLocation, Bills RenterBills)
         {
-            _cpf = CPF;
-            this.Name = Name;
-            this.PhoneNumber = PhoneNumber;
+            _CPF = CPF;
+            _Name = Name;
+            _PhoneNumber = PhoneNumber;
             this.HouseLocation = HouseLocation;
-            this.RenterBills = RenterBills;
         }
 
         public double PayBills()

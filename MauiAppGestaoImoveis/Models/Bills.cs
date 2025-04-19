@@ -1,62 +1,23 @@
-﻿using MauiAppGestaoImoveis.Models.Interfaces;
-using System;
+﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace MauiAppGestaoImoveis.Models
 {
-    internal class Bills : IBillsPayment
+    internal class Bills
     {
-        public double WaterBill { get; set; }
-        public DateTime PassWater;
-
-        public double EletricBill { get; set; }
-        public DateTime PassEnergy;
-
-        public double RentBill { get; set; }
-        public DateTime PassRent;
-
-        public double IPTUBill { get; set; }
-        private DateTime PassIPTU;
-
-        public Bills(double waterBill, double eletricBill, double rentBill, double iPTUBill)
+        public string Type { get; set; }
+        public DateTime ValidationDate { get; set; }
+        public double Value { get; set; }
+        
+        public Bills(string Type, DateTime ValidationDate, double Value) 
         {
-            WaterBill = waterBill;
-            EletricBill = eletricBill;
-            RentBill = rentBill;
-            IPTUBill = iPTUBill;
-            PassWater = DateTime.Today;
-            PassRent = new DateTime(2024, 4, 1);
-            PassEnergy = new DateTime(2024, 4, 10);
-        }
-        public double LateWater
-        {
-            get
-            {
-                return PassWater <= DateTime.Today ? WaterBill : 0;
-            }
-        }
-
-        public double LateEnergy
-        {
-            get
-            {
-                return PassEnergy <= DateTime.Today ? EletricBill : 0;
-            }
-        }
-        public double MonthPayment()
-        {
-            return WaterBill + EletricBill + RentBill + IPTUBill;
-        }
-
-        public double getTotalMonthPayment
-        {
-            get
-            {
-                return MonthPayment();
-            }
+            this.Type = Type;
+            this.ValidationDate = ValidationDate;
+            this.Value = Value;
         }
     }
 }

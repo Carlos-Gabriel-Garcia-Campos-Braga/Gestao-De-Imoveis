@@ -15,7 +15,7 @@ public partial class AddRenterPage : ContentPage
     {
         try
         {
-            Bills BillsTest = new Bills(141.90, 78.70, 900.00, 300.00);
+            Bills BillsTest = new Bills("Agua", DateTime.Now, 200.0);
 
             if (!string.IsNullOrWhiteSpace(NameInput.Text) &&
                 !string.IsNullOrWhiteSpace(PhoneInput.Text) &&
