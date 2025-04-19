@@ -46,8 +46,6 @@ namespace MauiAppGestaoImoveis.Models
                 return PassEnergy <= DateTime.Today ? EletricBill : 0;
             }
         }
-
-        //Interface Implementation
         public double MonthPayment()
         {
             return WaterBill + EletricBill + RentBill + IPTUBill;
@@ -59,11 +57,6 @@ namespace MauiAppGestaoImoveis.Models
             {
                 return MonthPayment();
             }
-        }
-
-        public double LateBills()
-        {
-            throw new NotImplementedException();
         }
     }
 }
