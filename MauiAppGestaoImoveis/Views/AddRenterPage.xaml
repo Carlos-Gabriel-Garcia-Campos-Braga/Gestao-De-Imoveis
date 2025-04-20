@@ -24,6 +24,9 @@
         <Entry Placeholder="Digite o endereco do inquilino" x:Name="AdressInput"/>
 
         <Label x:Name="ErrorLabel" TextColor="Red"/>
-        <Button Text="Adicionar inquilino" x:Name="AddRenterButton" Clicked="AddRenterButton_Clicked"/>
+        <Button Text="Próximo" 
+                x:Name="NextStepBtn" 
+                Clicked="NextStepBtn_Clicked"
+                />
     </VerticalStackLayout>
 </ContentPage>

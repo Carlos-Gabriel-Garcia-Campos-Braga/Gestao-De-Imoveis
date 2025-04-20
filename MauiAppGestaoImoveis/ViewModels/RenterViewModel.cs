@@ -25,15 +25,17 @@ namespace MauiAppGestaoImoveis.ViewModels
             Renters.Add(new Renter("Carlos", 
                 "03024430105", 
                 "(62)99259-1792", 
-                "Rua A", 
-                new List<Bills>()));
+                "Rua A"));
             Renters.Add(new Renter("Maria",
                 "12345678901",
                 "(62)99999-9999",
-                "Rua B",
-                new List<Bills>()));
+                "Rua B"));
         }
 
+        public void AddRenter(Renter r)
+        {
+            Renters.Add(r);
+        }
         private void RemoveRenter(Renter r)
         {
             if (Renters.Contains(r))

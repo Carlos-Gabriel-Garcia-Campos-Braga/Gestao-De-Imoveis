@@ -1,12 +1,14 @@
-﻿using System;
+﻿using CommunityToolkit.Mvvm.ComponentModel;
+using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace MauiAppGestaoImoveis.Models
 {
-    public class Renter
+    public class Renter : ObservableObject
     {
         private string _Name;
         public string Name
@@ -67,19 +69,40 @@ namespace MauiAppGestaoImoveis.Models
             }
         }
         public string HouseLocation { get; set; }
-        public List<Bills> RenterBills = new List<Bills>();
-        public Renter(string Name, string CPF, string PhoneNumber, string HouseLocation, List<Bills> Bills)
+        public ObservableCollection<Bills> RenterBills { get; set; } = new();
+        public Renter(string Name, string CPF, string PhoneNumber, string HouseLocation)
         {
             _CPF = CPF;
             _Name = Name;
             _PhoneNumber = PhoneNumber;
             this.HouseLocation = HouseLocation;
-            RenterBills = Bills;
+
+            RenterBills.CollectionChanged += (s, e) =>
+            {
+                OnPropertyChanged(nameof(BillsSummary));
+            };
         }
 
+        public void AddBills(Bills Bills)
+        {
+            RenterBills.Add(Bills);
+        }
         public double PayBills()
         {
             return 0;
+        }
+
+        public String BillsSummary
+        {
+            get
+            {
+                if(RenterBills == null || RenterBills.Count == 0)
+                {
+                    return "Não há conta!";
+                }
+
+                return string.Join("\n", RenterBills.Select(b => $"{b.Type}: R$ {b.Value:F2}"));
+            }
         }
     }
 }

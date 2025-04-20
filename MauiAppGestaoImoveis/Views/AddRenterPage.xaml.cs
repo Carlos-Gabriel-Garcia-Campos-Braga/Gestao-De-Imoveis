@@ -1,16 +1,19 @@
 using MauiAppGestaoImoveis.Models;
+using MauiAppGestaoImoveis.ViewModels;
 using System.Text.RegularExpressions;
 
 namespace MauiAppGestaoImoveis.Views;
 
 public partial class AddRenterPage : ContentPage
 {
-    public AddRenterPage()
+    private readonly AddRenterViewModel _vm;
+    public AddRenterPage(AddRenterViewModel vm)
     {
         InitializeComponent();
+        _vm = vm;
     }
 
-    private async void AddRenterButton_Clicked(object sender, EventArgs e)
+    private async void NextStepBtn_Clicked(object sender, EventArgs e)
     {
         try
         {
@@ -24,8 +27,8 @@ public partial class AddRenterPage : ContentPage
             {
                 string unformattedCpf = Regex.Replace(CPFInput.Text, @"\D", "");
 
-                
-                await Shell.Current.GoToAsync("renters");
+                _vm.SetBasicInfos(NameInput.Text, unformattedCpf, PhoneInput.Text, AdressInput.Text);
+                await Shell.Current.GoToAsync("addBills");
             }
             else
             {

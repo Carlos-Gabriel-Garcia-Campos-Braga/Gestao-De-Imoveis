@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MauiAppGestaoImoveis.Views.AddRenterBillsPage"
+             Title="AddRenterBillsPage">
+    <VerticalStackLayout>
+        <Label Text="Tipo"/>
+        <Entry Placeholder="Tipo" x:Name="TypeInput"/>
+
+        <Label Text="Vencimento"/>
+        <DatePicker x:Name="DateInput"
+                    Date="{Binding SelectedDate}"
+                    Format="dd/MM/yyyy"
+                    />
+        
+        <Label Text="Valor"/>
+        <Entry Placeholder="Tipo" x:Name="ValueInput" Keyboard="Numeric"/>
+
+        <Button Text="Adicionar Inquilino" x:Name="AddRenterBtn" Clicked="AddRenterBtn_Clicked"/>
+    </VerticalStackLayout>
+</ContentPage>

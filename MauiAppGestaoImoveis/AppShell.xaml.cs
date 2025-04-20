@@ -16,6 +16,7 @@ namespace MauiAppGestaoImoveis
             Routing.RegisterRoute("newRenter", typeof(AddRenterPage));
             Routing.RegisterRoute("late_bills", typeof(LateBillsPage));
             Routing.RegisterRoute("payments", typeof(PaymentsPage));
+            Routing.RegisterRoute("addBills", typeof(AddRenterBillsPage));
 
             //em caso de esquecimento, lembre-se de olhar a classe LoginPage, la tem 
             //a estrutura de como mandar para a proxima pagina

@@ -3,11 +3,10 @@ namespace MauiAppGestaoImoveis.Views;
 
 public partial class RenterPage : ContentPage
 {
-	public RenterPage()
+	public RenterPage(RenterViewModel vm)
 	{
-		InitializeComponent();
-
-        
+        InitializeComponent();
+        BindingContext = vm;
     }
 
     private async void AddRenter_Clicked(object sender, EventArgs e)
@@ -18,7 +17,7 @@ public partial class RenterPage : ContentPage
     protected override void OnAppearing()
     {
         base.OnAppearing();
-        BindingContext = new RenterViewModel(); //Isso conecta a ViewModel com minha pagina XAML
+         //Isso conecta a ViewModel com minha pagina XAML
         //Dizendo assim: Precisa de algo? Pesquisa neste lugar aqui
     }
 }
