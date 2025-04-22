@@ -12,9 +12,9 @@ namespace MauiAppGestaoImoveis.ViewModels
     {
         public Renter Renter { get; private set; }
 
-        public void SetBasicInfos(string name, string cPF, string phone, string loc)
+        public void SetBasicInfos(string name, string cPF, string phone)
         {
-            Renter = new Renter(name, cPF, phone, loc);
+            Renter = new Renter(name, cPF, phone);
         }
     }
 }

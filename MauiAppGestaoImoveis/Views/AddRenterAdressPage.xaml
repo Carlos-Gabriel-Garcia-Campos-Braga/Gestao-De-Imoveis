@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MauiAppGestaoImoveis.Views.AddRenterAdressPage"
+             Title="AddRenterAdressPage">
+    <VerticalStackLayout>
+        <Label Text="Rua"/>
+        <Entry x:Name="StreetInput" Placeholder="Rua"/>
+
+        <Label Text="Número"/>
+        <Entry x:Name="NumberInput" Placeholder="Número"/>
+
+        <Label Text="Bairro/Setor"/>
+        <Entry x:Name="NeighborhoodInput" Placeholder="Bairro/Setor"/>
+
+        <Label Text="Cidade"/>
+        <Entry x:Name="CityInput" Placeholder="Cidade"/>
+
+        <Label Text="Estado"/>
+        <Entry x:Name="StateInput" Placeholder="Estado"/>
+
+        <Label Text="CEP"/>
+        <Entry x:Name="ZipCodeInput" Placeholder="CEP"/>
+
+        <Button x:Name="NextStep_Btn" Text="Próximo" Clicked="NextStep_Btn_Clicked"/>
+    </VerticalStackLayout>
+</ContentPage>

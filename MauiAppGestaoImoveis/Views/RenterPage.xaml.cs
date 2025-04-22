@@ -11,6 +11,7 @@ public partial class RenterPage : ContentPage
 
     private async void AddRenter_Clicked(object sender, EventArgs e)
     {
+        var vm = new AddRenterViewModel();
         await Shell.Current.GoToAsync("newRenter");
     }
 

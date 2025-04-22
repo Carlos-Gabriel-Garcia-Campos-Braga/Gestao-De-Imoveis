@@ -6,10 +6,17 @@ namespace MauiAppGestaoImoveis.Views;
 
 public partial class PaymentsPage : ContentPage
 {
-	public PaymentsPage()
+	private readonly RenterViewModel _vm;
+	public PaymentsPage(RenterViewModel vm)
 	{
 		InitializeComponent();
 
-        BindingContext = new RenterViewModel();
+        _vm = vm;
+	}
+
+    protected override void OnAppearing()
+	{
+		base.OnAppearing();
+		BindingContext = _vm;
 	}
 }

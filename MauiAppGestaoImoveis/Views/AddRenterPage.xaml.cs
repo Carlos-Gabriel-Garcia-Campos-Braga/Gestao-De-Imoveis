@@ -17,18 +17,15 @@ public partial class AddRenterPage : ContentPage
     {
         try
         {
-            Bills BillsTest = new Bills("Agua", DateTime.Now, 200.0);
-
             if (!string.IsNullOrWhiteSpace(NameInput.Text) &&
                 !string.IsNullOrWhiteSpace(PhoneInput.Text) &&
                 !string.IsNullOrWhiteSpace(CPFInput.Text) &&
-                IsValidCPF(CPFInput.Text) &&
-                !string.IsNullOrWhiteSpace(AdressInput.Text))
+                IsValidCPF(CPFInput.Text))
             {
                 string unformattedCpf = Regex.Replace(CPFInput.Text, @"\D", "");
 
-                _vm.SetBasicInfos(NameInput.Text, unformattedCpf, PhoneInput.Text, AdressInput.Text);
-                await Shell.Current.GoToAsync("addBills");
+                _vm.SetBasicInfos(NameInput.Text, unformattedCpf, PhoneInput.Text);
+                await Shell.Current.GoToAsync("addAdress");
             }
             else
             {

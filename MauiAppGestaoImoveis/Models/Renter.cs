@@ -35,7 +35,8 @@ namespace MauiAppGestaoImoveis.Models
         {
             get
             {
-                return _CPF;
+                string cpfFormatado= Convert.ToUInt64(_CPF).ToString(@"000\.000\.000\-00");
+                return cpfFormatado;
             }
             set
             {
@@ -68,14 +69,13 @@ namespace MauiAppGestaoImoveis.Models
                 }
             }
         }
-        public string HouseLocation { get; set; }
+        public Adress Adress { get; set; }
         public ObservableCollection<Bills> RenterBills { get; set; } = new();
-        public Renter(string Name, string CPF, string PhoneNumber, string HouseLocation)
+        public Renter(string Name, string CPF, string PhoneNumber)
         {
             _CPF = CPF;
             _Name = Name;
             _PhoneNumber = PhoneNumber;
-            this.HouseLocation = HouseLocation;
 
             RenterBills.CollectionChanged += (s, e) =>
             {
@@ -87,9 +87,10 @@ namespace MauiAppGestaoImoveis.Models
         {
             RenterBills.Add(Bills);
         }
-        public double PayBills()
+        
+        public void AddAdress(Adress Adress)
         {
-            return 0;
+            this.Adress = Adress;
         }
 
         public String BillsSummary

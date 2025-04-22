@@ -20,8 +20,7 @@
         <Entry Placeholder="Digite o telefone do inquilino" x:Name="PhoneInput"/>
         
         
-        <Label Text="Endereço"/>
-        <Entry Placeholder="Digite o endereco do inquilino" x:Name="AdressInput"/>
+
 
         <Label x:Name="ErrorLabel" TextColor="Red"/>
         <Button Text="Próximo" 
