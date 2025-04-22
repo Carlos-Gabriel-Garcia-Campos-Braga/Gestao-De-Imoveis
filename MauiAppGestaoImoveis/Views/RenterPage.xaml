@@ -23,6 +23,11 @@
 
 
         <CollectionView ItemsSource="{Binding Renters}" Margin="20">
+
+            <CollectionView.ItemsLayout>
+                <LinearItemsLayout Orientation="Vertical" ItemSpacing="5" />
+            </CollectionView.ItemsLayout>
+
             <CollectionView.ItemTemplate>
                 <DataTemplate>
                     <Frame BackgroundColor="Blue" CornerRadius="15">

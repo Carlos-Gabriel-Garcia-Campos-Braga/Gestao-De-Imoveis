@@ -7,10 +7,10 @@ namespace MauiAppGestaoImoveis.Views;
 public partial class MonthlyBillsPage : ContentPage
 {
     private readonly RenterViewModel _vm;
-    public MonthlyBillsPage(RenterViewModel vm)
+    public MonthlyBillsPage()
     {
         InitializeComponent();
-        _vm = vm;
+        BindingContext = new RenterViewModel();
     }
 
     protected override void OnAppearing()
@@ -18,7 +18,7 @@ public partial class MonthlyBillsPage : ContentPage
         base.OnAppearing();
 
         // Recarrega os dados sempre que a tela reaparece
-        BindingContext = _vm;
+        //BindingContext = _vm;
 
     }
 }

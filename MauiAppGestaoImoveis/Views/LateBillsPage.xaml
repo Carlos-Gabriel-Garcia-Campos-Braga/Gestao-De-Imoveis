@@ -19,6 +19,11 @@
                         />
 
                 <CollectionView x:Name="LateBills" ItemsSource="{Binding Renters}" Margin="12">
+                    
+                    <CollectionView.ItemsLayout>
+                        <LinearItemsLayout Orientation="Vertical" ItemSpacing="5" />
+                    </CollectionView.ItemsLayout>
+
                     <CollectionView.ItemTemplate>
                         <DataTemplate>
                             <Frame BackgroundColor="Red" CornerRadius="15" Padding="10" Margin="5">
