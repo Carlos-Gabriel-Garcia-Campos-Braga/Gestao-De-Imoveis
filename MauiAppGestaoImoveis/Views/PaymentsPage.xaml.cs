@@ -1,5 +1,7 @@
 
 
+using MauiAppGestaoImoveis.ViewModels;
+
 namespace MauiAppGestaoImoveis.Views;
 
 public partial class PaymentsPage : ContentPage
@@ -8,6 +10,6 @@ public partial class PaymentsPage : ContentPage
 	{
 		InitializeComponent();
 
-        
+        BindingContext = new RenterViewModel();
 	}
 }

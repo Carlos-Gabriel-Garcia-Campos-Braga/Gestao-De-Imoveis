@@ -17,13 +17,13 @@
                 Padding="20"
                 />
 
-                <CollectionView x:Name="MonthlyBills" Margin="12">
+                <CollectionView x:Name="MonthlyBills" ItemsSource="{Binding Renters}" Margin="12">
                     <CollectionView.ItemTemplate>
                         <DataTemplate>
                             <Frame BackgroundColor="Blue" CornerRadius="15" Padding="10" Margin="5">
                                 <VerticalStackLayout>
                                     <Label Text="{Binding Name}" FontSize="18" TextColor="White"/>
-                                    <Label Text="{Binding RenterBills.getTotalMonthPayment, StringFormat='Pagemento Total: {0:C}'}" FontSize="14" TextColor="White"/>
+                                    <Label Text="{Binding BillsSummary, StringFormat='Pagemento Total: {0:C}'}" FontSize="14" TextColor="White"/>
                                 </VerticalStackLayout>
                             </Frame>
                         </DataTemplate>
