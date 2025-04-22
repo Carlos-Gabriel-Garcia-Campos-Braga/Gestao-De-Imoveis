@@ -18,14 +18,13 @@
                         Padding="20"
                         />
 
-                <CollectionView x:Name="LateBills" Margin="12">
+                <CollectionView x:Name="LateBills" ItemsSource="{Binding Renters}" Margin="12">
                     <CollectionView.ItemTemplate>
                         <DataTemplate>
                             <Frame BackgroundColor="Red" CornerRadius="15" Padding="10" Margin="5">
                                 <VerticalStackLayout>
                                     <Label Text="{Binding Name}" FontSize="18" TextColor="White"/>
-                                    <Label Text="{Binding RenterBills.LateWater, StringFormat='Água: {0:C}'}" FontSize="14" TextColor="White"/>
-                                    <Label Text="{Binding RenterBills.LateEnergy, StringFormat='Energia: {0:C}'}" FontSize="14" TextColor="White"/>
+                                    <Label Text="{Binding LateBills}" FontSize="14" TextColor="White"/>
                                 </VerticalStackLayout>
                             </Frame>
                         </DataTemplate>

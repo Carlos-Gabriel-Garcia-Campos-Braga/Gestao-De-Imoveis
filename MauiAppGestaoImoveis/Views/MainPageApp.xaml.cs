@@ -1,3 +1,4 @@
+using MauiAppGestaoImoveis.ViewModels;
 using System.Threading.Tasks;
 
 namespace MauiAppGestaoImoveis.Views;
@@ -21,6 +22,7 @@ public partial class MainPageApp : ContentPage
 
     private async void LateBillsBtn_Clicked(object sender, EventArgs e)
     {
+        var vm = new RenterViewModel();
         await Shell.Current.GoToAsync("late_bills");
     }
 

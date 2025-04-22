@@ -101,7 +101,26 @@ namespace MauiAppGestaoImoveis.Models
                     return "Não há conta!";
                 }
 
-                return string.Join("\n", RenterBills.Select(b => $"{b.Type}: R$ {b.Value:F2}"));
+                return string.Join("\n", RenterBills.Select(b => $"{b.Type}: R$ {b.Value:F2}, Vencimento: {b.ValidationDate:dd/MM/yyyy}"));
+            }
+        }
+        public String LateBills
+        {
+            get
+            {
+                if(RenterBills != null && RenterBills.Count > 0)
+                {
+                    var lateBills = RenterBills.
+                        Where(r => DateTime.Now > r.ValidationDate).
+                        Select(b => $"{b.Type}: R${b.Value:F2}");
+
+                    if(lateBills.Any())
+                    {
+                        return "Atrasado:\n" + string.Join("\n", lateBills);
+                    }
+                }
+
+                return "Não há atrasos!";
             }
         }
     }

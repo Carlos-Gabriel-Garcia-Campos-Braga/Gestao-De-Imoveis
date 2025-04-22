@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MauiAppGestaoImoveis.Models.Enum;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
@@ -12,6 +13,7 @@ namespace MauiAppGestaoImoveis.Models
         public string Type { get; set; }
         public DateTime ValidationDate { get; set; }
         public double Value { get; set; }
+        public PaymentStatus Status { get; set; }
         
         public Bills(string Type, DateTime ValidationDate, double Value) 
         {

@@ -1,4 +1,5 @@
-﻿using MauiAppGestaoImoveis.Views;
+﻿using MauiAppGestaoImoveis.ViewModels;
+using MauiAppGestaoImoveis.Views;
 
 namespace MauiAppGestaoImoveis
 {

@@ -22,14 +22,22 @@ namespace MauiAppGestaoImoveis.ViewModels
 
         private void LoadInitialData()
         {
-            Renters.Add(new Renter("Carlos", 
-                "03024430105", 
-                "(62)99259-1792", 
-                "Rua A"));
-            Renters.Add(new Renter("Maria",
+            Renter r1 = new Renter("Carlos",
+                "03024430105",
+                "(62)99259-1792",
+                "Rua A");
+
+            r1.AddBills(new Bills("Água", new DateTime(2025, 04, 24), 71.90));
+
+            Renter r2 = new Renter("Maria",
                 "12345678901",
                 "(62)99999-9999",
-                "Rua B"));
+                "Rua B");
+
+            r2.AddBills(new Bills("Energia", new DateTime(2025, 04, 21), 105.90));
+
+            Renters.Add(r1);
+            Renters.Add(r2);
         }
 
         public void AddRenter(Renter r)
