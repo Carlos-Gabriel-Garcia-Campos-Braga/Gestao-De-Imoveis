@@ -18,7 +18,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("MauiAppGestaoImoveis")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0+cf47554cfb8b52e7889d53755e432226ca3a2a36")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0+5bd40271adfbd0b3730f5252678e1cea4dd9aca5")]
 [assembly: System.Reflection.AssemblyProductAttribute("MauiAppGestaoImoveis")]
 [assembly: System.Reflection.AssemblyTitleAttribute("MauiAppGestaoImoveis")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

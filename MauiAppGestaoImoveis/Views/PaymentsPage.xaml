@@ -42,7 +42,7 @@
             </Grid.ColumnDefinitions>
 
             <StackLayout Grid.Column="0" HorizontalOptions="Center">
-                <ImageButton Source="late_clock.png" WidthRequest="30" HeightRequest="30"/>
+                <ImageButton Source="late_clock.png" WidthRequest="30" HeightRequest="30" x:Name="LateBtn" Clicked="LateBtn_Clicked"/>
                 <Label Text="Atrasos" FontSize="14" TextColor="White" HorizontalTextAlignment="Center"/>
             </StackLayout>
 
