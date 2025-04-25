@@ -16,6 +16,7 @@
                         FontSize="Title"
                         BackgroundColor="Red"
                         Padding="20"
+                        TextColor="White"
                         />
 
                 <CollectionView x:Name="LateBills" ItemsSource="{Binding Renters}" Margin="12">
@@ -53,7 +54,7 @@
                 </StackLayout>
 
                 <StackLayout Grid.Column="1" HorizontalOptions="Center">
-                    <ImageButton Source="payments_icon.png" WidthRequest="30" HeightRequest="30"/>
+                <ImageButton Source="payments_icon.png" WidthRequest="30" HeightRequest="30" x:Name="LateBtn" Clicked="LateBtn_Clicked"/>
                     <Label Text="Pagamentos" FontSize="14" TextColor="White" HorizontalTextAlignment="Center"/>
                 </StackLayout>
 
