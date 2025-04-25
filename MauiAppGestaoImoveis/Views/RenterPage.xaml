@@ -2,6 +2,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="MauiAppGestaoImoveis.Views.RenterPage"
              BackgroundColor="White"
+             x:Name="RenterPageRef"
              >
 
     <VerticalStackLayout Padding="0">
@@ -31,11 +32,19 @@
             <CollectionView.ItemTemplate>
                 <DataTemplate>
                     <Frame BackgroundColor="Blue" CornerRadius="15">
+
+                        <Frame.GestureRecognizers>
+                            <TapGestureRecognizer
+                            Command="{Binding BindingContext.NavigateToRenterInfoCommand, Source={x:Reference RenterPageRef}}"
+                            CommandParameter="{Binding .}" />
+
+                        </Frame.GestureRecognizers>
+
                         <HorizontalStackLayout>
                             <Image Source="person_icon.png" WidthRequest="50" HeightRequest="50"/>
                             <VerticalStackLayout>
                                 <Label Text="{Binding Name}" FontSize="18" TextColor="White"/>
-                                <Label Text="{Binding CPF}" FontSize="14" TextColor="White"/>
+                                <Label Text="{Binding CPFFormatado}" FontSize="14" TextColor="White"/>
                                 <Label Text="{Binding Adress}" FontSize="14" TextColor="White"/>
                             </VerticalStackLayout>
                         </HorizontalStackLayout>

@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MauiAppGestaoImoveis.Views.RenterInfoPage"
+             Title="RenterInfoPage"
+             BackgroundColor="White">
+
+    
+    <ScrollView>
+        <VerticalStackLayout Padding="20" Spacing="10">
+            
+            <Label Text="Nome:" FontAttributes="Bold" TextColor="Black"/>
+            <Label Text="{Binding Name}" TextColor="Black"/>
+
+            <Label Text="CPF:" FontAttributes="Bold" TextColor="Black"/>
+            <Label Text="{Binding CPF}" TextColor="Black"/>
+
+            <Label Text="Telefone:" FontAttributes="Bold" TextColor="Black"/>
+            <Label Text="{Binding Phone}" TextColor="Black"/>
+
+            <Label Text="Endereço:" FontAttributes="Bold" TextColor="Black"/>
+            <Label Text="{Binding Adress.Street}" TextColor="Black"/>
+            <Label Text="{Binding Adress.Number}" TextColor="Black"/>
+            <Label Text="{Binding Adress.City}" TextColor="Black"/>
+            <Label Text="{Binding Adress.State}" TextColor="Black"/>
+
+            <Label Text="Contas:" FontAttributes="Bold" TextColor="Black"/>
+            <CollectionView ItemsSource="{Binding Bills}">
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <Frame BorderColor="White" Padding="10" Margin="5">
+                            <VerticalStackLayout>
+                                <Label Text="{Binding Type}" FontAttributes="Bold" FontSize="16" />
+                                <Label Text="{Binding Value, StringFormat='R$ {0:F2}'}" />
+                                <Label Text="{Binding DueDate, StringFormat='Vencimento: {0:dd/MM/yyyy}'}" />
+                            </VerticalStackLayout>
+                        </Frame>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+        </VerticalStackLayout>
+    </ScrollView>
+    
+</ContentPage>

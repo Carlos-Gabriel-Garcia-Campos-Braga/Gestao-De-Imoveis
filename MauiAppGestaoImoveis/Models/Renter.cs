@@ -35,8 +35,7 @@ namespace MauiAppGestaoImoveis.Models
         {
             get
             {
-                string cpfFormatado= Convert.ToUInt64(_CPF).ToString(@"000\.000\.000\-00");
-                return cpfFormatado;
+                return _CPF;
             }
             set
             {
@@ -50,6 +49,7 @@ namespace MauiAppGestaoImoveis.Models
                 }
             }
         }
+        public string CPFFormatado => Convert.ToUInt64(_CPF).ToString(@"000\.000\.000\-00");
         private string _PhoneNumber;
         public string PhoneNumber
         {

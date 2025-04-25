@@ -12,4 +12,6 @@
         ContentTemplate="{DataTemplate local:MainPageApp}"
         Route="MainPage" />
 
+    <ShellContent Route="renterInfo" ContentTemplate="{DataTemplate local:RenterInfoPage}" />
+
 </Shell>
