@@ -20,6 +20,12 @@ namespace MauiAppGestaoImoveis.Models
             Password = "123456";
         }
 
+        public User(string name, string email, string password) : this(name)
+        {
+            Email = email;
+            Password = password;
+        }
+
         public override string ToString()
         {
             return $"Nome: {Name}" +
