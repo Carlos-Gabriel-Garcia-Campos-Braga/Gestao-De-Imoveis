@@ -15,10 +15,10 @@ namespace MauiAppGestaoImoveis.ViewModels
             renterInfo = vm;
         }
 
-        public void SetRenterAdress(string street, string number, string neighborhood, string city, string state, string zipCode)
+        public void SetRenterAdress(string street, string number, string neighborhood, string city, string state, string zipCode, string complement)
         {
             Renter r = renterInfo.Renter;
-            r.AddAdress(new Adress(street, number, neighborhood, city, state, zipCode));
+            r.AddAdress(new Adress(street, number, neighborhood, city, state, zipCode, complement));
         }
 
     }

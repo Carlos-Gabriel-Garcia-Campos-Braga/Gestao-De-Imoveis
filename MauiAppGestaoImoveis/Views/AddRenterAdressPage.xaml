@@ -7,6 +7,9 @@
         <Label Text="Rua"/>
         <Entry x:Name="StreetInput" Placeholder="Rua"/>
 
+        <Label Text="Complemento"/>
+        <Entry x:Name="ComplementInput" Placeholder="Complemento"/>
+
         <Label Text="Número"/>
         <Entry x:Name="NumberInput" Placeholder="Número"/>
 

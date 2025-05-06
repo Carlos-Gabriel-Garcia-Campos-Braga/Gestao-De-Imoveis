@@ -21,7 +21,7 @@ public partial class AddRenterAdressPage : ContentPage
            !string.IsNullOrEmpty(StateInput.Text) &&
            !string.IsNullOrEmpty(ZipCodeInput.Text))
         {
-            _vm.SetRenterAdress(StreetInput.Text, NumberInput.Text, NeighborhoodInput.Text, CityInput.Text, StateInput.Text, ZipCodeInput.Text);
+            _vm.SetRenterAdress(StreetInput.Text, NumberInput.Text, NeighborhoodInput.Text, CityInput.Text, StateInput.Text, ZipCodeInput.Text, ComplementInput.Text);
             await Shell.Current.GoToAsync("addBills");
         }
     }

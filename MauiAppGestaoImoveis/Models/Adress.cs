@@ -10,12 +10,13 @@ namespace MauiAppGestaoImoveis.Models
     {
         public string Street { get; set; } 
         public string Number { get; set; }
+        public string Complement { get; set; }
         public string Neighborhood { get; set; } 
         public string City { get; set; }
         public string State { get; set; }
         public string ZipCode { get; set; }
 
-        public Adress(string street, string number, string neighborhood, string city, string state, string zipCode)
+        public Adress(string street, string number, string neighborhood, string city, string state, string zipCode, string complement)
         {
             Street = street;
             Number = number;
@@ -23,6 +24,7 @@ namespace MauiAppGestaoImoveis.Models
             City = city;
             State = state;
             ZipCode = zipCode;
+            Complement = complement;
         }
 
         public override string ToString()

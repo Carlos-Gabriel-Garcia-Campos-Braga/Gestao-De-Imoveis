@@ -1,11 +1,20 @@
-﻿namespace GestaoImoveisAPI.Models
+﻿using System.ComponentModel.DataAnnotations;
+
+namespace GestaoImoveisAPI.Models
 {
     public class Bills
-    { 
+    {
         //PK
-        public int Id { get; set; }                
+        [Key]
+        public int Id { get; set; }
+
+        [Required]
         public string Type { get; set; } = string.Empty;
+
+        [Required]
         public DateTime ValidationDate { get; set; }
+
+        [Required]
         public double Value { get; set; }
 
         //FK para RentalContract

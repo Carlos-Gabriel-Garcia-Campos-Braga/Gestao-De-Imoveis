@@ -28,7 +28,7 @@ namespace MauiAppGestaoImoveis.ViewModels
                 "(62)99259-1792");
 
             r1.AddBills(new Bills("Água", new DateTime(2025, 04, 24), 71.90));
-            r1.AddAdress(new Adress("Rua 1", "475", "Ali", "Goiania", "GO", "74375500"));
+            r1.AddAdress(new Adress("Rua 1", "475", "Ali", "Goiania", "GO", "74375500", "cond 1"));
 
             Renter r2 = new Renter("Maria",
                 "12345678901",
@@ -36,7 +36,7 @@ namespace MauiAppGestaoImoveis.ViewModels
 
             r2.AddBills(new Bills("Energia", new DateTime(2025, 04, 21), 105.90));
             r2.AddBills(new Bills("Água", new DateTime(2025, 04, 26), 60.13));
-            r2.AddAdress(new Adress("Rua 4", "412", "La", "Goiania", "GO", "7668000"));
+            r2.AddAdress(new Adress("Rua 4", "412", "La", "Goiania", "GO", "7668000", "cond 2"));
 
             Renters.Add(r1);
             Renters.Add(r2);
