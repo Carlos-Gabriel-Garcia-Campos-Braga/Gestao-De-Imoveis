@@ -1,4 +1,5 @@
 ﻿using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace GestaoImoveisAPI.Models
 {
@@ -9,11 +10,13 @@ namespace GestaoImoveisAPI.Models
 
         //FK para Renter
         [Required]
+        [ForeignKey("RenterId")]
         public int RenterId { get; set; }
         public Renter Renter { get; set; } = null!;
 
         //FK para Adress
         [Required]
+        [ForeignKey("AdressId")]
         public int AdressId { get; set; }
         public Adress Adress { get; set; } = null!;
 

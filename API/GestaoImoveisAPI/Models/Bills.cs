@@ -1,4 +1,5 @@
 ﻿using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace GestaoImoveisAPI.Models
 {
@@ -18,6 +19,7 @@ namespace GestaoImoveisAPI.Models
         public double Value { get; set; }
 
         //FK para RentalContract
+        [ForeignKey("RentalContractId")]
         public int RentalContractId { get; set; }
         public RentalContract RentalContract { get; set; } = null!;
     }

@@ -17,5 +17,13 @@ namespace GestaoImoveisAPI.Data
         public DbSet<Adress> Adress => Set<Adress>();
         public DbSet<RentalContract> Contract => Set<RentalContract>();
 
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            // Relacionamento 1:1 entre RentalContract e Adress
+            modelBuilder.Entity<RentalContract>()
+                .HasOne(rc => rc.Adress)
+                .WithOne(a => a.RentalContract)
+                .HasForeignKey<RentalContract>(rc => rc.AdressId);
+        }
     }
 }

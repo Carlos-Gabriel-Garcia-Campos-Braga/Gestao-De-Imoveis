@@ -6,7 +6,7 @@ namespace GestaoImoveisAPI.Models
     {
         //PK
         [Key]
-        public int Id;
+        public int Id { get; set; }
 
         [Required]
         public string Street { get; set; } = string.Empty;
@@ -16,7 +16,9 @@ namespace GestaoImoveisAPI.Models
 
         [Required]
         public string Neighborhood { get; set; } = string.Empty;
+
         public string Complement { get; set; }
+
         [Required]
         public string City { get; set; } = string.Empty;
 
@@ -27,6 +29,6 @@ namespace GestaoImoveisAPI.Models
         [MaxLength(8)]
         public string ZipCode { get; set; } = string.Empty;
 
-        public RentalContract RentalContract { get; set; }
+        public RentalContract? RentalContract { get; set; }
     }
 }
