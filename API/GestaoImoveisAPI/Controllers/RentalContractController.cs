@@ -6,7 +6,7 @@ using Microsoft.EntityFrameworkCore;
 namespace GestaoImoveisAPI.Controllers
 {
     [ApiController]
-    [Route("api/rentalcontract")]
+    [Route("api/[controller]")]
     public class RentalContractController : ControllerBase
     {
         private readonly AppDbContext _context;

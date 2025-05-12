@@ -8,8 +8,9 @@ namespace MauiAppGestaoImoveis.Models
 {
     public class RentalContract
     {
+        public int Id { get; set; }
         public Renter Renter { get; set; }
-        public Adress HouseAdress { get; set; }
+        public Adress Adress { get; set; }
         public DateTime StartContract { get; set; }
         public DateTime EndContract { get; set; }
         public double RentalValue { get; set; }
@@ -18,7 +19,7 @@ namespace MauiAppGestaoImoveis.Models
         public RentalContract(Renter renter, Adress houseAdress, DateTime startContract, DateTime endContract, double rentalValue, ICollection<Bills> bills)
         {
             Renter = renter;
-            HouseAdress = houseAdress;
+            Adress = houseAdress;
             StartContract = startContract;
             EndContract = endContract;
             RentalValue = rentalValue;

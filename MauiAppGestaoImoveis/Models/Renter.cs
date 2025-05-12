@@ -10,119 +10,28 @@ namespace MauiAppGestaoImoveis.Models
 {
     public class Renter : ObservableObject
     {
-        private string _Name;
-        public string Name
-        {
-            get
-            {
-                return _Name;
-            }
-            set
-            {
-                if(System.Text.RegularExpressions.Regex.IsMatch(value, @"^[\p{L}\s]+$"))
-                {
-                    _Name = value;
-                }
-                else
-                {
-                    throw new ArgumentException("O nome só pode conter letras!");
-                }
-            }
-        }
+        public int Id { get; set; }
+        public string Name { get; set; }
+        public string CPF { get; set; }
+        public string CPFFormatado => Convert.ToUInt64(CPF).ToString(@"000\.000\.000\-00");
+        public string PhoneNumber {  get; set; }
 
-        private string _CPF;
-        public string CPF
-        {
-            get
-            {
-                return _CPF;
-            }
-            set
-            {
-                if(System.Text.RegularExpressions.Regex.IsMatch(value, @"^\d{11}$"))
-                {
-                    _CPF = value;
-                }
-                else
-                {
-                    throw new ArgumentException("O CPF só pode conter números!");
-                }
-            }
-        }
-        public string CPFFormatado => Convert.ToUInt64(_CPF).ToString(@"000\.000\.000\-00");
-        private string _PhoneNumber;
-        public string PhoneNumber
-        {
-            get
-            {
-                return _PhoneNumber;
-            }
-            set
-            {
-                if(System.Text.RegularExpressions.Regex.IsMatch(value, @"^\(?\d{2}\)?\s?\d{4,5}-?\d{4}$"))
-                {
-                    _PhoneNumber = value;
-                }
-                else
-                {
-                    throw new ArgumentException("O telefone não é válido!");
-                }
-            }
-        }
-        public Adress Adress { get; set; }
-        public ObservableCollection<Bills> RenterBills { get; set; } = new();
+        public Renter() { }
         public Renter(string Name, string CPF, string PhoneNumber)
         {
-            _CPF = CPF;
-            _Name = Name;
-            _PhoneNumber = PhoneNumber;
-
-            RenterBills.CollectionChanged += (s, e) =>
-            {
-                OnPropertyChanged(nameof(BillsSummary));
-            };
-        }
-
-        public void AddBills(Bills Bills)
-        {
-            RenterBills.Add(Bills);
+            this.CPF = CPF;
+            this.Name = Name;
+            this.PhoneNumber = PhoneNumber;
         }
         
-        public void AddAdress(Adress Adress)
-        {
-            this.Adress = Adress;
-        }
+        public bool IsValidName(string Name) =>
+            System.Text.RegularExpressions.Regex.IsMatch(Name, @"^[\p{L}\s]+$");
 
-        public String BillsSummary
-        {
-            get
-            {
-                if(RenterBills == null || RenterBills.Count == 0)
-                {
-                    return "Não há conta!";
-                }
+        public bool IsValidCPF(string CPF) =>
+            System.Text.RegularExpressions.Regex.IsMatch(CPF, @"^\d{11}$");
 
-                return string.Join("\n", RenterBills.Select(b => $"{b.Type}: R$ {b.Value:F2}, Vencimento: {b.ValidationDate:dd/MM/yyyy}"));
-            }
-        }
-        public String LateBills
-        {
-            get
-            {
-                if(RenterBills != null && RenterBills.Count > 0)
-                {
-                    var lateBills = RenterBills.
-                        Where(r => DateTime.Now > r.ValidationDate).
-                        Select(b => $"{b.Type}: R${b.Value:F2}");
+        public bool IsValidPhone(string Phone) =>
+            System.Text.RegularExpressions.Regex.IsMatch(Phone, @"^\(?\d{2}\)?\s?\d{4,5}-?\d{4}$");
 
-                    if(lateBills.Any())
-                    {
-                        return "Atrasado:\n" + string.Join("\n", lateBills);
-                    }
-                }
-
-                return "Não há atrasos!";
-            }
-        }
     }
 }

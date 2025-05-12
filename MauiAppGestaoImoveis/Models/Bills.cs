@@ -13,8 +13,8 @@ namespace MauiAppGestaoImoveis.Models
         public string Type { get; set; }
         public DateTime ValidationDate { get; set; }
         public double Value { get; set; }
-        public PaymentStatus Status { get; set; }
-        
+        public int RentalContractId { get; set; }
+        public RentalContract RentalContract { get; set; }
         public Bills(string Type, DateTime ValidationDate, double Value) 
         {
             this.Type = Type;
