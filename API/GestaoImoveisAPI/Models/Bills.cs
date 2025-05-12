@@ -16,7 +16,7 @@ namespace GestaoImoveisAPI.Models
         public DateTime ValidationDate { get; set; }
 
         [Required]
-        public double Value { get; set; }
+        public decimal Value { get; set; }
 
         //FK para RentalContract
         [ForeignKey("RentalContractId")]

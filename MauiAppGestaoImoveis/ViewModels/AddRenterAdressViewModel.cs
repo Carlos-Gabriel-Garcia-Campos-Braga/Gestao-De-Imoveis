@@ -9,16 +9,18 @@ namespace MauiAppGestaoImoveis.ViewModels
 {
     public class AddRenterAdressViewModel
     {
-        public AddRenterViewModel renterInfo { get; set; }
-        public AddRenterAdressViewModel(AddRenterViewModel vm)
+        public void SetAdress(string street, string number, string neighborhood, string city, string state, string zipCode, string complement) 
         {
-            renterInfo = vm;
-        }
-
-        public void SetRenterAdress(string street, string number, string neighborhood, string city, string state, string zipCode, string complement)
-        {
-            Renter r = renterInfo.Renter;
-            r.AddAdress(new Adress(street, number, neighborhood, city, state, zipCode, complement));
+            RenterFlowState.Adress = new Adress
+            {
+                Street = street,
+                Number = number,
+                Neighborhood = neighborhood,
+                City = city,
+                State = state,
+                ZipCode = zipCode,
+                Complement = complement
+            };
         }
 
     }

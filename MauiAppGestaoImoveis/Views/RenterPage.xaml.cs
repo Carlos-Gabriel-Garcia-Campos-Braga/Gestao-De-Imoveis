@@ -1,12 +1,12 @@
 using MauiAppGestaoImoveis.ViewModels;
+using System.Threading.Tasks;
 namespace MauiAppGestaoImoveis.Views;
 
 public partial class RenterPage : ContentPage
 {
-	public RenterPage(RenterViewModel vm)
+	public RenterPage()
 	{
         InitializeComponent();
-        BindingContext = vm;
     }
 
     private async void AddRenter_Clicked(object sender, EventArgs e)
@@ -15,10 +15,13 @@ public partial class RenterPage : ContentPage
         await Shell.Current.GoToAsync("newRenter");
     }
 
-    protected override void OnAppearing()
+    protected override async void OnAppearing()
     {
         base.OnAppearing();
-         //Isso conecta a ViewModel com minha pagina XAML
-        //Dizendo assim: Precisa de algo? Pesquisa neste lugar aqui
+        if (BindingContext is RenterViewModel viewModel)
+        {
+            await viewModel.LoadRenters();
+        }
+
     }
 }

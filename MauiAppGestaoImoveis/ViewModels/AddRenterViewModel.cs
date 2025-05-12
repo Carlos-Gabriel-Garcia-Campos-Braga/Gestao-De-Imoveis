@@ -10,11 +10,14 @@ namespace MauiAppGestaoImoveis.ViewModels
 {
     public class AddRenterViewModel : ObservableObject
     {
-        public Renter Renter { get; private set; }
-
         public void SetBasicInfos(string name, string cPF, string phone)
         {
-            Renter = new Renter(name, cPF, phone);
+            RenterFlowState.Renter = new Renter
+            {
+                Name = name,
+                CPF = cPF,
+                PhoneNumber = phone
+            };
         }
     }
 }

@@ -21,8 +21,8 @@ namespace GestaoImoveisAPI.Controllers
         {
             var list = await _context.Contract
                                               .Include(r => r.Renter)
-                                              .Include(b => b.Bills)
-                                              .Include(a => a.Adress)
+                                              .ThenInclude(b => b.Bills)
+                                              .ThenInclude(a => a.Adress)
                                               .ToListAsync();
             return Ok(list);
         }

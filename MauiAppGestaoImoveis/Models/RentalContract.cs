@@ -13,10 +13,10 @@ namespace MauiAppGestaoImoveis.Models
         public Adress Adress { get; set; }
         public DateTime StartContract { get; set; }
         public DateTime EndContract { get; set; }
-        public double RentalValue { get; set; }
+        public decimal RentalValue { get; set; }
         public ICollection<Bills> Bills { get; set; }
 
-        public RentalContract(Renter renter, Adress houseAdress, DateTime startContract, DateTime endContract, double rentalValue, ICollection<Bills> bills)
+        public RentalContract(Renter renter, Adress houseAdress, DateTime startContract, DateTime endContract, decimal rentalValue, ICollection<Bills> bills)
         {
             Renter = renter;
             Adress = houseAdress;

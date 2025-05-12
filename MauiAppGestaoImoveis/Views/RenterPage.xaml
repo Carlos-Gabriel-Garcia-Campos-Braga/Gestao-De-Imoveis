@@ -1,9 +1,14 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="MauiAppGestaoImoveis.Views.RenterPage"
+             xmlns:viewmodels="clr-namespace:MauiAppGestaoImoveis.ViewModels"
              BackgroundColor="White"
              x:Name="RenterPageRef"
              >
+
+    <ContentPage.BindingContext>
+        <viewmodels:RenterViewModel/>
+    </ContentPage.BindingContext>
 
     <VerticalStackLayout Padding="0">
         <Label Text="Gestão de Imóveis
@@ -45,7 +50,7 @@
                             <VerticalStackLayout>
                                 <Label Text="{Binding Name}" FontSize="18" TextColor="White"/>
                                 <Label Text="{Binding CPFFormatado}" FontSize="14" TextColor="White"/>
-                                <Label Text="{Binding Adress}" FontSize="14" TextColor="White"/>
+                                
                             </VerticalStackLayout>
                         </HorizontalStackLayout>
                     </Frame>

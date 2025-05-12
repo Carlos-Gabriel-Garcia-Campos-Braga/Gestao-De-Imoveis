@@ -25,7 +25,7 @@ namespace GestaoImoveisAPI.Models
         public DateTime EndContract { get; set; }
 
         [Required]
-        public double RentalValue { get; set; }
+        public decimal RentalValue { get; set; }
 
         //Um imóvel pode ter várias contas, portanto, 1:N
         public ICollection<Bills> Bills { get; set; } = new List<Bills>();

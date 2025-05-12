@@ -16,17 +16,18 @@ public partial class AddRenterBillsPage : ContentPage
     {
 		try
 		{
-			double valueBill = double.Parse(ValueInput.Text);
+			decimal valueBill = decimal.Parse(ValueInput.Text);
 
 			if(valueBill > 0 &&
 				DateInput.Date >= DateTime.Now &&
 				!string.IsNullOrEmpty(TypeInput.Text))
 			{
-				_vm.Type = TypeInput.Text;
-				_vm.Value = valueBill;
-				_vm.Validation = DateInput.Date;
-
-				_vm.AddRenterWithBill();
+				_vm.Bills.Add(new Bills
+				{
+					Type = TypeInput.Text,
+					ValidationDate = DateInput.Date,
+					Value = valueBill
+				});
 
 				await Shell.Current.GoToAsync("renters");
 			}

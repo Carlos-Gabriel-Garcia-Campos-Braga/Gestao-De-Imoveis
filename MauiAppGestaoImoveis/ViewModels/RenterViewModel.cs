@@ -9,48 +9,29 @@ using System.Collections.ObjectModel;
 using MauiAppGestaoImoveis.Models;
 using MauiAppGestaoImoveis.Views;
 using System.Text.Json;
+using MauiAppGestaoImoveis.Services;
 
 namespace MauiAppGestaoImoveis.ViewModels
 {
     public partial class RenterViewModel : ObservableObject
     {
+        private readonly RenterService _renterService;
         [ObservableProperty] //Isso ira mostrar os atributos, mesmo private, pois ele cria um public e um private automatico
         private ObservableCollection<Renter> renters = new(); //so pode ser em minusculo
         public RenterViewModel()
         {
-            LoadInitialData();
+            _renterService = new RenterService();
         }
 
-        private void LoadInitialData()
+        [RelayCommand]
+        public async Task LoadRenters()
         {
-            Renter r1 = new Renter("Carlos",
-                "03024430105",
-                "(62)99259-1792");
+            var rentersFromAPI = await _renterService.GetAllRentersAsync();
+            Renters.Clear();
 
-            r1.AddBills(new Bills("Água", new DateTime(2025, 04, 24), 71.90));
-            r1.AddAdress(new Adress("Rua 1", "475", "Ali", "Goiania", "GO", "74375500", "cond 1"));
-
-            Renter r2 = new Renter("Maria",
-                "12345678901",
-                "(62)99999-9999");
-
-            r2.AddBills(new Bills("Energia", new DateTime(2025, 04, 21), 105.90));
-            r2.AddBills(new Bills("Água", new DateTime(2025, 04, 26), 60.13));
-            r2.AddAdress(new Adress("Rua 4", "412", "La", "Goiania", "GO", "7668000", "cond 2"));
-
-            Renters.Add(r1);
-            Renters.Add(r2);
-        }
-
-        public void AddRenter(Renter r)
-        {
-            Renters.Add(r);
-        }
-        private void RemoveRenter(Renter r)
-        {
-            if (Renters.Contains(r))
+            foreach (Renter r in rentersFromAPI)
             {
-                Renters.Remove(r);
+                Renters.Add(r);
             }
         }
 

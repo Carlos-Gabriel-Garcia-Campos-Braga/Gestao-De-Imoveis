@@ -1,4 +1,5 @@
 ﻿using MauiAppGestaoImoveis.Models;
+using MauiAppGestaoImoveis.Services;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,24 +10,27 @@ namespace MauiAppGestaoImoveis.ViewModels
 {
     public class AddRenterBillViewModel
     {
-        private readonly AddRenterViewModel renterInfo;
-        private readonly RenterViewModel _vm;
-        public string Type;
-        public DateTime Validation;
-        public double Value;
-
-
-        public AddRenterBillViewModel(AddRenterViewModel renterInfoVm, RenterViewModel vm)
+        private readonly RentalContractService _rentalContractService = new();
+        public ICollection<Bills> Bills { get; set; } = new List<Bills>();
+        public async Task<bool> FinishForms()
         {
-            renterInfo = renterInfoVm;
-            _vm = vm;
-        }
+            RenterFlowState.Bills = Bills;
 
-        public void AddRenterWithBill()
-        {
-            Renter r = renterInfo.Renter;
-            r.AddBills(new Bills(Type, Validation, Value));
-            _vm.AddRenter(r);
+            RentalContract rentalContract = new RentalContract
+                (
+                RenterFlowState.Renter,
+                RenterFlowState.Adress,
+                RenterFlowState.StartDate,
+                RenterFlowState.EndDate,
+                RenterFlowState.RentalValue,
+                RenterFlowState.Bills);
+
+            //POST na API
+            var sucesso = await _rentalContractService.AddRentalContractAsync(rentalContract);
+
+            if (sucesso) { RenterFlowState.Clear(); }
+
+            return sucesso;
         }
     }
 }

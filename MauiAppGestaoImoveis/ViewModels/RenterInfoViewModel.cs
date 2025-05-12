@@ -13,8 +13,8 @@ namespace MauiAppGestaoImoveis.ViewModels
         public string Name => SelectedRenter.Name;
         public string CPF => SelectedRenter.CPFFormatado;
         public string Phone => SelectedRenter.PhoneNumber;
-        public Adress Adress => SelectedRenter.Adress;
-        public ObservableCollection<Bills> Bills => SelectedRenter.RenterBills;
+        //public Adress Adress => SelectedRenter.Adress;
+        //public ObservableCollection<Bills> Bills => SelectedRenter.RenterBills;
 
         public Renter SelectedRenter { get; }
 
