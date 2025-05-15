@@ -17,7 +17,7 @@ namespace MauiAppGestaoImoveis.Services
             //Fazemos uma instancia de um servico HTTP, configurando a rota padrao com BaseAdress   
             _httpClient = new HttpClient
             {
-                BaseAddress = new Uri("http://10.0.2.2:5000/")
+                BaseAddress = new Uri("http://10.0.2.2:5156/")
             };
         }
 

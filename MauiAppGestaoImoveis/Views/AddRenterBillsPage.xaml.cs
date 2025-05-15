@@ -29,6 +29,10 @@ public partial class AddRenterBillsPage : ContentPage
 					Value = valueBill
 				});
 
+				_vm.addRentalValue(decimal.Parse(RentalInput.Text));
+				_vm.finalDateContract(DateContractInput.Date);
+				await _vm.FinishForms();
+
 				await Shell.Current.GoToAsync("renters");
 			}
 		}

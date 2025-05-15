@@ -12,10 +12,20 @@
                     Date="{Binding SelectedDate}"
                     Format="dd/MM/yyyy"
                     />
+
         
+
         <Label Text="Valor"/>
         <Entry Placeholder="Tipo" x:Name="ValueInput" Keyboard="Numeric"/>
 
+        <Label Text="Valor do aluguel"/>
+        <Entry Placeholder="Tipo" x:Name="RentalInput" Keyboard="Numeric"/>
+        
+        <Label Text="Vencimento contrato"/>
+                <DatePicker x:Name="DateContractInput"
+                    Date="{Binding SelectedDate}"
+                    Format="dd/MM/yyyy"
+                    />
         <Button Text="Adicionar Inquilino" x:Name="AddRenterBtn" Clicked="AddRenterBtn_Clicked"/>
     </VerticalStackLayout>
 </ContentPage>

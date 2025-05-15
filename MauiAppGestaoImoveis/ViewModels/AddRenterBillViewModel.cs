@@ -32,5 +32,15 @@ namespace MauiAppGestaoImoveis.ViewModels
 
             return sucesso;
         }
+
+        public void addRentalValue(decimal value)
+        {
+            RenterFlowState.RentalValue = value;
+        }
+
+        public void finalDateContract(DateTime date)
+        {
+            RenterFlowState.EndDate = date;
+        }
     }
 }

@@ -11,7 +11,7 @@ namespace MauiAppGestaoImoveis.Models
         public static Renter Renter { get; set; }
         public static Adress Adress { get; set; }
         public static ICollection<Bills> Bills { get; set; }
-        public static DateTime StartDate { get; set; }
+        public static DateTime StartDate { get; set; } = DateTime.Now;
         public static DateTime EndDate { get; set; }
         public static decimal RentalValue { get; set; }
 

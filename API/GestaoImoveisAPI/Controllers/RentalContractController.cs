@@ -17,13 +17,13 @@ namespace GestaoImoveisAPI.Controllers
         }
 
         [HttpGet]
-        public async Task<IActionResult> GetAll()
+        public async Task<ActionResult<IEnumerable<RentalContract>>> GetAll()
         {
-            var list = await _context.Contract
-                                              .Include(r => r.Renter)
-                                              .ThenInclude(b => b.Bills)
-                                              .ThenInclude(a => a.Adress)
+            var list = await _context.Contract.Include(rc => rc.Renter)
+                                              .Include(rc => rc.Adress)
+                                              .Include(rc => rc.Bills)
                                               .ToListAsync();
+                                            
             return Ok(list);
         }
 

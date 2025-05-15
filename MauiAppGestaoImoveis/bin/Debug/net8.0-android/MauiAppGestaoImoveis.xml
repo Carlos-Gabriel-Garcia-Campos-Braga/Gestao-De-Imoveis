@@ -6,9 +6,23 @@
     <members>
         <member name="T:MauiAppGestaoImoveis.ViewModels.RenterViewModel">
             <inheritdoc/>
+            <inheritdoc/>
+            <inheritdoc/>
         </member>
         <member name="P:MauiAppGestaoImoveis.ViewModels.RenterViewModel.Renters">
             <inheritdoc cref="F:MauiAppGestaoImoveis.ViewModels.RenterViewModel.renters"/>
+        </member>
+        <member name="F:MauiAppGestaoImoveis.ViewModels.RenterViewModel.loadRentersCommand">
+            <summary>The backing field for <see cref="P:MauiAppGestaoImoveis.ViewModels.RenterViewModel.LoadRentersCommand"/>.</summary>
+        </member>
+        <member name="P:MauiAppGestaoImoveis.ViewModels.RenterViewModel.LoadRentersCommand">
+            <summary>Gets an <see cref="T:CommunityToolkit.Mvvm.Input.IAsyncRelayCommand"/> instance wrapping <see cref="M:MauiAppGestaoImoveis.ViewModels.RenterViewModel.LoadRenters"/>.</summary>
+        </member>
+        <member name="F:MauiAppGestaoImoveis.ViewModels.RenterViewModel.navigateToRenterInfoCommand">
+            <summary>The backing field for <see cref="P:MauiAppGestaoImoveis.ViewModels.RenterViewModel.NavigateToRenterInfoCommand"/>.</summary>
+        </member>
+        <member name="P:MauiAppGestaoImoveis.ViewModels.RenterViewModel.NavigateToRenterInfoCommand">
+            <summary>Gets an <see cref="T:CommunityToolkit.Mvvm.Input.IAsyncRelayCommand`1"/> instance wrapping <see cref="M:MauiAppGestaoImoveis.ViewModels.RenterViewModel.NavigateToRenterInfo(MauiAppGestaoImoveis.Models.Renter)"/>.</summary>
         </member>
         <member name="T:CommunityToolkit.Mvvm.ComponentModel.__Internals.__KnownINotifyPropertyChangingArgs">
             <summary>

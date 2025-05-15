@@ -254,9 +254,6 @@ C:\Users\carlo\Desktop\PC\GestaoImoveis\MauiAppGestaoImoveis\MauiAppGestaoImovei
 C:\Users\carlo\Desktop\PC\GestaoImoveis\MauiAppGestaoImoveis\MauiAppGestaoImoveis\bin\Debug\net8.0-maccatalyst\maccatalyst-x64\libxamarin-dotnet-nativeaot.a
 C:\Users\carlo\Desktop\PC\GestaoImoveis\MauiAppGestaoImoveis\MauiAppGestaoImoveis\bin\Debug\net8.0-maccatalyst\maccatalyst-x64\libxamarin-dotnet.a
 C:\Users\carlo\Desktop\PC\GestaoImoveis\MauiAppGestaoImoveis\MauiAppGestaoImoveis\bin\Debug\net8.0-maccatalyst\maccatalyst-x64\libxamarin-dotnet.dylib
-C:\Users\carlo\Desktop\PC\GestaoImoveis\MauiAppGestaoImoveis\MauiAppGestaoImoveis\bin\Debug\net8.0-maccatalyst\maccatalyst-x64\Microsoft.Maui.Controls.HotReload.Forms.dll
-C:\Users\carlo\Desktop\PC\GestaoImoveis\MauiAppGestaoImoveis\MauiAppGestaoImoveis\bin\Debug\net8.0-maccatalyst\maccatalyst-x64\Microsoft.VisualStudio.DesignTools.MobileTapContracts.dll
-C:\Users\carlo\Desktop\PC\GestaoImoveis\MauiAppGestaoImoveis\MauiAppGestaoImoveis\bin\Debug\net8.0-maccatalyst\maccatalyst-x64\Microsoft.VisualStudio.DesignTools.TapContract.dll
 C:\Users\carlo\Desktop\PC\GestaoImoveis\MauiAppGestaoImoveis\MauiAppGestaoImoveis\obj\Debug\net8.0-maccatalyst\maccatalyst-x64\mauiimage.inputs
 C:\Users\carlo\Desktop\PC\GestaoImoveis\MauiAppGestaoImoveis\MauiAppGestaoImoveis\obj\Debug\net8.0-maccatalyst\maccatalyst-x64\mauifont.inputs
 C:\Users\carlo\Desktop\PC\GestaoImoveis\MauiAppGestaoImoveis\MauiAppGestaoImoveis\obj\Debug\net8.0-maccatalyst\maccatalyst-x64\mauisplash.inputs
@@ -309,3 +306,4 @@ C:\Users\carlo\Desktop\PC\GestaoImoveis\MauiAppGestaoImoveis\MauiAppGestaoImovei
 C:\Users\carlo\Desktop\PC\GestaoImoveis\MauiAppGestaoImoveis\MauiAppGestaoImoveis\obj\Debug\net8.0-maccatalyst\maccatalyst-x64\MauiAppGestaoImoveis.genruntimeconfig.cache
 C:\Users\carlo\Desktop\PC\GestaoImoveis\MauiAppGestaoImoveis\MauiAppGestaoImoveis\obj\Debug\net8.0-maccatalyst\maccatalyst-x64\ref\MauiAppGestaoImoveis.dll
 C:\Users\carlo\Desktop\PC\GestaoImoveis\MauiAppGestaoImoveis\MauiAppGestaoImoveis\obj\Debug\net8.0-maccatalyst\maccatalyst-x64\MauiAppGestaoImoveis.sourcelink.json
+C:\Users\carlo\Desktop\PC\GestaoImoveis\MauiAppGestaoImoveis\MauiAppGestaoImoveis\bin\Debug\net8.0-maccatalyst\maccatalyst-x64\CommunityToolkit.Mvvm.dll

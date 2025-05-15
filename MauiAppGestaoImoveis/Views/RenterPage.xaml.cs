@@ -15,13 +15,12 @@ public partial class RenterPage : ContentPage
         await Shell.Current.GoToAsync("newRenter");
     }
 
-    protected override async void OnAppearing()
+    protected override void OnAppearing()
     {
         base.OnAppearing();
-        if (BindingContext is RenterViewModel viewModel)
+        if(BindingContext is RenterPageViewModel vm)
         {
-            await viewModel.LoadRenters();
+            vm.LoadRentalContracts();
         }
-
     }
 }

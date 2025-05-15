@@ -6,9 +6,6 @@ C:\Users\carlo\Desktop\PC\GestaoImoveis\MauiAppGestaoImoveis\MauiAppGestaoImovei
 C:\Users\carlo\Desktop\PC\GestaoImoveis\MauiAppGestaoImoveis\MauiAppGestaoImoveis\bin\Debug\net8.0-android\com.companyname.mauiappgestaoimoveis-Signed.aab
 C:\Users\carlo\Desktop\PC\GestaoImoveis\MauiAppGestaoImoveis\MauiAppGestaoImoveis\bin\Debug\net8.0-android\com.companyname.mauiappgestaoimoveis-Signed.apk
 C:\Users\carlo\Desktop\PC\GestaoImoveis\MauiAppGestaoImoveis\MauiAppGestaoImoveis\bin\Debug\net8.0-android\com.companyname.mauiappgestaoimoveis-Signed.apk.idsig
-C:\Users\carlo\Desktop\PC\GestaoImoveis\MauiAppGestaoImoveis\MauiAppGestaoImoveis\bin\Debug\net8.0-android\Microsoft.Maui.Controls.HotReload.Forms.dll
-C:\Users\carlo\Desktop\PC\GestaoImoveis\MauiAppGestaoImoveis\MauiAppGestaoImoveis\bin\Debug\net8.0-android\Microsoft.VisualStudio.DesignTools.MobileTapContracts.dll
-C:\Users\carlo\Desktop\PC\GestaoImoveis\MauiAppGestaoImoveis\MauiAppGestaoImoveis\bin\Debug\net8.0-android\Microsoft.VisualStudio.DesignTools.TapContract.dll
 C:\Users\carlo\Desktop\PC\GestaoImoveis\MauiAppGestaoImoveis\MauiAppGestaoImoveis\obj\Debug\net8.0-android\.NETCoreApp,Version=v8.0.AssemblyAttributes.cs
 C:\Users\carlo\Desktop\PC\GestaoImoveis\MauiAppGestaoImoveis\MauiAppGestaoImoveis\obj\Debug\net8.0-android\build.props
 C:\Users\carlo\Desktop\PC\GestaoImoveis\MauiAppGestaoImoveis\MauiAppGestaoImoveis\obj\Debug\net8.0-android\adb.props
@@ -131,7 +128,6 @@ C:\Users\carlo\Desktop\PC\GestaoImoveis\MauiAppGestaoImoveis\MauiAppGestaoImovei
 C:\Users\carlo\Desktop\PC\GestaoImoveis\MauiAppGestaoImoveis\MauiAppGestaoImoveis\obj\Debug\net8.0-android\MauiAppGestaoImoveis.AssemblyInfo.cs
 C:\Users\carlo\Desktop\PC\GestaoImoveis\MauiAppGestaoImoveis\MauiAppGestaoImoveis\obj\Debug\net8.0-android\MauiAppGestaoImoveis.csproj.CoreCompileInputs.cache
 C:\Users\carlo\Desktop\PC\GestaoImoveis\MauiAppGestaoImoveis\MauiAppGestaoImoveis\obj\Debug\net8.0-android\XamlC.stamp
-C:\Users\carlo\Desktop\PC\GestaoImoveis\MauiAppGestaoImoveis\MauiAppGestaoImoveis\obj\Debug\net8.0-android\MauiAppG.50D13CB4.Up2Date
 C:\Users\carlo\Desktop\PC\GestaoImoveis\MauiAppGestaoImoveis\MauiAppGestaoImoveis\obj\Debug\net8.0-android\MauiAppGestaoImoveis.dll
 C:\Users\carlo\Desktop\PC\GestaoImoveis\MauiAppGestaoImoveis\MauiAppGestaoImoveis\obj\Debug\net8.0-android\MauiAppGestaoImoveis.pdb
 C:\Users\carlo\Desktop\PC\GestaoImoveis\MauiAppGestaoImoveis\MauiAppGestaoImoveis\obj\Debug\net8.0-android\MauiAppGestaoImoveis.genruntimeconfig.cache
