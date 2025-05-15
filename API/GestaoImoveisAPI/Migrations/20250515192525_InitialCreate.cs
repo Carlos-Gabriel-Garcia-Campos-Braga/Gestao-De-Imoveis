@@ -71,7 +71,7 @@ namespace GestaoImoveisAPI.Migrations
                     AdressId = table.Column<int>(type: "int", nullable: false),
                     StartContract = table.Column<DateTime>(type: "datetime(6)", nullable: false),
                     EndContract = table.Column<DateTime>(type: "datetime(6)", nullable: false),
-                    RentalValue = table.Column<double>(type: "double", nullable: false)
+                    RentalValue = table.Column<decimal>(type: "decimal(65,30)", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -100,7 +100,7 @@ namespace GestaoImoveisAPI.Migrations
                     Type = table.Column<string>(type: "longtext", nullable: false)
                         .Annotation("MySql:CharSet", "utf8mb4"),
                     ValidationDate = table.Column<DateTime>(type: "datetime(6)", nullable: false),
-                    Value = table.Column<double>(type: "double", nullable: false),
+                    Value = table.Column<decimal>(type: "decimal(65,30)", nullable: false),
                     RentalContractId = table.Column<int>(type: "int", nullable: false)
                 },
                 constraints: table =>

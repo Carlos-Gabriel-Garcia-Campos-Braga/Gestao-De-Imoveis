@@ -17,6 +17,12 @@ builder.Services.AddSwaggerGen();
 builder.Services.AddCors(o => o.AddPolicy("AllowAll", p => //Libera o acesso ao MAUI
                                                         p.AllowAnyOrigin().AllowAnyMethod().AllowAnyHeader()));
 
+builder.Services.AddControllers().AddJsonOptions(options =>
+{
+    options.JsonSerializerOptions.ReferenceHandler = System.Text.Json.Serialization.ReferenceHandler.Preserve;
+    options.JsonSerializerOptions.WriteIndented = true; //deixar o JSON mais legivel
+});
+
 var app = builder.Build();
 
 if(app.Environment.IsDevelopment())

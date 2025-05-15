@@ -20,7 +20,7 @@ namespace GestaoImoveisAPI.Models
 
         //FK para RentalContract
         [ForeignKey("RentalContractId")]
-        public int RentalContractId { get; set; }
-        public RentalContract RentalContract { get; set; } = null!;
+        public int? RentalContractId { get; set; }
+        public RentalContract? RentalContract { get; set; }
     }
 }

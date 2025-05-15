@@ -82,8 +82,8 @@ namespace GestaoImoveisAPI.Migrations
                     b.Property<DateTime>("ValidationDate")
                         .HasColumnType("datetime(6)");
 
-                    b.Property<double>("Value")
-                        .HasColumnType("double");
+                    b.Property<decimal>("Value")
+                        .HasColumnType("decimal(65,30)");
 
                     b.HasKey("Id");
 
@@ -106,8 +106,8 @@ namespace GestaoImoveisAPI.Migrations
                     b.Property<DateTime>("EndContract")
                         .HasColumnType("datetime(6)");
 
-                    b.Property<double>("RentalValue")
-                        .HasColumnType("double");
+                    b.Property<decimal>("RentalValue")
+                        .HasColumnType("decimal(65,30)");
 
                     b.Property<int>("RenterId")
                         .HasColumnType("int");

@@ -174,7 +174,6 @@ C:\Users\carlo\Desktop\PC\GestaoImoveis\MauiAppGestaoImoveis\MauiAppGestaoImovei
 C:\Users\carlo\Desktop\PC\GestaoImoveis\MauiAppGestaoImoveis\MauiAppGestaoImoveis\obj\Debug\net8.0-android\android\assets\Microsoft.Extensions.Primitives.dll
 C:\Users\carlo\Desktop\PC\GestaoImoveis\MauiAppGestaoImoveis\MauiAppGestaoImoveis\obj\Debug\net8.0-android\android\assets\Microsoft.Maui.Controls.Compatibility.dll
 C:\Users\carlo\Desktop\PC\GestaoImoveis\MauiAppGestaoImoveis\MauiAppGestaoImoveis\obj\Debug\net8.0-android\android\assets\Microsoft.Maui.Controls.dll
-C:\Users\carlo\Desktop\PC\GestaoImoveis\MauiAppGestaoImoveis\MauiAppGestaoImoveis\obj\Debug\net8.0-android\android\assets\Microsoft.Maui.Controls.HotReload.Forms.dll
 C:\Users\carlo\Desktop\PC\GestaoImoveis\MauiAppGestaoImoveis\MauiAppGestaoImoveis\obj\Debug\net8.0-android\android\assets\Microsoft.Maui.Controls.pdb
 C:\Users\carlo\Desktop\PC\GestaoImoveis\MauiAppGestaoImoveis\MauiAppGestaoImoveis\obj\Debug\net8.0-android\android\assets\Microsoft.Maui.Controls.Xaml.dll
 C:\Users\carlo\Desktop\PC\GestaoImoveis\MauiAppGestaoImoveis\MauiAppGestaoImoveis\obj\Debug\net8.0-android\android\assets\Microsoft.Maui.Controls.Xaml.pdb
@@ -186,8 +185,6 @@ C:\Users\carlo\Desktop\PC\GestaoImoveis\MauiAppGestaoImoveis\MauiAppGestaoImovei
 C:\Users\carlo\Desktop\PC\GestaoImoveis\MauiAppGestaoImoveis\MauiAppGestaoImoveis\obj\Debug\net8.0-android\android\assets\Microsoft.Maui.pdb
 C:\Users\carlo\Desktop\PC\GestaoImoveis\MauiAppGestaoImoveis\MauiAppGestaoImoveis\obj\Debug\net8.0-android\android\assets\Microsoft.VisualBasic.Core.dll
 C:\Users\carlo\Desktop\PC\GestaoImoveis\MauiAppGestaoImoveis\MauiAppGestaoImoveis\obj\Debug\net8.0-android\android\assets\Microsoft.VisualBasic.dll
-C:\Users\carlo\Desktop\PC\GestaoImoveis\MauiAppGestaoImoveis\MauiAppGestaoImoveis\obj\Debug\net8.0-android\android\assets\Microsoft.VisualStudio.DesignTools.MobileTapContracts.dll
-C:\Users\carlo\Desktop\PC\GestaoImoveis\MauiAppGestaoImoveis\MauiAppGestaoImoveis\obj\Debug\net8.0-android\android\assets\Microsoft.VisualStudio.DesignTools.TapContract.dll
 C:\Users\carlo\Desktop\PC\GestaoImoveis\MauiAppGestaoImoveis\MauiAppGestaoImoveis\obj\Debug\net8.0-android\android\assets\Microsoft.Win32.Primitives.dll
 C:\Users\carlo\Desktop\PC\GestaoImoveis\MauiAppGestaoImoveis\MauiAppGestaoImoveis\obj\Debug\net8.0-android\android\assets\Microsoft.Win32.Registry.dll
 C:\Users\carlo\Desktop\PC\GestaoImoveis\MauiAppGestaoImoveis\MauiAppGestaoImoveis\obj\Debug\net8.0-android\android\assets\Mono.Android.dll
@@ -1055,3 +1052,7 @@ C:\Users\carlo\Desktop\PC\GestaoImoveis\MauiAppGestaoImoveis\MauiAppGestaoImovei
 C:\Users\carlo\Desktop\PC\GestaoImoveis\MauiAppGestaoImoveis\MauiAppGestaoImoveis\obj\Debug\net8.0-android\android\marshal_methods.x86_64.o
 C:\Users\carlo\Desktop\PC\GestaoImoveis\MauiAppGestaoImoveis\MauiAppGestaoImoveis\obj\Debug\net8.0-android\android\jni_remap.x86_64.o
 C:\Users\carlo\Desktop\PC\GestaoImoveis\MauiAppGestaoImoveis\MauiAppGestaoImoveis\obj\Debug\net8.0-android\app_shared_libraries\x86_64\libxamarin-app.so
+C:\Users\carlo\Desktop\PC\GestaoImoveis\MauiAppGestaoImoveis\MauiAppGestaoImoveis\obj\Debug\net8.0-android\android\assets\Microsoft.Maui.Controls.HotReload.Forms.dll
+C:\Users\carlo\Desktop\PC\GestaoImoveis\MauiAppGestaoImoveis\MauiAppGestaoImoveis\obj\Debug\net8.0-android\android\assets\Microsoft.VisualStudio.DesignTools.MobileTapContracts.dll
+C:\Users\carlo\Desktop\PC\GestaoImoveis\MauiAppGestaoImoveis\MauiAppGestaoImoveis\obj\Debug\net8.0-android\android\assets\Microsoft.VisualStudio.DesignTools.TapContract.dll
+C:\Users\carlo\Desktop\PC\GestaoImoveis\MauiAppGestaoImoveis\MauiAppGestaoImoveis\obj\Debug\net8.0-android\android\assets\Microsoft.VisualStudio.DesignTools.XamlTapContract.dll
