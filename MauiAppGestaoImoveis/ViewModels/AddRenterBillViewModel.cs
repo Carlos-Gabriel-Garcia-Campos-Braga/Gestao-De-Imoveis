@@ -12,7 +12,7 @@ namespace MauiAppGestaoImoveis.ViewModels
     {
         private readonly RentalContractService _rentalContractService = new();
         public ICollection<Bills> Bills { get; set; } = new List<Bills>();
-        public async Task<bool> FinishForms()
+        public async Task<string> FinishForms()
         {
             RenterFlowState.Bills = Bills;
 
@@ -28,7 +28,7 @@ namespace MauiAppGestaoImoveis.ViewModels
             //POST na API
             var sucesso = await _rentalContractService.AddRentalContractAsync(rentalContract);
 
-            if (sucesso) { RenterFlowState.Clear(); }
+            if (sucesso == "Success") { RenterFlowState.Clear(); }
 
             return sucesso;
         }

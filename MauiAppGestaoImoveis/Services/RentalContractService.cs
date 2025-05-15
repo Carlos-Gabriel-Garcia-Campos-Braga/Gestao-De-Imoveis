@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Net.Http.Json;
 using System.Text;
+using System.Text.Json;
 using System.Threading.Tasks;
 
 namespace MauiAppGestaoImoveis.Services
@@ -21,18 +22,30 @@ namespace MauiAppGestaoImoveis.Services
             };
         }
 
-        public async Task<bool> AddRentalContractAsync(RentalContract rentalContract)
+        public async Task<string> AddRentalContractAsync(RentalContract rentalContract)
         {
             try
             {
+                //log do JSON
+                Console.WriteLine("JSON ENVIADO");
+                Console.WriteLine(JsonSerializer.Serialize(rentalContract));
+
                 // Serializa o objeto RentalContract para JSON e envia via POST
                 var response = await _httpClient.PostAsJsonAsync("api/rentalcontract", rentalContract);
-                return response.IsSuccessStatusCode;
+                var payload = await response.Content.ReadAsStringAsync();
+
+                if(response.IsSuccessStatusCode) 
+                {
+                    return "Success";
+                }
+                else
+                {
+                    return $"HTTP {(int)response.StatusCode} {response.StatusCode}: {payload}";
+                }
             }
             catch (Exception ex)
             {
-                Console.WriteLine($"Erro ao adicionar contrato de locação: {ex.Message}");
-                return false;
+                return $"Erro ao adicionar contrato de locação: {ex.Message}";
             }
         }
 

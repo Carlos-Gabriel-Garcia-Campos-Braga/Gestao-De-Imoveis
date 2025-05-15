@@ -12,13 +12,13 @@ public partial class AddRenterBillsPage : ContentPage
 		_vm = vm;
 	}
 
-    private async void AddRenterBtn_Clicked(object sender, EventArgs e)
-    {
+	private async void AddRenterBtn_Clicked(object sender, EventArgs e)
+	{
 		try
 		{
 			decimal valueBill = decimal.Parse(ValueInput.Text);
 
-			if(valueBill > 0 &&
+			if (valueBill > 0 &&
 				DateInput.Date >= DateTime.Now &&
 				!string.IsNullOrEmpty(TypeInput.Text))
 			{
@@ -31,13 +31,26 @@ public partial class AddRenterBillsPage : ContentPage
 
 				_vm.addRentalValue(decimal.Parse(RentalInput.Text));
 				_vm.finalDateContract(DateContractInput.Date);
-				await _vm.FinishForms();
 
-				await Shell.Current.GoToAsync("renters");
+				var result = await _vm.FinishForms();
+
+				if (result == "Success")
+				{
+					await DisplayAlert("Sucesso", "Contrato criado!", "OK");
+					await Shell.Current.GoToAsync("renters");
+				}
+				else
+				{
+					await DisplayAlert("ERRO", result, "OK");
+				}
+
 			}
 		}
-		catch 
+		catch (Exception ex)
 		{
+			{
+				await DisplayAlert("ERRO", ex.Message, "OK");
+			}
 		}
-    }
+	}
 }
