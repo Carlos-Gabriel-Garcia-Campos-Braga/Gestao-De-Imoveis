@@ -25,5 +25,7 @@ namespace MauiAppGestaoImoveis.Models
             RentalValue = rentalValue;
             Bills = bills;
         }
+
+        
     }
 }

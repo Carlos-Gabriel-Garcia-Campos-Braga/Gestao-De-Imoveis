@@ -4,9 +4,10 @@ namespace MauiAppGestaoImoveis.Views;
 
 public partial class RenterPage : ContentPage
 {
-	public RenterPage()
+	public RenterPage(RenterPageViewModel vm)
 	{
         InitializeComponent();
+        BindingContext = vm;
     }
 
     private async void AddRenter_Clicked(object sender, EventArgs e)

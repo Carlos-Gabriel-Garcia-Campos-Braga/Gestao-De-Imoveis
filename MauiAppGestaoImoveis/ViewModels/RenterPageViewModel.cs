@@ -29,12 +29,15 @@ namespace MauiAppGestaoImoveis.ViewModels
         public RenterPageViewModel()
         {
             _rentalContractService = new RentalContractService();
+            RentalContracts = new ObservableCollection<RentalContract>();
             LoadRentalContracts();
         }
 
         public async void LoadRentalContracts()
         {
             var contracts = await _rentalContractService.GetAllRentalContractsAsync();
+
+            // Atualiza a coleção toda e aciona o OnPropertyChanged corretamente
             RentalContracts = new ObservableCollection<RentalContract>(contracts);
         }
 
@@ -44,6 +47,6 @@ namespace MauiAppGestaoImoveis.ViewModels
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
-
     }
+
 }

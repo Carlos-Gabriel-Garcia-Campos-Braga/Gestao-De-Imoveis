@@ -8,12 +8,17 @@
     
 
     <VerticalStackLayout Padding="0">
-        <Label Text="Gestão de Imóveis
-               Inquilinos" FontSize="24"
+        <Label Text="Gestão de Imóveis" FontSize="24"
                HorizontalTextAlignment="Center"
                BackgroundColor="Blue"
                TextColor="White"
                />
+        <Label Text="Inquilinos" FontSize="24"
+       HorizontalTextAlignment="Center"
+       BackgroundColor="Blue"
+       TextColor="White"
+       />
+        
 
         <ImageButton Source="add_icon.png" Clicked="AddRenter_Clicked" 
                      HorizontalOptions="End" 
@@ -47,8 +52,7 @@
                             <VerticalStackLayout>
                                 <Label Text="{Binding Renter.Name}" FontAttributes="Bold" FontSize="Medium" />
                                 <Label Text="{Binding Renter.CPF}" FontAttributes="Bold" FontSize="Medium" />
-                                <Label Text="{Binding Address.Street}" FontSize="Small" />
-                                <Label Text="{Binding RentValue, StringFormat='Valor do Aluguel: {0:C}'}" FontSize="Small" />
+                                <Label Text="{Binding Renter.Phone}" FontSize="Small"/>
                             </VerticalStackLayout>
                         </HorizontalStackLayout>
                     </Frame>
