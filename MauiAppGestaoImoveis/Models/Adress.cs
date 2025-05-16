@@ -16,6 +16,8 @@ namespace MauiAppGestaoImoveis.Models
         public string City { get; set; }
         public string State { get; set; }
         public string ZipCode { get; set; }
+        public RentalContract? RentalContract { get; set; }
+
 
         public Adress() { }
         public Adress(string street, string number, string neighborhood, string city, string state, string zipCode, string complement)

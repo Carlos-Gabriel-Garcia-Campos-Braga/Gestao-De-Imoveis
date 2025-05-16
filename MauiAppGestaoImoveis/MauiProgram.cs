@@ -35,6 +35,7 @@ namespace MauiAppGestaoImoveis
 
 
 
+
 #if DEBUG
     		builder.Logging.AddDebug();
 #endif

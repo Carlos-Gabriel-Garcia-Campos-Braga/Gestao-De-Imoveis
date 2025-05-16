@@ -10,11 +10,12 @@ namespace MauiAppGestaoImoveis.Models
 {
     public class Bills
     {
+        public int Id { get; set; }
         public string Type { get; set; }
         public DateTime ValidationDate { get; set; }
         public decimal Value { get; set; }
         public int RentalContractId { get; set; }
-        public RentalContract RentalContract { get; set; }
+        public RentalContract? RentalContract { get; set; }
 
         public Bills() { }
         public Bills(string Type, DateTime ValidationDate, decimal Value) 

@@ -30,7 +30,7 @@
                      CornerRadius="16"/>
 
 
-        <CollectionView ItemsSource="{Binding RentalContracts}" Margin="20">
+        <CollectionView x:Name="Contracts" ItemsSource="{Binding RentalContracts}" Margin="20">
 
             <CollectionView.ItemsLayout>
                 <LinearItemsLayout Orientation="Vertical" ItemSpacing="5" />
@@ -40,19 +40,20 @@
                 <DataTemplate>
                     <Frame BackgroundColor="Blue" CornerRadius="15">
 
+                        <!-- 
                         <Frame.GestureRecognizers>
                             <TapGestureRecognizer
                             Command="{Binding BindingContext.NavigateToRenterInfoCommand, Source={x:Reference RenterPageRef}}"
                             CommandParameter="{Binding .}" />
 
-                        </Frame.GestureRecognizers>
+                        </Frame.GestureRecognizers>-->
 
                         <HorizontalStackLayout>
                             <Image Source="person_icon.png" WidthRequest="50" HeightRequest="50"/>
                             <VerticalStackLayout>
                                 <Label Text="{Binding Renter.Name}" FontAttributes="Bold" FontSize="Medium" />
                                 <Label Text="{Binding Renter.CPF}" FontAttributes="Bold" FontSize="Medium" />
-                                <Label Text="{Binding Renter.Phone}" FontSize="Small"/>
+                                <Label Text="{Binding Renter.PhoneNumber}" FontSize="Small"/>
                             </VerticalStackLayout>
                         </HorizontalStackLayout>
                     </Frame>

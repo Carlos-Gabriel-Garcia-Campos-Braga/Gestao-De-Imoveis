@@ -15,6 +15,7 @@ namespace MauiAppGestaoImoveis.Models
         public string CPF { get; set; }
         public string CPFFormatado => Convert.ToUInt64(CPF).ToString(@"000\.000\.000\-00");
         public string PhoneNumber {  get; set; }
+        public ICollection<RentalContract> Contracts { get; set; } = new List<RentalContract>();
 
         public Renter() { }
         public Renter(string Name, string CPF, string PhoneNumber)

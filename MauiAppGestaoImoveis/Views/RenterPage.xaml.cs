@@ -4,10 +4,12 @@ namespace MauiAppGestaoImoveis.Views;
 
 public partial class RenterPage : ContentPage
 {
-	public RenterPage(RenterPageViewModel vm)
+    private RenterPageViewModel viewModel;
+	public RenterPage()
 	{
         InitializeComponent();
-        BindingContext = vm;
+        viewModel = new RenterPageViewModel();
+        BindingContext = viewModel;
     }
 
     private async void AddRenter_Clicked(object sender, EventArgs e)
@@ -16,12 +18,16 @@ public partial class RenterPage : ContentPage
         await Shell.Current.GoToAsync("newRenter");
     }
 
-    protected override void OnAppearing()
+    protected override async void OnAppearing()
     {
         base.OnAppearing();
-        if(BindingContext is RenterPageViewModel vm)
+        if (BindingContext is RenterPageViewModel vm)
         {
-            vm.LoadRentalContracts();
+            await vm.LoadRentalContracts();
+
+            Console.WriteLine($"Qtd itens: {Contracts.ItemsSource.Cast<object>().Count()}");
         }
+        
+        
     }
 }

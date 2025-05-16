@@ -9,7 +9,11 @@ builder.Services.AddDbContext<AppDbContext>(opts => //Essa parte injeta o AppDbC
                                                  opts.UseMySql(cs, ServerVersion.AutoDetect(cs)));
 
 //Colocar os controllers e swagger
-builder.Services.AddControllers();
+builder.Services.AddControllers().AddJsonOptions(options =>
+{
+    options.JsonSerializerOptions.ReferenceHandler = System.Text.Json.Serialization.ReferenceHandler.IgnoreCycles;
+    options.JsonSerializerOptions.WriteIndented = true; //deixar o JSON mais legivel
+});
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
@@ -17,11 +21,8 @@ builder.Services.AddSwaggerGen();
 builder.Services.AddCors(o => o.AddPolicy("AllowAll", p => //Libera o acesso ao MAUI
                                                         p.AllowAnyOrigin().AllowAnyMethod().AllowAnyHeader()));
 
-builder.Services.AddControllers().AddJsonOptions(options =>
-{
-    options.JsonSerializerOptions.ReferenceHandler = System.Text.Json.Serialization.ReferenceHandler.Preserve;
-    options.JsonSerializerOptions.WriteIndented = true; //deixar o JSON mais legivel
-});
+
+
 
 var app = builder.Build();
 

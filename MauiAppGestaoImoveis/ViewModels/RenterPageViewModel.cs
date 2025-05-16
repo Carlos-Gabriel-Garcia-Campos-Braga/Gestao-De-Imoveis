@@ -1,13 +1,8 @@
 ﻿using MauiAppGestaoImoveis.Models;
 using MauiAppGestaoImoveis.Services;
-using System;
-using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
-using System.Linq;
 using System.Runtime.CompilerServices;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace MauiAppGestaoImoveis.ViewModels
 {
@@ -33,10 +28,11 @@ namespace MauiAppGestaoImoveis.ViewModels
             LoadRentalContracts();
         }
 
-        public async void LoadRentalContracts()
+        public async Task LoadRentalContracts()
         {
             var contracts = await _rentalContractService.GetAllRentalContractsAsync();
 
+            Console.WriteLine($"Contratos: {contracts.Count}");
             // Atualiza a coleção toda e aciona o OnPropertyChanged corretamente
             RentalContracts = new ObservableCollection<RentalContract>(contracts);
         }

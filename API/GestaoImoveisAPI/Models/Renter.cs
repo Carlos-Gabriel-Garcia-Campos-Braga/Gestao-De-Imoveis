@@ -1,4 +1,5 @@
 ﻿using System.ComponentModel.DataAnnotations;
+using System.Text.Json.Serialization;
 
 namespace GestaoImoveisAPI.Models
 {
@@ -19,6 +20,7 @@ namespace GestaoImoveisAPI.Models
         public string PhoneNumber { get; set; } = string.Empty;
 
         //Para entendermos, um inquilino pode ter vários contratos, 1:N
+        [JsonIgnore]
         public ICollection<RentalContract> Contracts { get; set; } = new List<RentalContract>();
     }
 }
