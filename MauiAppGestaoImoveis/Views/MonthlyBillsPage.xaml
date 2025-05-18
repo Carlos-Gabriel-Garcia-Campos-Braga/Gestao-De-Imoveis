@@ -1,9 +1,15 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:vm="clr-namespace:MauiAppGestaoImoveis.ViewModels"
              x:Class="MauiAppGestaoImoveis.Views.MonthlyBillsPage"
              Title=""
              BackgroundColor="White">
+
+    <ContentPage.BindingContext>
+        <vm:MonthlyBillsViewModel />
+    </ContentPage.BindingContext>
+    
     <VerticalStackLayout>
         <Label Text="Gestão de Imóveis
                Contas Mensais"
@@ -13,7 +19,7 @@
                TextColor="White"
                />
 
-        <CollectionView x:Name="RenterList" ItemsSource="{Binding Renters}" Margin="12">
+        <CollectionView x:Name="RenterList" ItemsSource="{Binding BillsGrouped}" Margin="12">
 
             <CollectionView.ItemsLayout>
                 <LinearItemsLayout Orientation="Vertical" ItemSpacing="5" />
@@ -23,8 +29,24 @@
                 <DataTemplate>
                     <Frame BackgroundColor="Green" CornerRadius="15" Padding="10" Margin="5">
                         <VerticalStackLayout>
-                            <Label Text="{Binding Name}" FontSize="18" TextColor="White"/>
-                            <Label Text="{Binding BillsSummary}" FontSize="14" TextColor="White"/>
+                            <Label Text="{Binding Renter.Name}" FontSize="18" TextColor="White"/>
+
+                            <CollectionView ItemsSource="{Binding Bills}">
+                                
+                                <CollectionView.ItemsLayout>
+                                    <LinearItemsLayout Orientation="Vertical"/>
+                                </CollectionView.ItemsLayout>
+
+                                <CollectionView.ItemTemplate>
+                                    <DataTemplate>
+                                        <HorizontalStackLayout>
+                                            <Label Text="{Binding Type}" FontSize="18" TextColor="White"/>
+                                            <Label Text="{Binding Value, StringFormat='R$ {0:F2}'}" FontSize="14" TextColor="White"/>
+                                        </HorizontalStackLayout>
+                                    </DataTemplate>
+                                </CollectionView.ItemTemplate>
+                            </CollectionView>
+                            
                         </VerticalStackLayout>
                     </Frame>
                 </DataTemplate>

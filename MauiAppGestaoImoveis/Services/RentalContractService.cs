@@ -62,5 +62,36 @@ namespace MauiAppGestaoImoveis.Services
                 return new List<RentalContract>();
             }
         }
+
+        public async Task<List<RenterBillsGroup>> GetAllRentalContractsBillsAsync()
+        {
+            try
+            {
+                var contracts = await _httpClient.GetFromJsonAsync<List<RentalContract>>("api/rentalcontract");
+
+                var AllBills = contracts.
+                    Where(c => c.Renter != null && c.Bills != null)
+                    .Select(c => new RenterBillsGroup
+                    {
+                        Renter = c.Renter,
+                        Bills = c.Bills.Select
+                        (b => new Bills
+                        {
+                            Id = b.Id,
+                            Type = b.Type,
+                            Value = b.Value,
+                            ValidationDate = b.ValidationDate
+                        }).ToList()
+                    })
+                    .ToList();
+
+                return AllBills;
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Erro ao buscar as contas: {ex.Message}");
+                return new List<RenterBillsGroup>();
+            }
+        }
     }
 }

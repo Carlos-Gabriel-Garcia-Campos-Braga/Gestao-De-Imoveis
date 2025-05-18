@@ -1,24 +1,25 @@
 
 
 using MauiAppGestaoImoveis.ViewModels;
+using System.Threading.Tasks;
 
 namespace MauiAppGestaoImoveis.Views;
 
 public partial class MonthlyBillsPage : ContentPage
 {
-    private readonly RenterViewModel _vm;
-    public MonthlyBillsPage(RenterViewModel vm)
+    public MonthlyBillsPage()
     {
         InitializeComponent();
-        _vm = vm;
     }
 
-    protected override void OnAppearing()
+    protected override async void OnAppearing()
     {
         base.OnAppearing();
 
-        // Recarrega os dados sempre que a tela reaparece
-        BindingContext = _vm;
+        if(BindingContext is MonthlyBillsViewModel viewModel)
+        {
+            await viewModel.LoadGroupedBills();
+        }
 
     }
 }

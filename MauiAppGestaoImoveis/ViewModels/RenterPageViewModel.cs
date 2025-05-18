@@ -10,6 +10,7 @@ namespace MauiAppGestaoImoveis.ViewModels
     {
         private readonly RentalContractService _rentalContractService;
         private ObservableCollection<RentalContract> _rentalContracts;
+        private ObservableCollection<Bills> _bills;
 
         public ObservableCollection<RentalContract> RentalContracts
         {
@@ -17,6 +18,16 @@ namespace MauiAppGestaoImoveis.ViewModels
             set
             {
                 _rentalContracts = value;
+                OnPropertyChanged();
+            }
+        }
+
+        public ObservableCollection<Bills> Bills
+        {
+            get => _bills;
+            set
+            {
+                _bills = value;
                 OnPropertyChanged();
             }
         }
@@ -36,6 +47,7 @@ namespace MauiAppGestaoImoveis.ViewModels
             // Atualiza a coleção toda e aciona o OnPropertyChanged corretamente
             RentalContracts = new ObservableCollection<RentalContract>(contracts);
         }
+
 
         public event PropertyChangedEventHandler PropertyChanged;
 
