@@ -1,4 +1,5 @@
-﻿using System;
+﻿using SharedClasses.ValueObjects;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -15,11 +16,11 @@ namespace MauiAppGestaoImoveis.Models
         public int AdressId { get; set; }
         public DateTime StartContract { get; set; }
         public DateTime EndContract { get; set; }
-        public decimal RentalValue { get; set; }
+        public Money RentalValue { get; set; }
         public ICollection<Bills> Bills { get; set; }
 
         public RentalContract() { }
-        public RentalContract(Renter renter, Adress houseAdress, DateTime startContract, DateTime endContract, decimal rentalValue, ICollection<Bills> bills)
+        public RentalContract(Renter renter, Adress houseAdress, DateTime startContract, DateTime endContract, Money rentalValue, ICollection<Bills> bills)
         {
             Renter = renter;
             Adress = houseAdress;

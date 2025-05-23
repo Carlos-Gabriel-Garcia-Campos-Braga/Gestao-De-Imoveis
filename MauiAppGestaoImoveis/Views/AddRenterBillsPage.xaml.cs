@@ -1,5 +1,7 @@
 using MauiAppGestaoImoveis.ViewModels;
 using MauiAppGestaoImoveis.Models;
+using SharedClasses.ValueObjects;
+using CloudKit;
 
 namespace MauiAppGestaoImoveis.Views;
 
@@ -17,8 +19,9 @@ public partial class AddRenterBillsPage : ContentPage
 		try
 		{
 			decimal valueBill = decimal.Parse(ValueInput.Text);
+            decimal valueRental = decimal.Parse(RentalInput.Text);
 
-			if (valueBill > 0 &&
+            if (valueBill > 0 &&
 				DateInput.Date >= DateTime.Now &&
 				!string.IsNullOrEmpty(TypeInput.Text))
 			{
@@ -26,10 +29,10 @@ public partial class AddRenterBillsPage : ContentPage
 				{
 					Type = TypeInput.Text,
 					ValidationDate = DateInput.Date,
-					Value = valueBill
+					Value = new Money(valueBill)
 				});
 
-				_vm.addRentalValue(decimal.Parse(RentalInput.Text));
+				_vm.addRentalValue(new Money(valueRental));
 				_vm.finalDateContract(DateContractInput.Date);
 
 				var result = await _vm.FinishForms();

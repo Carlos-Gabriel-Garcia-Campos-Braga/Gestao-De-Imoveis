@@ -1,5 +1,6 @@
 ﻿using CommunityToolkit.Mvvm.ComponentModel;
 using MauiAppGestaoImoveis.Models;
+using SharedClasses.ValueObjects;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,12 +11,12 @@ namespace MauiAppGestaoImoveis.ViewModels
 {
     public class AddRenterViewModel : ObservableObject
     {
-        public void SetBasicInfos(string name, string cPF, string phone)
+        public void SetBasicInfos(string name, CPF Cpf, PhoneNumber phone)
         {
             RenterFlowState.Renter = new Renter
             {
                 Name = name,
-                CPF = cPF,
+                CPF = Cpf,
                 PhoneNumber = phone
             };
         }

@@ -1,4 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using SharedClasses.ValueObjects;
+using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
 namespace GestaoImoveisAPI.Models
@@ -16,7 +17,7 @@ namespace GestaoImoveisAPI.Models
         public DateTime ValidationDate { get; set; }
 
         [Required]
-        public decimal Value { get; set; }
+        public Money Value { get; set; }
 
         //FK para RentalContract
         [ForeignKey("RentalContractId")]

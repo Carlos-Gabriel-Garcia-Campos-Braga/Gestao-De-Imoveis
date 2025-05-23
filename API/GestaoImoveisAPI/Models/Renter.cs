@@ -1,4 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using SharedClasses.ValueObjects;
+using System.ComponentModel.DataAnnotations;
 using System.Text.Json.Serialization;
 
 namespace GestaoImoveisAPI.Models
@@ -14,10 +15,10 @@ namespace GestaoImoveisAPI.Models
 
         [Required]
         [MaxLength(11)]
-        public string CPF { get; set; } = string.Empty;
+        public CPF CPF { get; set; } = null;
 
         [Phone]
-        public string PhoneNumber { get; set; } = string.Empty;
+        public PhoneNumber PhoneNumber { get; set; } = null;
 
         //Para entendermos, um inquilino pode ter vários contratos, 1:N
         [JsonIgnore]

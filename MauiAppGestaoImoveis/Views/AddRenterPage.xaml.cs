@@ -1,5 +1,6 @@
 using MauiAppGestaoImoveis.Models;
 using MauiAppGestaoImoveis.ViewModels;
+using SharedClasses.ValueObjects;
 using System.Text.RegularExpressions;
 
 namespace MauiAppGestaoImoveis.Views;
@@ -22,9 +23,9 @@ public partial class AddRenterPage : ContentPage
                 !string.IsNullOrWhiteSpace(CPFInput.Text) &&
                 IsValidCPF(CPFInput.Text))
             {
-                string unformattedCpf = Regex.Replace(CPFInput.Text, @"\D", "");
+                CPF unformattedCpf = new CPF(Regex.Replace(CPFInput.Text, @"\D", ""));
 
-                _vm.SetBasicInfos(NameInput.Text, unformattedCpf, PhoneInput.Text);
+                _vm.SetBasicInfos(NameInput.Text, unformattedCpf, new PhoneNumber(PhoneInput.Text));
                 await Shell.Current.GoToAsync("addAdress");
             }
             else

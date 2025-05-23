@@ -1,4 +1,5 @@
-﻿using System;
+﻿using SharedClasses.ValueObjects;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -13,7 +14,7 @@ namespace MauiAppGestaoImoveis.Models
         public static ICollection<Bills> Bills { get; set; }
         public static DateTime StartDate { get; set; } = DateTime.Now;
         public static DateTime EndDate { get; set; }
-        public static decimal RentalValue { get; set; }
+        public static Money RentalValue { get; set; }
 
         public static void Clear()
         {
@@ -22,7 +23,7 @@ namespace MauiAppGestaoImoveis.Models
             Bills = null;
             StartDate = DateTime.MinValue;
             EndDate = DateTime.MinValue;
-            RentalValue = 0;
+            RentalValue = null;
         }
     }
 }

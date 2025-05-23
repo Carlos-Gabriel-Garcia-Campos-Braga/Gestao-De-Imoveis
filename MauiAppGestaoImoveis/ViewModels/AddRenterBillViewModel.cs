@@ -1,5 +1,6 @@
 ﻿using MauiAppGestaoImoveis.Models;
 using MauiAppGestaoImoveis.Services;
+using SharedClasses.ValueObjects;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -28,12 +29,15 @@ namespace MauiAppGestaoImoveis.ViewModels
             //POST na API
             var sucesso = await _rentalContractService.AddRentalContractAsync(rentalContract);
 
-            if (sucesso == "Success") { RenterFlowState.Clear(); }
+            if (sucesso == "Success") 
+            { 
+                RenterFlowState.Clear(); 
+            }
 
             return sucesso;
         }
 
-        public void addRentalValue(decimal value)
+        public void addRentalValue(Money value)
         {
             RenterFlowState.RentalValue = value;
         }

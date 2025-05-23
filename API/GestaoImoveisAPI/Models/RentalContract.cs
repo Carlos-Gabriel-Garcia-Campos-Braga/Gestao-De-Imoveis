@@ -1,4 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using SharedClasses.ValueObjects;
+using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
 namespace GestaoImoveisAPI.Models
@@ -25,7 +26,7 @@ namespace GestaoImoveisAPI.Models
         public DateTime EndContract { get; set; }
 
         [Required]
-        public decimal RentalValue { get; set; }
+        public Money RentalValue { get; set; }
 
         //Um imóvel pode ter várias contas, portanto, 1:N
         public ICollection<Bills> Bills { get; set; } = new List<Bills>();
