@@ -19,12 +19,6 @@ namespace GestaoImoveisAPI.Data
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            // Relacionamento 1:1 entre RentalContract e Adress
-            modelBuilder.Entity<RentalContract>()
-                .HasOne(rc => rc.Adress)
-                .WithOne(a => a.RentalContract)
-                .HasForeignKey<RentalContract>(rc => rc.AdressId);
-
             modelBuilder.Entity<Renter>(entity =>
             {
                 entity.OwnsOne(e => e.CPF);
@@ -35,7 +29,7 @@ namespace GestaoImoveisAPI.Data
             {
                 entity.OwnsOne(e => e.RentalValue);
                 entity.OwnsOne(e => e.Adress);
-            })
+            });
             
         }
     }
