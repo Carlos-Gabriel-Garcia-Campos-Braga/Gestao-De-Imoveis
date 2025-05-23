@@ -9,8 +9,9 @@ namespace SharedClasses.ValueObjects
 {
     public class CPF
     {
-        public string Value { get; }
+        public string Value { get; private set; }
 
+        public CPF() { }
         public CPF(string value)
         {
             if (string.IsNullOrWhiteSpace(value))

@@ -8,12 +8,15 @@ namespace SharedClasses.ValueObjects
 {
     public class Money
     {
-        public decimal Value { get; }
+        public decimal Value { get; private set; }
 
+        public Money() { }
         public Money(decimal value)
         {
             if (value < 0)
-                throw new ArgumentException("Valor monetário não pode ser negativo.");
+            { 
+                throw new ArgumentException("Valor monetário não pode ser negativo."); 
+            }
 
             Value = Math.Round(value, 2);
         }

@@ -9,8 +9,9 @@ namespace SharedClasses.ValueObjects
 {
     public class PhoneNumber
     {
-        public string Value { get; }
+        public string Value { get; private set; }
 
+        public PhoneNumber() { }
         public PhoneNumber(string value)
         {
             if (string.IsNullOrWhiteSpace(value))

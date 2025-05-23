@@ -42,12 +42,10 @@ namespace GestaoImoveisAPI.Controllers
 
             // Primeiro salvamos o Renter e o Adress
             _context.Renter.Add(rc.Renter);
-            _context.Adress.Add(rc.Adress);
             await _context.SaveChangesAsync();
 
             // Atribuímos os IDs salvos
             rc.RenterId = rc.Renter.Id;
-            rc.AdressId = rc.Adress.Id;
 
             // Salva as bills e associa ao contrato
             foreach (var bill in rc.Bills)

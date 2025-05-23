@@ -15,7 +15,7 @@ namespace GestaoImoveisAPI.Models
 
         [Required]
         [MaxLength(11)]
-        public CPF CPF { get; set; } = null;
+        public CPF CPF { get; set; }
 
         [Phone]
         public PhoneNumber PhoneNumber { get; set; } = null;

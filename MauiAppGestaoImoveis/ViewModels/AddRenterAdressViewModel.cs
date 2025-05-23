@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using SharedClasses.ValueObjects;
 
 namespace MauiAppGestaoImoveis.ViewModels
 {
@@ -11,16 +12,12 @@ namespace MauiAppGestaoImoveis.ViewModels
     {
         public void SetAdress(string street, string number, string neighborhood, string city, string state, string zipCode, string complement) 
         {
-            RenterFlowState.Adress = new Adress
+            if(!string.IsNullOrEmpty(complement))
             {
-                Street = street,
-                Number = number,
-                Neighborhood = neighborhood,
-                City = city,
-                State = state,
-                ZipCode = zipCode,
-                Complement = complement
-            };
+                RenterFlowState.Adress = new Adress(street, complement, number, neighborhood, city, state, zipCode);
+            }
+
+            RenterFlowState.Adress = new Adress(street, number, neighborhood, city, state, zipCode);
         }
 
     }
