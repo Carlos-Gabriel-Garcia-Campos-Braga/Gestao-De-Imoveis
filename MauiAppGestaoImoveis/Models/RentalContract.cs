@@ -13,7 +13,6 @@ namespace MauiAppGestaoImoveis.Models
         public Renter Renter { get; set; }
         public int RenterId { get; set; }
         public Adress Adress { get; set; }
-        public int AdressId { get; set; }
         public DateTime StartContract { get; set; }
         public DateTime EndContract { get; set; }
         public Money RentalValue { get; set; }

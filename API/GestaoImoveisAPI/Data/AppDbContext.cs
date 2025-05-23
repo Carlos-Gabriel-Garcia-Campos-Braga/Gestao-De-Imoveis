@@ -14,7 +14,7 @@ namespace GestaoImoveisAPI.Data
         //Isso é feito utilizando o EntityFramework, transformando o objeto em tabelas
         public DbSet<Renter> Renter => Set<Renter>();
         public DbSet<Bills> Bills => Set<Bills>();
-        public DbSet<Adress> Adress => Set<Adress>();
+
         public DbSet<RentalContract> Contract => Set<RentalContract>();
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
@@ -24,6 +24,19 @@ namespace GestaoImoveisAPI.Data
                 .HasOne(rc => rc.Adress)
                 .WithOne(a => a.RentalContract)
                 .HasForeignKey<RentalContract>(rc => rc.AdressId);
+
+            modelBuilder.Entity<Renter>(entity =>
+            {
+                entity.OwnsOne(e => e.CPF);
+                entity.OwnsOne(e => e.PhoneNumber);
+            });
+
+            modelBuilder.Entity<RentalContract>(entity =>
+            {
+                entity.OwnsOne(e => e.RentalValue);
+                entity.OwnsOne(e => e.Adress);
+            })
+            
         }
     }
 }

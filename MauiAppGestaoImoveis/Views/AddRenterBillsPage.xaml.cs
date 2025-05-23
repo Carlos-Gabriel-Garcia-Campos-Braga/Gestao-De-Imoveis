@@ -1,7 +1,6 @@
 using MauiAppGestaoImoveis.ViewModels;
 using MauiAppGestaoImoveis.Models;
 using SharedClasses.ValueObjects;
-using CloudKit;
 
 namespace MauiAppGestaoImoveis.Views;
 

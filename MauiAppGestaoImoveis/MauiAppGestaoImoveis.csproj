@@ -64,6 +64,10 @@
 	</ItemGroup>
 
 	<ItemGroup>
+	  <ProjectReference Include="..\SharedClassess\SharedClasses\SharedClasses.csproj" />
+	</ItemGroup>
+
+	<ItemGroup>
 	  <MauiXaml Update="Views\AddRenterAdressPage.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>

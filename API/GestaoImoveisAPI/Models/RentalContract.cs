@@ -15,10 +15,7 @@ namespace GestaoImoveisAPI.Models
         public int RenterId { get; set; }
         public Renter Renter { get; set; } = null!;
 
-        //FK para Adress
         [Required]
-        [ForeignKey("AdressId")]
-        public int AdressId { get; set; }
         public Adress Adress { get; set; } = null!;
 
         [Required]
