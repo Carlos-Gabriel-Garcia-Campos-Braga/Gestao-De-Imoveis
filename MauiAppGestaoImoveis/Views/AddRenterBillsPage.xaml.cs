@@ -1,6 +1,7 @@
 using MauiAppGestaoImoveis.ViewModels;
 using MauiAppGestaoImoveis.Models;
 using SharedClasses.ValueObjects;
+using MauiAppGestaoImoveis.InputModels;
 
 namespace MauiAppGestaoImoveis.Views;
 
@@ -24,14 +25,14 @@ public partial class AddRenterBillsPage : ContentPage
 				DateInput.Date >= DateTime.Now &&
 				!string.IsNullOrEmpty(TypeInput.Text))
 			{
-				_vm.Bills.Add(new Bills
+				_vm.Bills.Add(new BillsInputModel
 				{
 					Type = TypeInput.Text,
 					ValidationDate = DateInput.Date,
-					Value = new Money(valueBill)
+					Value = valueBill
 				});
 
-				_vm.addRentalValue(new Money(valueRental));
+				_vm.addRentalValue(valueRental);
 				_vm.finalDateContract(DateContractInput.Date);
 
 				var result = await _vm.FinishForms();

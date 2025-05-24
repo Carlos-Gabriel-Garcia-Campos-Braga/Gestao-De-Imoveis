@@ -5,6 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using SharedClasses.ValueObjects;
+using MauiAppGestaoImoveis.InputModels;
 
 namespace MauiAppGestaoImoveis.ViewModels
 {
@@ -14,10 +15,28 @@ namespace MauiAppGestaoImoveis.ViewModels
         {
             if(!string.IsNullOrEmpty(complement))
             {
-                RenterFlowState.Adress = new Adress(street, complement, number, neighborhood, city, state, zipCode);
+                RenterFlowState.Adress = new AdressInputModel
+                {
+                     Street = street,
+                     Complement = complement,
+                     Number = number, 
+                     Neighborhood = neighborhood,
+                     City = city, 
+                     State = state,
+                     ZipCode = zipCode 
+                };
             }
 
-            RenterFlowState.Adress = new Adress(street, number, neighborhood, city, state, zipCode);
+            RenterFlowState.Adress = new AdressInputModel
+            {
+                Street = street,
+                Complement = "Sem complemento!",
+                Number = number,
+                Neighborhood = neighborhood,
+                City = city,
+                State = state,
+                ZipCode = zipCode
+            };
         }
 
     }

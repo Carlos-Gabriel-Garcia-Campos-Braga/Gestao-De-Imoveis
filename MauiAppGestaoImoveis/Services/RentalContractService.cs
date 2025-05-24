@@ -1,4 +1,5 @@
-﻿using MauiAppGestaoImoveis.Models;
+﻿using MauiAppGestaoImoveis.InputModels;
+using MauiAppGestaoImoveis.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -22,7 +23,7 @@ namespace MauiAppGestaoImoveis.Services
             };
         }
 
-        public async Task<string> AddRentalContractAsync(RentalContract rentalContract)
+        public async Task<string> AddRentalContractAsync(RentalContractInputModel rentalContract)
         {
             try
             {

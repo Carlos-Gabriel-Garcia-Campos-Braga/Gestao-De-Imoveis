@@ -23,9 +23,9 @@ public partial class AddRenterPage : ContentPage
                 !string.IsNullOrWhiteSpace(CPFInput.Text) &&
                 IsValidCPF(CPFInput.Text))
             {
-                CPF unformattedCpf = new CPF(Regex.Replace(CPFInput.Text, @"\D", ""));
+                string unformattedCpf = Regex.Replace(CPFInput.Text, @"\D", "");
 
-                _vm.SetBasicInfos(NameInput.Text, unformattedCpf, new PhoneNumber(PhoneInput.Text));
+                _vm.SetBasicInfos(NameInput.Text, unformattedCpf, PhoneInput.Text);
                 await Shell.Current.GoToAsync("addAdress");
             }
             else

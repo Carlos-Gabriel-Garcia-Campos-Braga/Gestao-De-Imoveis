@@ -10,7 +10,7 @@ namespace MauiAppGestaoImoveis.InputModels
     {
         public RenterInputModel Renter { get; set; } = new();
         public AdressInputModel Adress { get; set; } = new();
-        public List<BillsInputModel> Bills { get; set; } = new();
+        public ICollection<BillsInputModel> Bills { get; set; }
         public DateTime StartContract { get; set; }
         public DateTime EndContract { get; set; }
         public decimal RentalValue { get; set; }

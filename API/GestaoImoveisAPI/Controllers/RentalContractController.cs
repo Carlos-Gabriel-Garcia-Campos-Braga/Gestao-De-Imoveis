@@ -1,7 +1,9 @@
 ﻿using GestaoImoveisAPI.Data;
+using GestaoImoveisAPI.DTOs;
 using GestaoImoveisAPI.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using SharedClasses.ValueObjects;
 
 namespace GestaoImoveisAPI.Controllers
 {
@@ -29,7 +31,7 @@ namespace GestaoImoveisAPI.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> Create([FromBody] RentalContract rc)
+        public async Task<IActionResult> Create([FromBody] RentalContractInputModel rc)
         {
             if (rc == null || rc.Renter == null || rc.Adress == null || rc.Bills == null)
                 return BadRequest("Dados incompletos");
@@ -41,23 +43,52 @@ namespace GestaoImoveisAPI.Controllers
             Console.WriteLine($"Start: {rc.StartContract}, End: {rc.EndContract}, Value: {rc.RentalValue}");
 
             // Primeiro salvamos o Renter e o Adress
-            _context.Renter.Add(rc.Renter);
+            var renter = new Renter
+            {
+                Name = rc.Renter.Name,
+                CPF = new CPF(rc.Renter.CPF),
+                PhoneNumber = new PhoneNumber(rc.Renter.PhoneNumber)
+            };
+
+            var adress = new Adress(
+                    rc.Adress.Street,
+                    rc.Adress.Complement,
+                    rc.Adress.Number,
+                    rc.Adress.City,
+                    rc.Adress.State,
+                    rc.Adress.ZipCode);
+
+            var bills = rc.Bills.Select(b => new Bills
+            {
+                Type = b.Type,
+                ValidationDate = b.ValidationDate,
+                Value = new Money(b.Value)
+            }).
+              ToList();
+
+            var rentalContract = new RentalContract
+            {
+                StartContract = rc.StartContract,
+                EndContract = rc.EndContract,
+                RentalValue = new Money(rc.RentalValue),
+                Adress = adress,
+                Renter = renter,
+                Bills = bills,
+            };
+
+            
+            _context.Renter.Add(renter);
             await _context.SaveChangesAsync();
 
-            // Atribuímos os IDs salvos
-            rc.RenterId = rc.Renter.Id;
+            renter.Id = rentalContract.RenterId;
+            _context.Contract.Add(rentalContract);
 
-            // Salva as bills e associa ao contrato
-            foreach (var bill in rc.Bills)
-            {
-                _context.Bills.Add(bill);
-            }
+            await _context.SaveChangesAsync();
 
             // Agora salva o contrato com os IDs corretos
-            _context.Contract.Add(rc);
             await _context.SaveChangesAsync();
 
-            return CreatedAtAction(nameof(GetAll), new { id = rc.Id }, rc);
+            return CreatedAtAction(nameof(GetAll), new { id = rentalContract.Id }, rentalContract);
         }
 
     }

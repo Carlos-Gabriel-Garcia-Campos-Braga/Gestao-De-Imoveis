@@ -1,4 +1,5 @@
-﻿using MauiAppGestaoImoveis.Models;
+﻿using MauiAppGestaoImoveis.InputModels;
+using MauiAppGestaoImoveis.Models;
 using MauiAppGestaoImoveis.Services;
 using SharedClasses.ValueObjects;
 using System;
@@ -12,19 +13,22 @@ namespace MauiAppGestaoImoveis.ViewModels
     public class AddRenterBillViewModel
     {
         private readonly RentalContractService _rentalContractService = new();
-        public ICollection<Bills> Bills { get; set; } = new List<Bills>();
+        public ICollection<BillsInputModel> Bills { get; set; } = new List<BillsInputModel>();
         public async Task<string> FinishForms()
         {
             RenterFlowState.Bills = Bills;
 
-            RentalContract rentalContract = new RentalContract
-                (
-                RenterFlowState.Renter,
-                RenterFlowState.Adress,
-                RenterFlowState.StartDate,
-                RenterFlowState.EndDate,
-                RenterFlowState.RentalValue,
-                RenterFlowState.Bills);
+            RentalContractInputModel rentalContract = new RentalContractInputModel
+            {
+                Renter = RenterFlowState.Renter,
+                Adress = RenterFlowState.Adress,
+                StartContract = RenterFlowState.StartDate,
+                EndContract = RenterFlowState.EndDate,
+                RentalValue = RenterFlowState.RentalValue,
+                Bills = RenterFlowState.Bills
+            };
+                
+                
 
             //POST na API
             var sucesso = await _rentalContractService.AddRentalContractAsync(rentalContract);
@@ -37,7 +41,7 @@ namespace MauiAppGestaoImoveis.ViewModels
             return sucesso;
         }
 
-        public void addRentalValue(Money value)
+        public void addRentalValue(decimal value)
         {
             RenterFlowState.RentalValue = value;
         }
