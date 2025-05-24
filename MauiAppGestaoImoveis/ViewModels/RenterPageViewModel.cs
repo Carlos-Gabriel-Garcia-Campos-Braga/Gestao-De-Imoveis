@@ -1,4 +1,5 @@
 ﻿using MauiAppGestaoImoveis.Models;
+using MauiAppGestaoImoveis.OutputModels;
 using MauiAppGestaoImoveis.Services;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
@@ -9,10 +10,10 @@ namespace MauiAppGestaoImoveis.ViewModels
     public class RenterPageViewModel : INotifyPropertyChanged
     {
         private readonly RentalContractService _rentalContractService;
-        private ObservableCollection<RentalContract> _rentalContracts;
+        private ObservableCollection<RentalContractOutputModel> _rentalContracts;
         private ObservableCollection<Bills> _bills;
 
-        public ObservableCollection<RentalContract> RentalContracts
+        public ObservableCollection<RentalContractOutputModel> RentalContracts
         {
             get => _rentalContracts;
             set
@@ -35,7 +36,7 @@ namespace MauiAppGestaoImoveis.ViewModels
         public RenterPageViewModel()
         {
             _rentalContractService = new RentalContractService();
-            RentalContracts = new ObservableCollection<RentalContract>();
+            RentalContracts = new ObservableCollection<RentalContractOutputModel>();
             LoadRentalContracts();
         }
 
@@ -45,7 +46,7 @@ namespace MauiAppGestaoImoveis.ViewModels
 
             Console.WriteLine($"Contratos: {contracts.Count}");
             // Atualiza a coleção toda e aciona o OnPropertyChanged corretamente
-            RentalContracts = new ObservableCollection<RentalContract>(contracts);
+            RentalContracts = new ObservableCollection<RentalContractOutputModel>(contracts);
         }
 
 

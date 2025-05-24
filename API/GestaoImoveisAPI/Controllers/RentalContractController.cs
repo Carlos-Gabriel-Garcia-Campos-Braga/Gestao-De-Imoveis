@@ -1,5 +1,6 @@
 ﻿using GestaoImoveisAPI.Data;
 using GestaoImoveisAPI.DTOs;
+using GestaoImoveisAPI.OutputModels;
 using GestaoImoveisAPI.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
@@ -19,7 +20,7 @@ namespace GestaoImoveisAPI.Controllers
         }
 
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<RentalContract>>> GetAll()
+        public async Task<ActionResult<IEnumerable<RentalContractOutputModel>>> GetAll()
         {
             var list = await _context.Contract
                 .Include(rc => rc.Renter)
@@ -27,7 +28,39 @@ namespace GestaoImoveisAPI.Controllers
                 .Include(rc => rc.Bills)
                 .ToListAsync();
 
-            return Ok(list);
+            var outputList = list.Select(rc => new RentalContractOutputModel
+            {
+                Renter = new RenterOutputModel
+                {
+                    Name = rc.Renter.Name,
+                    CPF = rc.Renter?.CPF?.Value,
+                    PhoneNumber = rc.Renter?.PhoneNumber?.Value
+                },
+
+                Adress = new AdressOutputModel
+                {
+                    Street = rc.Adress.Street,
+                    Complement = rc.Adress.Complement,
+                    Number = rc.Adress.Number,
+                    Neighborhood = rc.Adress.Neighborhood,
+                    City = rc.Adress.City,
+                    State = rc.Adress.State,
+                    ZipCode = rc.Adress.ZipCode
+                },
+
+                Bills = rc.Bills.Select(b => new BillsOutputModel
+                {
+                    Type = b.Type,
+                    ValidationDate = b.ValidationDate,
+                    Value = b.Value.Amount
+                }).ToList(),
+
+                StartContract = rc.StartContract,
+                EndContract = rc.EndContract,
+                RentalValue = rc.RentalValue.Amount
+            }).ToList();
+
+            return Ok(outputList);
         }
 
         [HttpPost]
@@ -76,7 +109,7 @@ namespace GestaoImoveisAPI.Controllers
                 RentalValue = new Money(rc.RentalValue),
                 Adress = adress,
                 RenterId = renter.Id,
-                Bills = bills,
+                Bills = bills
             };
 
             

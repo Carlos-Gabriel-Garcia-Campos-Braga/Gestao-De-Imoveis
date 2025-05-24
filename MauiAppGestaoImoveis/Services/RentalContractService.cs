@@ -1,5 +1,6 @@
 ﻿using MauiAppGestaoImoveis.InputModels;
 using MauiAppGestaoImoveis.Models;
+using MauiAppGestaoImoveis.OutputModels;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -50,17 +51,17 @@ namespace MauiAppGestaoImoveis.Services
             }
         }
 
-        public async Task<List<RentalContract>> GetAllRentalContractsAsync()
+        public async Task<List<RentalContractOutputModel>> GetAllRentalContractsAsync()
         {
             try
             {
-                var contracts = await _httpClient.GetFromJsonAsync<List<RentalContract>>("api/rentalcontract");
-                return contracts ?? new List<RentalContract>();
+                var contracts = await _httpClient.GetFromJsonAsync<List<RentalContractOutputModel>>("api/rentalcontract");
+                return contracts ?? new List<RentalContractOutputModel>();
             }
             catch (Exception ex)
             {
                 Console.WriteLine($"Erro ao buscar contratos: {ex.Message}");
-                return new List<RentalContract>();
+                return new List<RentalContractOutputModel>();
             }
         }
 

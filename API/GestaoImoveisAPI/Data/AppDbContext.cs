@@ -38,7 +38,7 @@ namespace GestaoImoveisAPI.Data
             {
                 entity.OwnsOne(e => e.RentalValue, money =>
                 {
-                    money.Property(p => p.Value).HasColumnName("RentalValue");
+                    money.Property(p => p.Amount).HasColumnName("RentalValue");
                 });
 
                 entity.OwnsOne(e => e.Adress, adress =>
@@ -59,7 +59,7 @@ namespace GestaoImoveisAPI.Data
             {
                 entity.OwnsOne(e => e.Value, money =>
                 {
-                    money.Property(p => p.Value).HasColumnName("Value");
+                    money.Property(p => p.Amount).HasColumnName("Value");
                 });
             });
         }

@@ -8,7 +8,7 @@ namespace SharedClasses.ValueObjects
 {
     public class Money
     {
-        public decimal Value { get; private set; }
+        public decimal Amount { get; private set; }
 
         public Money() { }
         public Money(decimal value)
@@ -18,14 +18,14 @@ namespace SharedClasses.ValueObjects
                 throw new ArgumentException("Valor monetário não pode ser negativo."); 
             }
 
-            Value = Math.Round(value, 2);
+            Amount = Math.Round(value, 2);
         }
 
-        public override string ToString() => Value.ToString("C");
+        public override string ToString() => Amount.ToString("C");
 
         public override bool Equals(object obj) =>
-            obj is Money other && Value == other.Value;
+            obj is Money other && Amount == other.Amount;
 
-        public override int GetHashCode() => Value.GetHashCode();
+        public override int GetHashCode() => Amount.GetHashCode();
     }
 }
