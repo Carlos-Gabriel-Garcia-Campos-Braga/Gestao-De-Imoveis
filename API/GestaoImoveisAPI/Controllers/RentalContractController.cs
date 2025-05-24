@@ -50,6 +50,9 @@ namespace GestaoImoveisAPI.Controllers
                 PhoneNumber = new PhoneNumber(rc.Renter.PhoneNumber)
             };
 
+            _context.Renter.Add(renter);
+            await _context.SaveChangesAsync();
+
             var adress = new Adress(
                     rc.Adress.Street,
                     rc.Adress.Complement,
@@ -72,19 +75,13 @@ namespace GestaoImoveisAPI.Controllers
                 EndContract = rc.EndContract,
                 RentalValue = new Money(rc.RentalValue),
                 Adress = adress,
-                Renter = renter,
+                RenterId = renter.Id,
                 Bills = bills,
             };
 
             
-            _context.Renter.Add(renter);
-            await _context.SaveChangesAsync();
 
-            renter.Id = rentalContract.RenterId;
             _context.Contract.Add(rentalContract);
-
-            await _context.SaveChangesAsync();
-
             // Agora salva o contrato com os IDs corretos
             await _context.SaveChangesAsync();
 

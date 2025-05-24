@@ -18,8 +18,8 @@ namespace MauiAppGestaoImoveis.ViewModels
                 RenterFlowState.Adress = new AdressInputModel
                 {
                      Street = street,
-                     Complement = complement,
-                     Number = number, 
+                    Complement = string.IsNullOrWhiteSpace(complement) ? "Sem complemento!" : complement,
+                    Number = number, 
                      Neighborhood = neighborhood,
                      City = city, 
                      State = state,
@@ -27,16 +27,7 @@ namespace MauiAppGestaoImoveis.ViewModels
                 };
             }
 
-            RenterFlowState.Adress = new AdressInputModel
-            {
-                Street = street,
-                Complement = "Sem complemento!",
-                Number = number,
-                Neighborhood = neighborhood,
-                City = city,
-                State = state,
-                ZipCode = zipCode
-            };
+            
         }
 
     }

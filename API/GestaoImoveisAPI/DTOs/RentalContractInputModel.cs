@@ -9,7 +9,7 @@
         public AdressInputModel Adress { get; set; } = new AdressInputModel();
 
         // BILLS
-        public List<BillInputModel> Bills { get; set; } = new List<BillInputModel>();
+        public ICollection<BillsInputModel> Bills { get; set; }
 
         // CONTRATO
         public DateTime StartContract { get; set; }
