@@ -94,5 +94,27 @@ namespace MauiAppGestaoImoveis.Services
                 return new List<RenterBillsGroup>();
             }
         }
+
+        public async Task<List<DelayedBillsRenter>> GetAllRentalContractsDelayedBillsAsync()
+        {
+            var contracts = await _httpClient.GetFromJsonAsync<List<RentalContractOutputModel>>("api/rentalcontract");
+
+            var delayedBills = contracts.
+                Where(d => d.Renter != null && d.Bills != null)
+                .Select(d => new DelayedBillsRenter
+                {
+                    Renter = d.Renter,
+                    DelayedBills = d.Bills
+                    .Where(b => b.ValidationDate > DateTime.Now)
+                    .Select(c => new BillsOutputModel
+                    {
+                        Type= c.Type,
+                        Value = c.Value,
+                        ValidationDate = c.ValidationDate
+                    }).ToList()
+                }).ToList();
+
+            return delayedBills;
+        }
     }
 }

@@ -5,19 +5,20 @@ namespace MauiAppGestaoImoveis.Views;
 
 public partial class LateBillsPage : ContentPage
 {
-    private readonly RenterViewModel _vm;
 
-	public LateBillsPage(RenterViewModel vm)
+	public LateBillsPage()
 	{
 		InitializeComponent();
-        _vm = vm;
 	}
 
-    protected override void OnAppearing()
+    protected override async void OnAppearing()
     {
         base.OnAppearing();
 
-        BindingContext = _vm;
+        if(BindingContext is DelayedBillsViewModel vm)
+        {
+            await vm.LoadRenters();
+        }
     }
 
     private async void LateBtn_Clicked(object sender, EventArgs e)

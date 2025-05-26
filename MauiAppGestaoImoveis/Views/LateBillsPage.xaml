@@ -1,11 +1,17 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:vm="clr-namespace:MauiAppGestaoImoveis.ViewModels"
              x:Class="MauiAppGestaoImoveis.Views.LateBillsPage"
              Title=""
              BackgroundColor="White">
+
+
+    <ContentPage.BindingContext>
+        <vm:DelayedBillsViewModel />
+    </ContentPage.BindingContext>
     
-        <Grid RowDefinitions="*, Auto">
+    <Grid RowDefinitions="*, Auto">
             <!-- Conteúdo principal -->
             <ScrollView>
                 <VerticalStackLayout Padding="0" Spacing="20">
@@ -19,18 +25,34 @@
                         TextColor="White"
                         />
 
-                <CollectionView x:Name="LateBills" ItemsSource="{Binding Renters}" Margin="12">
-                    
+                <CollectionView x:Name="RenterList" ItemsSource="{Binding DelayedBillsRenters}" Margin="12">
+
                     <CollectionView.ItemsLayout>
                         <LinearItemsLayout Orientation="Vertical" ItemSpacing="5" />
                     </CollectionView.ItemsLayout>
 
                     <CollectionView.ItemTemplate>
                         <DataTemplate>
-                            <Frame BackgroundColor="Red" CornerRadius="15" Padding="10" Margin="5">
+                            <Frame BackgroundColor="Green" CornerRadius="15" Padding="10" Margin="5">
                                 <VerticalStackLayout>
-                                    <Label Text="{Binding Name}" FontSize="18" TextColor="White"/>
-                                    <Label Text="{Binding LateBills}" FontSize="14" TextColor="White"/>
+                                    <Label Text="{Binding Renter.Name}" FontSize="18" TextColor="White"/>
+
+                                    <CollectionView ItemsSource="{Binding DelayedBills}">
+
+                                        <CollectionView.ItemsLayout>
+                                            <LinearItemsLayout Orientation="Vertical"/>
+                                        </CollectionView.ItemsLayout>
+
+                                        <CollectionView.ItemTemplate>
+                                            <DataTemplate>
+                                                <HorizontalStackLayout>
+                                                    <Label Text="{Binding Type}" FontSize="18" TextColor="White"/>
+                                                    <Label Text="{Binding Value, StringFormat='R$ {0:F2}'}" FontSize="14" TextColor="White"/>
+                                                </HorizontalStackLayout>
+                                            </DataTemplate>
+                                        </CollectionView.ItemTemplate>
+                                    </CollectionView>
+
                                 </VerticalStackLayout>
                             </Frame>
                         </DataTemplate>
