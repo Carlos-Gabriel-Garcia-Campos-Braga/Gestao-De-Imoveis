@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MauiAppGestaoImoveis.OutputModels;
+using System;
 using System.Collections.Generic;
 using System.Diagnostics.Contracts;
 using System.Linq;
@@ -9,18 +10,18 @@ namespace MauiAppGestaoImoveis.Models
 {
     public class RenterBillsGroup
     {
-        public Renter Renter{ get; set; }
-        public List<Bills> Bills{ get; set; }
+        public RenterOutputModel Renter{ get; set; }
+        public List<BillsOutputModel> Bills{ get; set; }
 
-        public RenterBillsGroup(Renter Renter, List<Bills> Bills)
+        public RenterBillsGroup(RenterOutputModel Renter, List<BillsOutputModel> Bills)
         {
             this.Renter = Renter;
-            this.Bills = Bills ?? new List<Bills>();
+            this.Bills = Bills ?? new List<BillsOutputModel>();
         }
 
         public RenterBillsGroup() 
         {
-            Bills = new List<Bills>();
+            Bills = new List<BillsOutputModel>();
         }   
         
 

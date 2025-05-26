@@ -69,7 +69,7 @@ namespace MauiAppGestaoImoveis.Services
         {
             try
             {
-                var contracts = await _httpClient.GetFromJsonAsync<List<RentalContract>>("api/rentalcontract");
+                var contracts = await _httpClient.GetFromJsonAsync<List<RentalContractOutputModel>>("api/rentalcontract");
 
                 var AllBills = contracts.
                     Where(c => c.Renter != null && c.Bills != null)
@@ -77,9 +77,8 @@ namespace MauiAppGestaoImoveis.Services
                     {
                         Renter = c.Renter,
                         Bills = c.Bills.Select
-                        (b => new Bills
+                        (b => new BillsOutputModel
                         {
-                            Id = b.Id,
                             Type = b.Type,
                             Value = b.Value,
                             ValidationDate = b.ValidationDate
