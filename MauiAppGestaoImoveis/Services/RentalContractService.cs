@@ -105,7 +105,7 @@ namespace MauiAppGestaoImoveis.Services
                 {
                     Renter = d.Renter,
                     DelayedBills = d.Bills
-                    .Where(b => b.ValidationDate > DateTime.Now)
+                    .Where(b => b.ValidationDate < DateTime.Now)
                     .Select(c => new BillsOutputModel
                     {
                         Type= c.Type,

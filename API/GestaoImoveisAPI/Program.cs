@@ -1,4 +1,5 @@
 using GestaoImoveisAPI.Data;
+using GestaoImoveisAPI.Services;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -21,7 +22,8 @@ builder.Services.AddSwaggerGen();
 builder.Services.AddCors(o => o.AddPolicy("AllowAll", p => //Libera o acesso ao MAUI
                                                         p.AllowAnyOrigin().AllowAnyMethod().AllowAnyHeader()));
 
-
+//Registro do AddressService para uso do ViaCEP
+builder.Services.AddHttpClient<AddressService>();
 
 
 var app = builder.Build();

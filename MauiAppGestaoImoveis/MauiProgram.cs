@@ -1,4 +1,5 @@
 ﻿using MauiAppGestaoImoveis.Models;
+using MauiAppGestaoImoveis.Services;
 using MauiAppGestaoImoveis.ViewModels;
 using MauiAppGestaoImoveis.Views;
 using Microsoft.Extensions.Logging;
@@ -20,7 +21,8 @@ namespace MauiAppGestaoImoveis
 
             builder.Services.AddSingleton<RenterViewModel>(); //Cria uma unica instancia do RenterViewModel
             builder.Services.AddSingleton<AddRenterViewModel>();//Cria uma unica instancia do AddRenterViewModel
-            builder.Services.AddTransient<AddRenterPage>(); //Cria uma nova instancia da pagina assim que chamada   
+            builder.Services.AddTransient<AddRenterPage>(); //Cria uma nova instancia da pagina assim que chamada
+            builder.Services.AddTransient<AddressService>();
             builder.Services.AddTransient<RenterPage>();
             builder.Services.AddTransient<AddRenterBillsPage>();
             builder.Services.AddTransient<MonthlyBillsPage>();
@@ -32,12 +34,13 @@ namespace MauiAppGestaoImoveis
             builder.Services.AddTransient<AddRenterAdressViewModel>();
             builder.Services.AddTransient<AddRenterBillViewModel>();
             builder.Services.AddTransient<RenterPageViewModel>();
+            builder.Services.AddTransient<AddRenterAdressPage>();
 
 
 
 
 #if DEBUG
-    		builder.Logging.AddDebug();
+            builder.Logging.AddDebug();
 #endif
 
             return builder.Build();
