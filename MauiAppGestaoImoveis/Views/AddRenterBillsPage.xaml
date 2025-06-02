@@ -4,8 +4,11 @@
              x:Class="MauiAppGestaoImoveis.Views.AddRenterBillsPage"
              Title="AddRenterBillsPage">
     <VerticalStackLayout>
-        <Label Text="Tipo"/>
+        <Label Text="IPTU"/>
         <Entry Placeholder="Tipo" x:Name="TypeInput"/>
+
+        <Label Text="Valor do IPTU"/>
+        <Entry Placeholder="IPTU" x:Name="ValueInput" Keyboard="Numeric"/>
 
         <Label Text="Vencimento"/>
         <DatePicker x:Name="DateInput"
@@ -14,10 +17,7 @@
                     />
 
         
-
-        <Label Text="Valor"/>
-        <Entry Placeholder="Tipo" x:Name="ValueInput" Keyboard="Numeric"/>
-
+        
         <Label Text="Valor do aluguel"/>
         <Entry Placeholder="Tipo" x:Name="RentalInput" Keyboard="Numeric"/>
         

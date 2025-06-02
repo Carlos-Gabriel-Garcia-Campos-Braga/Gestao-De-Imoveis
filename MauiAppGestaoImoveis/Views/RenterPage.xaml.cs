@@ -27,7 +27,5 @@ public partial class RenterPage : ContentPage
 
             Console.WriteLine($"Qtd itens: {Contracts.ItemsSource.Cast<object>().Count()}");
         }
-        
-        
     }
 }

@@ -1,0 +1,41 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "Run API",
+      "type": "shell",
+      "command": "dotnet run --project ./API/GestaoImoveisAPI",
+      "problemMatcher": "$msCompile"
+    },
+    {
+      "label": "Run MAUI Android",
+      "type": "shell",
+      "command": "dotnet build -t:Run ./MauiAppGestaoImoveis -f net8.0-android",
+      "problemMatcher": "$msCompile"
+    },
+    {
+      "label": "Run MAUI Mac",
+      "type": "shell",
+      "command": "dotnet build ./MauiAppGestaoImoveis -f net8.0-maccatalyst && open ./MauiAppGestaoImoveis/bin/Debug/net8.0-maccatalyst/maccatalyst-arm64/MauiAppGestaoImoveis.app",
+      "problemMatcher": "$msCompile"
+    },
+    {
+      "label": "Build SharedClassess",
+      "type": "shell",
+      "command": "dotnet build ./SharedClassess",
+      "problemMatcher": "$msCompile"
+    },
+    {
+      "label": "Run All Android",
+      "dependsOn": ["Build SharedClassess", "Run API", "Run MAUI Android"],
+      "dependsOrder": "parallel",
+      "problemMatcher": []
+    },
+    {
+      "label": "Run All Mac",
+      "dependsOn": ["Build SharedClassess", "Run API", "Run MAUI Mac"],
+      "dependsOrder": "parallel",
+      "problemMatcher": []
+    }
+  ]
+}
