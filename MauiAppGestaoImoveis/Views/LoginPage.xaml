@@ -3,7 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="MauiAppGestaoImoveis.Views.LoginPage"
              Title=""
-             BackgroundColor="White">
+             >
     <VerticalStackLayout Spacing="8" Padding="10">
         <Label Text="Bem-Vindo ao Gestão de Imóveis Brandão"
                HorizontalTextAlignment="Center"

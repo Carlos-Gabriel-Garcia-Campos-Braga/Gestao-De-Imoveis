@@ -7,7 +7,7 @@ namespace MauiAppGestaoImoveis
         public App()
         {
             InitializeComponent();
-
+            
             MainPage = new AppShell();
         }
     }
