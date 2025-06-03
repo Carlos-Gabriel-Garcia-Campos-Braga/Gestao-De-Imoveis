@@ -1,4 +1,8 @@
 using GestaoImoveisAPI.Data;
+using GestaoImoveisAPI.Models;
+using Microsoft.AspNetCore.Http.HttpResults;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 
 namespace GestaoImoveisAPI.Controller
 {
