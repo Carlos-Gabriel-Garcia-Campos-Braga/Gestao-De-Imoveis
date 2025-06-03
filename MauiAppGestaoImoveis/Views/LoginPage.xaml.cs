@@ -1,21 +1,27 @@
+
 using MauiAppGestaoImoveis.Models;
+using MauiAppGestaoImoveis.Services;
+using MauiAppGestaoImoveis.ViewModels;
 
 namespace MauiAppGestaoImoveis.Views;
 
 public partial class LoginPage : ContentPage
 {
+	private readonly UserService userService = new UserService();
 	public LoginPage()
 	{
 		InitializeComponent();
 	}
-
-	User U1 = new User("Carlos");
 	private async void LoginButton_Clicked(object sender, EventArgs e)
 	{
-		if (EmailInput.Text == U1.getEmail && SenhaInput.Text == U1.getPassword) 
+		try
 		{
-			//Navegacao pelo Shell, esse é o padrao
+			var user = await userService.LoginAsync(EmailInput.Text, SenhaInput.Text);
 			await Shell.Current.GoToAsync("main");
+		}
+		catch (Exception ex)
+		{
+			await DisplayAlert("Erro: ", ex.Message, "Ok");
 		}
 	}
 }

@@ -16,6 +16,7 @@ namespace GestaoImoveisAPI.Data
         public DbSet<Bills> Bills => Set<Bills>();
 
         public DbSet<RentalContract> Contract => Set<RentalContract>();
+        public DbSet<User> User => Set<User>();
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
@@ -30,6 +31,15 @@ namespace GestaoImoveisAPI.Data
                 entity.OwnsOne(e => e.PhoneNumber, phone =>
                 {
                     phone.Property(p => p.Value).HasColumnName("PhoneNumber");
+                });
+            });
+
+            // ✅ User
+            modelBuilder.Entity<User>(entity =>
+            {
+                entity.OwnsOne(e => e.Email, email =>
+                {
+                    email.Property(p => p.email).HasColumnName("Email");
                 });
             });
 

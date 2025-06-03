@@ -1,25 +1,29 @@
+using System.Text.RegularExpressions;
+
 namespace SharedClasses.ValueObjects
 {
-    public string Email { get; set; }
-
-    public Email(string email)
+    public class Email
     {
-        if (string.IsNullOrWhiteSpace(email))
-        {
-            throw new ArgumentException("O e-mail nao pode estar vazio!");
-        }
+        public string email { get; set; }
 
-        if (!isValidEmail())
+        public Email(string email)
+        {
+            if (string.IsNullOrWhiteSpace(email))
+            {
+                throw new ArgumentException("O e-mail nao pode estar vazio!");
+            }
+
+            if (!isValidEmail(email))
             {
                 throw new ArgumentException("Formato de e-mail invalido!");
             }
-        Email = email;
-    }
+            this.email = email;
+        }
 
-    public bool isValidEmail()
-    {
-        var regex = new Regex(@"^[^@\s]+@[^@\s]+\.[^@\s]+$");
-        return regex.IsMatch(email);
+        public bool isValidEmail(string email)
+        {
+            var regex = new Regex(@"^[^@\s]+@[^@\s]+\.[^@\s]+$");
+            return regex.IsMatch(email);
+        }
     }
-    
 }

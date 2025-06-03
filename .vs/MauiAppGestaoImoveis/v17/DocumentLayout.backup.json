@@ -3,20 +3,24 @@
   "WorkspaceRootPath": "C:\\Users\\carlo\\Desktop\\PC\\GestaoImoveis\\MauiAppGestaoImoveis\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{A0CE7E6E-E430-3FB9-8F39-78EE99D68ED9}|API\\GestaoImoveisAPI\\GestaoImoveisAPI.csproj|c:\\users\\carlo\\desktop\\pc\\gestaoimoveis\\mauiappgestaoimoveis\\api\\gestaoimoveisapi\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
-      "RelativeMoniker": "D:0:0:{A0CE7E6E-E430-3FB9-8F39-78EE99D68ED9}|API\\GestaoImoveisAPI\\GestaoImoveisAPI.csproj|solutionrelative:api\\gestaoimoveisapi\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{A0CE7E6E-E430-3FB9-8F39-78EE99D68ED9}|API\\GestaoImoveisAPI\\GestaoImoveisAPI.csproj|c:\\users\\carlo\\desktop\\pc\\gestaoimoveis\\mauiappgestaoimoveis\\api\\gestaoimoveisapi\\controllers\\usercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{A0CE7E6E-E430-3FB9-8F39-78EE99D68ED9}|API\\GestaoImoveisAPI\\GestaoImoveisAPI.csproj|solutionrelative:api\\gestaoimoveisapi\\controllers\\usercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{385D5469-E627-4993-B65A-F8A3C6AD8908}|MauiAppGestaoImoveis\\MauiAppGestaoImoveis.csproj|c:\\users\\carlo\\desktop\\pc\\gestaoimoveis\\mauiappgestaoimoveis\\mauiappgestaoimoveis\\views\\addrenteradresspage.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
-      "RelativeMoniker": "D:0:0:{385D5469-E627-4993-B65A-F8A3C6AD8908}|MauiAppGestaoImoveis\\MauiAppGestaoImoveis.csproj|solutionrelative:mauiappgestaoimoveis\\views\\addrenteradresspage.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+      "AbsoluteMoniker": "D:0:0:{7F108E88-D3A5-6824-B957-908920E92D47}|SharedClassess\\SharedClasses\\SharedClasses.csproj|c:\\users\\carlo\\desktop\\pc\\gestaoimoveis\\mauiappgestaoimoveis\\sharedclassess\\sharedclasses\\models\\useroutput.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7F108E88-D3A5-6824-B957-908920E92D47}|SharedClassess\\SharedClasses\\SharedClasses.csproj|solutionrelative:sharedclassess\\sharedclasses\\models\\useroutput.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{385D5469-E627-4993-B65A-F8A3C6AD8908}|MauiAppGestaoImoveis\\MauiAppGestaoImoveis.csproj|c:\\users\\carlo\\desktop\\pc\\gestaoimoveis\\mauiappgestaoimoveis\\mauiappgestaoimoveis\\viewmodels\\addrenteradressviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{385D5469-E627-4993-B65A-F8A3C6AD8908}|MauiAppGestaoImoveis\\MauiAppGestaoImoveis.csproj|solutionrelative:mauiappgestaoimoveis\\viewmodels\\addrenteradressviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{385D5469-E627-4993-B65A-F8A3C6AD8908}|MauiAppGestaoImoveis\\MauiAppGestaoImoveis.csproj|c:\\users\\carlo\\desktop\\pc\\gestaoimoveis\\mauiappgestaoimoveis\\mauiappgestaoimoveis\\services\\userservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{385D5469-E627-4993-B65A-F8A3C6AD8908}|MauiAppGestaoImoveis\\MauiAppGestaoImoveis.csproj|solutionrelative:mauiappgestaoimoveis\\services\\userservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{385D5469-E627-4993-B65A-F8A3C6AD8908}|MauiAppGestaoImoveis\\MauiAppGestaoImoveis.csproj|c:\\users\\carlo\\desktop\\pc\\gestaoimoveis\\mauiappgestaoimoveis\\mauiappgestaoimoveis\\auxiliarclasses\\loginrequest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{385D5469-E627-4993-B65A-F8A3C6AD8908}|MauiAppGestaoImoveis\\MauiAppGestaoImoveis.csproj|solutionrelative:mauiappgestaoimoveis\\auxiliarclasses\\loginrequest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{385D5469-E627-4993-B65A-F8A3C6AD8908}|MauiAppGestaoImoveis\\MauiAppGestaoImoveis.csproj|c:\\users\\carlo\\desktop\\pc\\gestaoimoveis\\mauiappgestaoimoveis\\mauiappgestaoimoveis\\mauiprogram.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{385D5469-E627-4993-B65A-F8A3C6AD8908}|MauiAppGestaoImoveis\\MauiAppGestaoImoveis.csproj|solutionrelative:mauiappgestaoimoveis\\mauiprogram.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -31,53 +35,67 @@
             {
               "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "appsettings.json",
-              "DocumentMoniker": "C:\\Users\\carlo\\Desktop\\PC\\GestaoImoveis\\MauiAppGestaoImoveis\\API\\GestaoImoveisAPI\\appsettings.json",
-              "RelativeDocumentMoniker": "API\\GestaoImoveisAPI\\appsettings.json",
-              "ToolTip": "C:\\Users\\carlo\\Desktop\\PC\\GestaoImoveis\\MauiAppGestaoImoveis\\API\\GestaoImoveisAPI\\appsettings.json",
-              "RelativeToolTip": "API\\GestaoImoveisAPI\\appsettings.json",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAMAAABSAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
-              "WhenOpened": "2025-06-03T01:40:26.496Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
               "Title": "UserController.cs",
               "DocumentMoniker": "C:\\Users\\carlo\\Desktop\\PC\\GestaoImoveis\\MauiAppGestaoImoveis\\API\\GestaoImoveisAPI\\Controllers\\UserController.cs",
               "RelativeDocumentMoniker": "API\\GestaoImoveisAPI\\Controllers\\UserController.cs",
               "ToolTip": "C:\\Users\\carlo\\Desktop\\PC\\GestaoImoveis\\MauiAppGestaoImoveis\\API\\GestaoImoveisAPI\\Controllers\\UserController.cs",
               "RelativeToolTip": "API\\GestaoImoveisAPI\\Controllers\\UserController.cs",
-              "ViewState": "AgIAAAQAAAAAAAAAAAAYwBcAAAAYAAAAAAAAAA==",
+              "ViewState": "AgIAABoAAAAAAAAAAAAIwC0AAAAhAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-06-03T01:39:15.442Z",
+              "WhenOpened": "2025-06-03T19:39:37.58Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "UserOutput.cs",
+              "DocumentMoniker": "C:\\Users\\carlo\\Desktop\\PC\\GestaoImoveis\\MauiAppGestaoImoveis\\SharedClassess\\SharedClasses\\Models\\UserOutput.cs",
+              "RelativeDocumentMoniker": "SharedClassess\\SharedClasses\\Models\\UserOutput.cs",
+              "ToolTip": "C:\\Users\\carlo\\Desktop\\PC\\GestaoImoveis\\MauiAppGestaoImoveis\\SharedClassess\\SharedClasses\\Models\\UserOutput.cs",
+              "RelativeToolTip": "SharedClassess\\SharedClasses\\Models\\UserOutput.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA8AAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-03T19:33:49.389Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 2,
-              "Title": "AddRenterAdressPage.xaml",
-              "DocumentMoniker": "C:\\Users\\carlo\\Desktop\\PC\\GestaoImoveis\\MauiAppGestaoImoveis\\MauiAppGestaoImoveis\\Views\\AddRenterAdressPage.xaml",
-              "RelativeDocumentMoniker": "MauiAppGestaoImoveis\\Views\\AddRenterAdressPage.xaml",
-              "ToolTip": "C:\\Users\\carlo\\Desktop\\PC\\GestaoImoveis\\MauiAppGestaoImoveis\\MauiAppGestaoImoveis\\Views\\AddRenterAdressPage.xaml",
-              "RelativeToolTip": "MauiAppGestaoImoveis\\Views\\AddRenterAdressPage.xaml",
-              "ViewState": "AgIAAAYAAAAAAAAAAAAUwAkAAAA+AAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
-              "WhenOpened": "2025-05-30T13:09:28.183Z",
+              "Title": "UserService.cs",
+              "DocumentMoniker": "C:\\Users\\carlo\\Desktop\\PC\\GestaoImoveis\\MauiAppGestaoImoveis\\MauiAppGestaoImoveis\\Services\\UserService.cs",
+              "RelativeDocumentMoniker": "MauiAppGestaoImoveis\\Services\\UserService.cs",
+              "ToolTip": "C:\\Users\\carlo\\Desktop\\PC\\GestaoImoveis\\MauiAppGestaoImoveis\\MauiAppGestaoImoveis\\Services\\UserService.cs",
+              "RelativeToolTip": "MauiAppGestaoImoveis\\Services\\UserService.cs",
+              "ViewState": "AgIAABcAAAAAAAAAAAAkwC0AAAAJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-03T19:24:39.553Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 3,
-              "Title": "AddRenterAdressViewModel.cs",
-              "DocumentMoniker": "C:\\Users\\carlo\\Desktop\\PC\\GestaoImoveis\\MauiAppGestaoImoveis\\MauiAppGestaoImoveis\\ViewModels\\AddRenterAdressViewModel.cs",
-              "RelativeDocumentMoniker": "MauiAppGestaoImoveis\\ViewModels\\AddRenterAdressViewModel.cs",
-              "ToolTip": "C:\\Users\\carlo\\Desktop\\PC\\GestaoImoveis\\MauiAppGestaoImoveis\\MauiAppGestaoImoveis\\ViewModels\\AddRenterAdressViewModel.cs",
-              "RelativeToolTip": "MauiAppGestaoImoveis\\ViewModels\\AddRenterAdressViewModel.cs",
-              "ViewState": "AgIAAF0AAAAAAAAAAAAuwGUAAAAsAAAAAAAAAA==",
+              "Title": "LoginRequest.cs",
+              "DocumentMoniker": "C:\\Users\\carlo\\Desktop\\PC\\GestaoImoveis\\MauiAppGestaoImoveis\\MauiAppGestaoImoveis\\AuxiliarClasses\\LoginRequest.cs",
+              "RelativeDocumentMoniker": "MauiAppGestaoImoveis\\AuxiliarClasses\\LoginRequest.cs",
+              "ToolTip": "C:\\Users\\carlo\\Desktop\\PC\\GestaoImoveis\\MauiAppGestaoImoveis\\MauiAppGestaoImoveis\\AuxiliarClasses\\LoginRequest.cs",
+              "RelativeToolTip": "MauiAppGestaoImoveis\\AuxiliarClasses\\LoginRequest.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-05-30T13:07:16.075Z"
+              "WhenOpened": "2025-06-03T19:26:39.392Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "MauiProgram.cs",
+              "DocumentMoniker": "C:\\Users\\carlo\\Desktop\\PC\\GestaoImoveis\\MauiAppGestaoImoveis\\MauiAppGestaoImoveis\\MauiProgram.cs",
+              "RelativeDocumentMoniker": "MauiAppGestaoImoveis\\MauiProgram.cs",
+              "ToolTip": "C:\\Users\\carlo\\Desktop\\PC\\GestaoImoveis\\MauiAppGestaoImoveis\\MauiAppGestaoImoveis\\MauiProgram.cs",
+              "RelativeToolTip": "MauiAppGestaoImoveis\\MauiProgram.cs",
+              "ViewState": "AgIAABAAAAAAAAAAAAAwwBoAAAAzAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-03T19:21:01.258Z",
+              "EditorCaption": ""
             }
           ]
         },

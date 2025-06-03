@@ -23,6 +23,8 @@ namespace MauiAppGestaoImoveis
             builder.Services.AddSingleton<AddRenterViewModel>();//Cria uma unica instancia do AddRenterViewModel
             builder.Services.AddTransient<AddRenterPage>(); //Cria uma nova instancia da pagina assim que chamada
             builder.Services.AddTransient<AddressService>();
+            builder.Services.AddTransient<UserService>();
+            builder.Services.AddTransient<LoginPage>();
             builder.Services.AddTransient<RenterPage>();
             builder.Services.AddTransient<AddRenterBillsPage>();
             builder.Services.AddTransient<MonthlyBillsPage>();

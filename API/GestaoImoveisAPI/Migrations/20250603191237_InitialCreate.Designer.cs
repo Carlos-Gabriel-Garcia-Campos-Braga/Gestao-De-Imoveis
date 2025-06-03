@@ -12,7 +12,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace GestaoImoveisAPI.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20250523190032_InitialCreate")]
+    [Migration("20250603191237_InitialCreate")]
     partial class InitialCreate
     {
         /// <inheritdoc />
@@ -91,6 +91,27 @@ namespace GestaoImoveisAPI.Migrations
                     b.ToTable("Renter");
                 });
 
+            modelBuilder.Entity("GestaoImoveisAPI.Models.User", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    MySqlPropertyBuilderExtensions.UseMySqlIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasColumnType("longtext");
+
+                    b.Property<string>("Password")
+                        .IsRequired()
+                        .HasColumnType("longtext");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("User");
+                });
+
             modelBuilder.Entity("GestaoImoveisAPI.Models.Bills", b =>
                 {
                     b.HasOne("GestaoImoveisAPI.Models.RentalContract", "RentalContract")
@@ -102,7 +123,7 @@ namespace GestaoImoveisAPI.Migrations
                             b1.Property<int>("BillsId")
                                 .HasColumnType("int");
 
-                            b1.Property<decimal>("Value")
+                            b1.Property<decimal>("Amount")
                                 .HasColumnType("decimal(65,30)")
                                 .HasColumnName("Value");
 
@@ -133,7 +154,7 @@ namespace GestaoImoveisAPI.Migrations
                             b1.Property<int>("RentalContractId")
                                 .HasColumnType("int");
 
-                            b1.Property<decimal>("Value")
+                            b1.Property<decimal>("Amount")
                                 .HasColumnType("decimal(65,30)")
                                 .HasColumnName("RentalValue");
 
@@ -244,6 +265,30 @@ namespace GestaoImoveisAPI.Migrations
                         .IsRequired();
 
                     b.Navigation("PhoneNumber")
+                        .IsRequired();
+                });
+
+            modelBuilder.Entity("GestaoImoveisAPI.Models.User", b =>
+                {
+                    b.OwnsOne("SharedClasses.ValueObjects.Email", "Email", b1 =>
+                        {
+                            b1.Property<int>("UserId")
+                                .HasColumnType("int");
+
+                            b1.Property<string>("email")
+                                .IsRequired()
+                                .HasColumnType("longtext")
+                                .HasColumnName("Email");
+
+                            b1.HasKey("UserId");
+
+                            b1.ToTable("User");
+
+                            b1.WithOwner()
+                                .HasForeignKey("UserId");
+                        });
+
+                    b.Navigation("Email")
                         .IsRequired();
                 });
 
