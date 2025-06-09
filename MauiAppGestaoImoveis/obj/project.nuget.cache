@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "iOCkWP1yKis=",
+  "dgSpecHash": "VN29uwfCkE8=",
   "success": true,
-  "projectFilePath": "C:\\Users\\carlo\\Desktop\\PC\\GestaoImoveis\\MauiAppGestaoImoveis\\MauiAppGestaoImoveis\\MauiAppGestaoImoveis.csproj",
+  "projectFilePath": "C:\\Users\\carlo\\OneDrive\\Área de Trabalho\\PC\\Gestao de Imoveis\\Gestao-De-Imoveis\\MauiAppGestaoImoveis\\MauiAppGestaoImoveis.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\carlo\\.nuget\\packages\\communitytoolkit.mvvm\\8.4.0\\communitytoolkit.mvvm.8.4.0.nupkg.sha512",
     "C:\\Users\\carlo\\.nuget\\packages\\googlegson\\2.10.1.4\\googlegson.2.10.1.4.nupkg.sha512",

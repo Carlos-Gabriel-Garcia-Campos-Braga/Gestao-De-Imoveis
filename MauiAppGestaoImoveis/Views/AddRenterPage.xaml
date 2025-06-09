@@ -5,6 +5,9 @@
              Title=""
              >
     <VerticalStackLayout>
+
+        <Label Text="Teste"/>
+
         <Label Text="Nome: "/>
         <Entry Placeholder="Digite o nome do inquilino" x:Name="NameInput" TextChanged="NameInput_TextChanged"/>
 
