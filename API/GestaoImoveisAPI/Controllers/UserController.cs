@@ -5,6 +5,8 @@ using Microsoft.AspNetCore.Identity.Data;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using SharedClasses.Models;
+using SharedClasses.AuxiliarClasses;
+using SharedClasses.OutputsDTOs;
 
 namespace GestaoImoveisAPI.Controller
 {
@@ -28,7 +30,7 @@ namespace GestaoImoveisAPI.Controller
         }
 
         [HttpPost("login")]
-        public async Task<IActionResult> Login([FromBody] AuxiliarClasses.LoginRequest request)
+        public async Task<IActionResult> Login([FromBody] SharedClasses.AuxiliarClasses.LoginRequest request)
         {
             //Busca o primeiro registro que possui que satisfaca a condicao
             var User = await _context.User.FirstOrDefaultAsync(u => u.Email.email == request.Email);

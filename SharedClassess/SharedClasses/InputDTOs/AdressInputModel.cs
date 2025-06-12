@@ -1,4 +1,4 @@
-﻿namespace GestaoImoveisAPI.DTOs
+﻿namespace SharedClasses.InputDTOs
 {
     public class AdressInputModel
     {

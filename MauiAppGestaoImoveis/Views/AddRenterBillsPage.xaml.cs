@@ -1,7 +1,7 @@
 using MauiAppGestaoImoveis.ViewModels;
 using MauiAppGestaoImoveis.Models;
 using SharedClasses.ValueObjects;
-using MauiAppGestaoImoveis.InputModels;
+using SharedClasses.InputDTOs;
 
 namespace MauiAppGestaoImoveis.Views;
 

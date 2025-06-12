@@ -1,4 +1,4 @@
-﻿namespace MauiAppGestaoImoveis.OutputModels
+﻿namespace SharedClasses.OutputsDTOs
 {
     public class RenterOutputModel
     {

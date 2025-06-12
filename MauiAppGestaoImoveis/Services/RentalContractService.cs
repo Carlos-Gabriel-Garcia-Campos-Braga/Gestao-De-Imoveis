@@ -1,6 +1,4 @@
-﻿using MauiAppGestaoImoveis.InputModels;
-using MauiAppGestaoImoveis.Models;
-using MauiAppGestaoImoveis.OutputModels;
+﻿using MauiAppGestaoImoveis.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -8,6 +6,8 @@ using System.Net.Http.Json;
 using System.Text;
 using System.Text.Json;
 using System.Threading.Tasks;
+using SharedClasses.InputDTOs;
+using SharedClasses.OutputsDTOs;
 
 namespace MauiAppGestaoImoveis.Services
 {

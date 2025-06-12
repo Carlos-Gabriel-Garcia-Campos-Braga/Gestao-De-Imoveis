@@ -1,5 +1,5 @@
 ﻿using MauiAppGestaoImoveis.Models;
-using MauiAppGestaoImoveis.OutputModels;
+using SharedClasses.OutputsDTOs;
 using MauiAppGestaoImoveis.Services;
 using System.Collections.ObjectModel;
 using System.ComponentModel;

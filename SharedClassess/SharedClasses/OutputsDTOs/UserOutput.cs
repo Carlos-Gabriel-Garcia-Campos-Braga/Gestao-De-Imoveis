@@ -4,11 +4,12 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace MauiAppGestaoImoveis.AuxiliarClasses
+namespace SharedClasses.OutputsDTOs
 {
-    public class LoginRequest
+    public class UserOutput
     {
+        public int Id { get; set; }  
+        public string Name { get; set; }
         public string Email { get; set; }
-        public string Password { get; set; }
     }
 }

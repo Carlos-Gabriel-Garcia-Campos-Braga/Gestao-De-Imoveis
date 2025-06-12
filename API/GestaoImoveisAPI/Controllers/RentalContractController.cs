@@ -1,10 +1,10 @@
 ﻿using GestaoImoveisAPI.Data;
-using GestaoImoveisAPI.DTOs;
-using GestaoImoveisAPI.OutputModels;
+using SharedClasses.InputDTOs;
 using GestaoImoveisAPI.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using SharedClasses.ValueObjects;
+using SharedClasses.OutputsDTOs;
 
 namespace GestaoImoveisAPI.Controllers
 {

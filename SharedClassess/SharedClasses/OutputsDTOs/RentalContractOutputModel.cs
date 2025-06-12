@@ -1,4 +1,4 @@
-﻿namespace GestaoImoveisAPI.OutputModels
+﻿namespace SharedClasses.OutputsDTOs
 {
     public class RentalContractOutputModel
     {

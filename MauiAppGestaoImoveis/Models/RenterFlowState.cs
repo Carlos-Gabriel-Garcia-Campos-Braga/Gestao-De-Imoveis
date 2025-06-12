@@ -1,4 +1,4 @@
-﻿using MauiAppGestaoImoveis.InputModels;
+﻿using SharedClasses.InputDTOs;
 using SharedClasses.ValueObjects;
 using System;
 using System.Collections.Generic;

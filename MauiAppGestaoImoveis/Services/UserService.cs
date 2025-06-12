@@ -5,8 +5,9 @@ using System.Linq;
 using System.Net.Http.Json;
 using System.Text;
 using System.Threading.Tasks;
-using MauiAppGestaoImoveis.AuxiliarClasses;
 using SharedClasses.Models;
+using SharedClasses.AuxiliarClasses;
+using SharedClasses.OutputsDTOs;
 
 namespace MauiAppGestaoImoveis.Services
 {

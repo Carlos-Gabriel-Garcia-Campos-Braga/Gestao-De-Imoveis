@@ -1,5 +1,5 @@
 ﻿using CommunityToolkit.Mvvm.ComponentModel;
-using MauiAppGestaoImoveis.InputModels;
+using SharedClasses.InputDTOs;
 using MauiAppGestaoImoveis.Models;
 using SharedClasses.ValueObjects;
 using System;
