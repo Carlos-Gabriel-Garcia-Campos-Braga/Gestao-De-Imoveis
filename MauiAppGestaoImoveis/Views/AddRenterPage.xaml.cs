@@ -83,8 +83,6 @@ public partial class AddRenterPage : ContentPage
         }
     }
 
-
-
     private bool IsValidCPF(string cpf)
     {
         cpf = Regex.Replace(cpf, "[^0-9]", "");

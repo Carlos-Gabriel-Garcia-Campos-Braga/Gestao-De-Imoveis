@@ -5,6 +5,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using SharedClasses.ValueObjects;
 using SharedClasses.OutputsDTOs;
+using GestaoImoveisAPI.Validators;
 
 namespace GestaoImoveisAPI.Controllers
 {
@@ -13,10 +14,12 @@ namespace GestaoImoveisAPI.Controllers
     public class RentalContractController : ControllerBase
     {
         private readonly AppDbContext _context;
+        private readonly RentalContractValidator _validator;
 
-        public RentalContractController(AppDbContext context)
+        public RentalContractController(AppDbContext context, RentalContractValidator validator)
         {
             _context = context;
+            _validator = validator;
         }
 
         [HttpGet]
@@ -66,16 +69,11 @@ namespace GestaoImoveisAPI.Controllers
         [HttpPost]
         public async Task<IActionResult> Create([FromBody] RentalContractInputModel rc)
         {
-            if(_context.Contract
-            .Include(c => c.Renter)
-            .Any(c => c.Renter.CPF.Value == rc.Renter.CPF))
-            {
-                return BadRequest("Já existe um contrato para este locatário.");
-            }
 
-            if (rc == null || rc.Renter == null || rc.Adress == null || rc.Bills == null)
+            var validData = _validator.IsValidData(rc);
+            if (!validData.Any)
             {
-                return BadRequest("Dados incompletos");
+                return BadRequest(new { Errors = validData.Errors });
             }
 
             Console.WriteLine("===== RECEBIDO NA API =====");

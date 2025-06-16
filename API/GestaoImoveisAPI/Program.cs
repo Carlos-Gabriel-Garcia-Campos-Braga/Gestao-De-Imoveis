@@ -1,6 +1,7 @@
 using GestaoImoveisAPI.Data;
 using GestaoImoveisAPI.Services;
 using Microsoft.EntityFrameworkCore;
+using GestaoImoveisAPI.Validators;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -24,6 +25,7 @@ builder.Services.AddCors(o => o.AddPolicy("AllowAll", p => //Libera o acesso ao 
 
 //Registro do AddressService para uso do ViaCEP
 builder.Services.AddHttpClient<AddressService>();
+builder.Services.AddScoped<RentalContractValidator>();
 
 
 var app = builder.Build();
