@@ -30,7 +30,7 @@ public partial class AddRenterPage : ContentPage
             }
             else
             {
-                await DisplayAlert("Atenção", "Preencha todos os campos corretamente.", "Ok");
+                await DisplayAlert("AtenÃ§ao", "Preencha todos os campos corretamente.", "Ok");
             }
         }
         catch (Exception ex)
@@ -79,7 +79,7 @@ public partial class AddRenterPage : ContentPage
         }
         else
         {
-            ErrorLabel.Text = "O CPF deve conter 11 dígitos.";
+            ErrorLabel.Text = "O CPF deve conter 11 dï¿½gitos.";
         }
     }
 

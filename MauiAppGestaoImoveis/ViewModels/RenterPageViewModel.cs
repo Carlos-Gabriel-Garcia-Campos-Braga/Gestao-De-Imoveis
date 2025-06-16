@@ -45,8 +45,38 @@ namespace MauiAppGestaoImoveis.ViewModels
             var contracts = await _rentalContractService.GetAllRentalContractsAsync();
 
             Console.WriteLine($"Contratos: {contracts.Count}");
+            
+            var formattedContracts = contracts.Select(c => new RentalContractOutputModel
+            {
+                Renter = new RenterOutputModel
+                {
+                    Name = c.Renter.Name,
+                    CPF = c.Renter.FormattedCPF,
+                    PhoneNumber = c.Renter.FormattedPhoneNumber
+                },
+                Adress = new AdressOutputModel
+                {
+                    Street = c.Adress.Street,
+                    Complement = c.Adress.Complement,
+                    Number = c.Adress.Number,
+                    Neighborhood = c.Adress.Neighborhood,
+                    City = c.Adress.City,
+                    State = c.Adress.State,
+                    ZipCode = c.Adress.ZipCode
+                },
+                Bills = c.Bills.Select(b => new BillsOutputModel
+                {
+                    Type = b.Type,
+                    ValidationDate = b.ValidationDate,
+                    Value = b.Value
+                }).ToList(),
+                StartContract = c.StartContract,
+                EndContract = c.EndContract,
+                RentalValue = c.RentalValue
+            }).ToList();
+
             // Atualiza a coleção toda e aciona o OnPropertyChanged corretamente
-            RentalContracts = new ObservableCollection<RentalContractOutputModel>(contracts);
+            RentalContracts = new ObservableCollection<RentalContractOutputModel>(formattedContracts);
         }
 
 

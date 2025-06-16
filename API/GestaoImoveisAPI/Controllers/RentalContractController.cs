@@ -66,8 +66,17 @@ namespace GestaoImoveisAPI.Controllers
         [HttpPost]
         public async Task<IActionResult> Create([FromBody] RentalContractInputModel rc)
         {
+            if(_context.Contract
+            .Include(c => c.Renter)
+            .Any(c => c.Renter.CPF.Value == rc.Renter.CPF))
+            {
+                return BadRequest("Já existe um contrato para este locatário.");
+            }
+
             if (rc == null || rc.Renter == null || rc.Adress == null || rc.Bills == null)
+            {
                 return BadRequest("Dados incompletos");
+            }
 
             Console.WriteLine("===== RECEBIDO NA API =====");
             Console.WriteLine($"Renter: {rc.Renter?.Name} - {rc.Renter?.CPF}");
