@@ -15,10 +15,25 @@
 
         private string FormatPhone(string phoneNumber)
         {
-            if (string.IsNullOrEmpty(phoneNumber) || phoneNumber.Length < 10)
-                return phoneNumber;
+            if (string.IsNullOrWhiteSpace(phoneNumber))
+            {
+                return string.Empty;
+            }
 
-            return $"({phoneNumber.Substring(0, 2)}) {phoneNumber.Substring(2, 5)}-{phoneNumber.Substring(7, 4)}";
+            phoneNumber = new string(phoneNumber.Where(char.IsDigit).ToArray());
+
+            if (phoneNumber.Length == 11)
+            {
+                return $"({phoneNumber.Substring(0, 2)}) {phoneNumber.Substring(2, 5)}-{phoneNumber.Substring(7, 4)}";
+            }
+            else if (phoneNumber.Length == 10)
+            {
+                return $"({phoneNumber.Substring(0, 2)}) {phoneNumber.Substring(2, 4)}-{phoneNumber.Substring(6, 4)}";
+            }
+            else
+            {
+                return phoneNumber;
+            }
         }
     }
 }

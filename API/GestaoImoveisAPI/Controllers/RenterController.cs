@@ -42,6 +42,13 @@ namespace GestaoImoveisAPI.Controllers
             return Ok(renter);
         }
 
+        [HttpGet("verifycpf/{cpf}")]
+        public async Task<IActionResult> VerifyCPFExists(string cpf)
+        {
+            var exists = await _context.Renter.AnyAsync(r => r.CPF.Value == cpf);
+            return Ok(exists);
+        }
+
         //POST api/renters
         [HttpPost]
         public async Task<IActionResult> Create(Renter r)

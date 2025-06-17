@@ -2,6 +2,7 @@ using MauiAppGestaoImoveis.Models;
 using MauiAppGestaoImoveis.ViewModels;
 using SharedClasses.ValueObjects;
 using System.Text.RegularExpressions;
+using MauiAppGestaoImoveis.Services;
 
 namespace MauiAppGestaoImoveis.Views;
 
@@ -24,6 +25,16 @@ public partial class AddRenterPage : ContentPage
                 IsValidCPF(CPFInput.Text))
             {
                 string unformattedCpf = Regex.Replace(CPFInput.Text, @"\D", "");
+
+                var renterService = new RenterService();
+
+                var cpfExists = await renterService.VerifyCPFExistsAsync(unformattedCpf);
+                
+                if(cpfExists)
+                {
+                    await DisplayAlert("Atenção", "CPF já cadastrado.", "Ok");
+                    return;
+                }
 
                 _vm.SetBasicInfos(NameInput.Text, unformattedCpf, PhoneInput.Text);
                 await Shell.Current.GoToAsync("addAdress");

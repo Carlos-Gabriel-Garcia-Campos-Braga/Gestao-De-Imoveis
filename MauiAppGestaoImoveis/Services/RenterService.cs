@@ -50,5 +50,27 @@ namespace MauiAppGestaoImoveis.Services
                 return false;
             }
         }
+
+        public async Task<bool> VerifyCPFExistsAsync(string cpf)
+        {
+            try
+            {
+                //Aq eu verifico se o CPF existe, retornando um booleano
+                var response = await _httpClient.GetAsync($"http://localhost:5156/api/renter/verifycpf/{cpf}");
+                
+                if (response.IsSuccessStatusCode)
+                {
+                    var result = await response.Content.ReadAsStringAsync();
+                    return bool.Parse(result);
+                }
+
+                return false;
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Erro ao verificar CPF: {ex.Message}");
+                return false;
+            }
+        }
     }
 }
