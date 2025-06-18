@@ -40,13 +40,6 @@
                 <DataTemplate>
                     <Frame BackgroundColor="Blue" CornerRadius="15">
 
-                        <!-- 
-                        <Frame.GestureRecognizers>
-                            <TapGestureRecognizer
-                            Command="{Binding BindingContext.NavigateToRenterInfoCommand, Source={x:Reference RenterPageRef}}"
-                            CommandParameter="{Binding .}" />
-
-                        </Frame.GestureRecognizers>-->
 
                         <HorizontalStackLayout>
                             <Image Source="person_icon.png" WidthRequest="50" HeightRequest="50"/>
