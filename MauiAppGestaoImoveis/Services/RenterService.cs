@@ -56,7 +56,7 @@ namespace MauiAppGestaoImoveis.Services
             try
             {
                 //Aq eu verifico se o CPF existe, retornando um booleano
-                var response = await _httpClient.GetAsync($"http://localhost:5156/api/renter/verifycpf/{cpf}");
+                var response = await _httpClient.GetAsync($"https://gestaoapi.onrender.com/api/renter/verifycpf/{cpf}");
                 
                 if (response.IsSuccessStatusCode)
                 {

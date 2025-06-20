@@ -18,13 +18,13 @@ namespace MauiAppGestaoImoveis.Services
         {
             _httpClient = new HttpClient
             {
-                BaseAddress = new Uri("http://localhost:5156/")
+                BaseAddress = new Uri("https://gestaoapi.onrender.com/")
             };
         }
 
         public async Task<ViaCepResponse> GetAddressByZipCode(string zipCode)
         {
-            var url = $"http://localhost:5156/api/address/{zipCode}";
+            var url = $"https://gestaoapi.onrender.com/api/address/{zipCode}";
             var response = await _httpClient.GetAsync(url);
 
             if (!response.IsSuccessStatusCode)

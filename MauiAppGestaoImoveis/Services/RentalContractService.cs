@@ -20,7 +20,7 @@ namespace MauiAppGestaoImoveis.Services
             // BaseAddress aponta para a URL da API ASP.NET Core
             _httpClient = new HttpClient
             {
-                BaseAddress = new Uri("http://localhost:5156/")
+                BaseAddress = new Uri("https://gestaoapi.onrender.com/")
             };
         }
 

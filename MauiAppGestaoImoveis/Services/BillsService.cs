@@ -16,7 +16,7 @@ namespace MauiAppGestaoImoveis.Services
         {
             _httpClient = new HttpClient
             {
-                BaseAddress = new Uri("http://localhost:5156/")
+                BaseAddress = new Uri("https://gestaoapi.onrender.com/")
             };
         }
 
