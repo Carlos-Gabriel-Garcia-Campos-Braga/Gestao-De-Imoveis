@@ -24,7 +24,9 @@
 		<ApplicationTitle>Gestao de Imoveis</ApplicationTitle>
 
 		<!-- App Identifier -->
-		<ApplicationId>com.companyname.mauiappgestaoimoveis</ApplicationId>
+		<ApplicationId>Bussiness.Test</ApplicationId>
+		<CodesignTeam>7D5BGM8C4N</CodesignTeam>
+  		<EnableAutomaticSigning>true</EnableAutomaticSigning>
 
 		<!-- Versions -->
 		<ApplicationDisplayVersion>1.0</ApplicationDisplayVersion>
