@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace GestaoImoveisAPI.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20250619143723_InitialCreate")]
-    partial class InitialCreate
+    [Migration("20250619213956_InitialMigration")]
+    partial class InitialMigration
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)

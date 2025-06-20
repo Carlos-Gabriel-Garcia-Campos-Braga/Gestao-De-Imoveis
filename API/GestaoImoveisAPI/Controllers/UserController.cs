@@ -64,7 +64,8 @@ namespace GestaoImoveisAPI.Controller
                 return Unauthorized("E-mail ou senha incorretos!");
             }
 
-            var userOutput = new UserOutput { Id = User.Id,
+            var userOutput = new UserOutput {
+                                              Id = User.Id,
                                               Name = User.Name,
                                               Email = User.Email.email 
                                             };
