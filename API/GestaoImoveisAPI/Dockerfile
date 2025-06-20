@@ -9,7 +9,7 @@ WORKDIR /src
 
 # Copia apenas o .csproj e faz o restore
 COPY ["API/GestaoImoveisAPI/GestaoImoveisAPI.csproj", "API/GestaoImoveisAPI/"]
-COPY ["SharedClasses/SharedClasses.csproj", "SharedClasses/"]
+COPY ["SharedClassess/SharedClasses/SharedClasses.csproj", "SharedClassess/SharedClasses/"]
 RUN dotnet restore "API/GestaoImoveisAPI/GestaoImoveisAPI.csproj"
 
 # Copia o restante dos arquivos
