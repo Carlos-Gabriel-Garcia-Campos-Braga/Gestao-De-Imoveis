@@ -13,7 +13,19 @@
         <Entry x:Name="EmailInput" Placeholder="Digite seu E-mail"/>
 
         <Label Text="Senha" x:Name="SenhaLabel"/>
-        <Entry x:Name="SenhaInput" Placeholder="Digite sua Senha"/>
+        <HorizontalStackLayout Spacing="5">
+            <Entry x:Name="SenhaInput"
+                Placeholder="Digite sua Senha"
+                IsPassword="{Binding IsPassword, Mode=TwoWay}"
+                WidthRequest="250"
+                HorizontalOptions="StartAndExpand"/>
+
+            <ImageButton Source="{Binding EyeIcon}"
+                        BackgroundColor="Transparent"
+                        Clicked="OnTogglePasswordVisibility"
+                        WidthRequest="30"
+                        HeightRequest="30" />
+        </HorizontalStackLayout>
 
         <Button x:Name="LoginButton" Clicked="LoginButton_Clicked" Text="Login"/>
     </VerticalStackLayout>
