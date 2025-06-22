@@ -8,6 +8,9 @@ namespace MauiAppGestaoImoveis
         {
             InitializeComponent();
             
+            Application.Current.UserAppTheme = AppTheme.Light;
+
+
             MainPage = new AppShell();
         }
     }
