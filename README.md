@@ -396,5 +396,3 @@ Este projeto está sob a licença MIT. Veja o arquivo [LICENSE](LICENSE) para ma
 - **ViaCEP** pela validação de endereços
 
 ---
-
-**Desenvolvido com ❤️ usando .NET MAUI e .NET Core**
