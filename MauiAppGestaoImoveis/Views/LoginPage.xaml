@@ -4,21 +4,22 @@
              x:Class="MauiAppGestaoImoveis.Views.LoginPage"
              Title=""
              >
-    <VerticalStackLayout Spacing="8" Padding="10">
+    <VerticalStackLayout Spacing="8" Padding="10" VerticalOptions="Center">
         <Label Text="Bem-Vindo ao Gestão de Imóveis Brandão"
                HorizontalTextAlignment="Center"
                FontSize="Title"/>
 
-        <Label Text="E-mail" x:Name="EmailLabel"/>
-        <Entry x:Name="EmailInput" Placeholder="Digite seu E-mail"/>
 
-        <Label Text="Senha" x:Name="SenhaLabel"/>
+        <Label Text="E-mail" x:Name="EmailLabel" WidthRequest="250" HorizontalTextAlignment="Start"/>
+        <Entry x:Name="EmailInput" Placeholder="Digite seu E-mail" WidthRequest="260"/>
+
+        <Label Text="Senha" x:Name="SenhaLabel" WidthRequest="250" HorizontalTextAlignment="Start"/>
         <HorizontalStackLayout Spacing="5" HorizontalOptions="Center">
             <Entry x:Name="SenhaInput"
                 Placeholder="Digite sua Senha"
                 IsPassword="True"
-                WidthRequest="250"
-                HorizontalOptions="StartAndExpand" />
+                WidthRequest="210"
+                />
 
             <ImageButton Source="eye_open.png"
                 BackgroundColor="Transparent"
@@ -29,6 +30,19 @@
 
         </HorizontalStackLayout>
 
-        <Button x:Name="LoginButton" Clicked="LoginButton_Clicked" Text="Login" WidthRequest="100"/>
+        <Label Text="Não tem uma conta? Cadastre-se aqui"
+       TextColor="Blue"
+       FontAttributes="Bold"
+       HorizontalOptions="Center">
+            <Label.GestureRecognizers>
+                <TapGestureRecognizer Tapped="GoToRegister" />
+            </Label.GestureRecognizers>
+        </Label>
+        
+        <Button x:Name="LoginButton" 
+                Clicked="LoginButton_Clicked" 
+                Text="Login" 
+                WidthRequest="100" 
+                Margin="10"/>
     </VerticalStackLayout>
 </ContentPage>

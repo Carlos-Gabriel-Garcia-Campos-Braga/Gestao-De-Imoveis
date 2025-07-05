@@ -37,6 +37,7 @@ namespace MauiAppGestaoImoveis
             builder.Services.AddTransient<AddRenterBillViewModel>();
             builder.Services.AddTransient<RenterPageViewModel>();
             builder.Services.AddTransient<AddRenterAdressPage>();
+            builder.Services.AddTransient<RegisterPage>();
 
 
 

@@ -8,6 +8,7 @@ using System.Threading.Tasks;
 using SharedClasses.Models;
 using SharedClasses.AuxiliarClasses;
 using SharedClasses.OutputsDTOs;
+using SharedClasses.InputDTOs;
 
 namespace MauiAppGestaoImoveis.Services
 {
@@ -30,6 +31,28 @@ namespace MauiAppGestaoImoveis.Services
             return users;
         }
 
+        public async Task<string> RegisterAsync(UserInputModel userInput)
+        {
+            try
+            {
+                var response = await _httpClient.PostAsJsonAsync("api/user/register", userInput);
+                var payload = await response.Content.ReadAsStringAsync();
+
+                if (response.IsSuccessStatusCode)
+                {
+                    return "Sucess";
+                }
+                else
+                {
+                    return $"HTTP {(int)response.StatusCode} {response.StatusCode}: {payload}";
+                }
+            }
+            catch (Exception ex)
+            {
+                return $"Erro ao adicionar contrato de locação: {ex.Message}";
+            }
+        }
+            
         public async Task<UserOutput> LoginAsync(string email, string password)
         {
             var loginRequest = new LoginRequest {Email = email, Password = password};

@@ -44,9 +44,9 @@
                         <HorizontalStackLayout>
                             <Image Source="person_icon.png" WidthRequest="50" HeightRequest="50"/>
                             <VerticalStackLayout>
-                                <Label Text="{Binding Renter.Name}" FontAttributes="Bold" FontSize="Medium" />
-                                <Label Text="{Binding Renter.CPF}" FontAttributes="Bold" FontSize="Medium" />
-                                <Label Text="{Binding Renter.PhoneNumber}" FontSize="Small"/>
+                                <Label Text="{Binding Renter.Name}" FontAttributes="Bold" FontSize="Medium" TextColor="White"/>
+                                <Label Text="{Binding Renter.CPF}" FontAttributes="Bold" FontSize="Medium" TextColor="White"/>
+                                <Label Text="{Binding Renter.PhoneNumber}" FontSize="Small" TextColor="White"/>
                             </VerticalStackLayout>
                         </HorizontalStackLayout>
                     </Frame>
