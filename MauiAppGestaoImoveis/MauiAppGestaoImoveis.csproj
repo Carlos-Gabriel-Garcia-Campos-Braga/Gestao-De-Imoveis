@@ -24,9 +24,14 @@
 		<ApplicationTitle>Gestao de Imoveis</ApplicationTitle>
 
 		<!-- App Identifier -->
-		<ApplicationId>Bussiness.Test</ApplicationId>
-		<CodesignTeam>7D5BGM8C4N</CodesignTeam>
-  		<EnableAutomaticSigning>true</EnableAutomaticSigning>
+		<ApplicationId>com.carlos.gestaodeimoveis</ApplicationId>
+		<CodesignTeam Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) != 'ios'"></CodesignTeam>
+
+		<!-- Rodar em um IOS Fisico -->
+		<!-- <ApplicationId>Business.IOSTest</ApplicationId> -->
+		<!-- <EnableAutomaticSigning>true</EnableAutomaticSigning> -->
+		<!-- <CodesignTeam>7D5BGM8C4N</CodesignTeam> -->
+  		
 
 		<!-- Versions -->
 		<ApplicationDisplayVersion>1.0</ApplicationDisplayVersion>
@@ -102,6 +107,9 @@
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
 	  <MauiXaml Update="Views\RenterPage.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="Views\ResetPage.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
 	</ItemGroup>

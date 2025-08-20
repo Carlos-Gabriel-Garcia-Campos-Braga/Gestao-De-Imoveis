@@ -64,13 +64,34 @@ namespace GestaoImoveisAPI.Controller
                 return Unauthorized("E-mail ou senha incorretos!");
             }
 
-            var userOutput = new UserOutput {
-                                              Id = User.Id,
-                                              Name = User.Name,
-                                              Email = User.Email.email 
-                                            };
+            var userOutput = new UserOutput
+            {
+                Id = User.Id,
+                Name = User.Name,
+                Email = User.Email.email
+            };
 
             return Ok(userOutput);
+        }
+
+        [HttpPatch("reset")]
+        public async Task<IActionResult> ResetPassword([FromBody] SharedClasses.InputDTOs.ResetPasswordInputModel resetPasswordUser)
+        {
+            if (string.IsNullOrWhiteSpace(resetPasswordUser?.Email) || string.IsNullOrWhiteSpace(resetPasswordUser.Password))
+            {
+                return BadRequest("Email e nova senha são obrigatórios.");
+            }
+
+            var selectedUser = await _context.User.FirstOrDefaultAsync(u => u.Email.email == resetPasswordUser.Email);
+            if (selectedUser == null)
+            {
+                return NotFound("Usuário não encontrado.");
+            }
+
+            selectedUser.Password = BCrypt.Net.BCrypt.HashPassword(resetPasswordUser.Password);
+            await _context.SaveChangesAsync();
+
+            return Ok("Senha alterada com sucesso!");
         }
     }
 }

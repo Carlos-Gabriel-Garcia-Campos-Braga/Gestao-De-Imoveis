@@ -10,7 +10,7 @@
             <VerticalStackLayout Padding="0" Spacing="20">
                 <Label 
                 Text="Gestão de Imóveis
-                Atrasos"
+                Pagamentos realizados"
                 HorizontalTextAlignment="Center"
                 FontSize="Title"
                 BackgroundColor="Blue"

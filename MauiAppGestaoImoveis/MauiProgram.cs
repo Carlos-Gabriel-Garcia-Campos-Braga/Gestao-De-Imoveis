@@ -1,5 +1,4 @@
-﻿using MauiAppGestaoImoveis.Models;
-using MauiAppGestaoImoveis.Services;
+﻿using MauiAppGestaoImoveis.Services;
 using MauiAppGestaoImoveis.ViewModels;
 using MauiAppGestaoImoveis.Views;
 using Microsoft.Extensions.Logging;
@@ -38,6 +37,7 @@ namespace MauiAppGestaoImoveis
             builder.Services.AddTransient<RenterPageViewModel>();
             builder.Services.AddTransient<AddRenterAdressPage>();
             builder.Services.AddTransient<RegisterPage>();
+            builder.Services.AddTransient<ResetPage>();
 
 
 

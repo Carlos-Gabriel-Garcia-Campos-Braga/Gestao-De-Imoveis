@@ -1,14 +1,16 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:ios="clr-namespace:Microsoft.Maui.Controls.PlatformConfiguration.iOSSpecific;assembly=Microsoft.Maui.Controls"
              x:Class="MauiAppGestaoImoveis.Views.MainPageApp"
              Title=""
-             BackgroundColor="White">
+             BackgroundColor="Blue"
+             ios:Page.UseSafeArea="False">
 
     <Grid RowDefinitions="*, Auto">
         <!-- Conteúdo principal -->
         <ScrollView>
-            <VerticalStackLayout Padding="0" Spacing="20">
+            <VerticalStackLayout Padding="0" Spacing="20" BackgroundColor="White">
                 <Label Text="Gestão de Imóveis
                             Página Inicial"
                        FontSize="Title"

@@ -2,8 +2,8 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="MauiAppGestaoImoveis.Views.LoginPage"
-             Title=""
              >
+
     <VerticalStackLayout Spacing="8" Padding="10" VerticalOptions="Center">
         <Label Text="Bem-Vindo ao Gestão de Imóveis Brandão"
                HorizontalTextAlignment="Center"
@@ -36,6 +36,15 @@
        HorizontalOptions="Center">
             <Label.GestureRecognizers>
                 <TapGestureRecognizer Tapped="GoToRegister" />
+            </Label.GestureRecognizers>
+        </Label>
+
+        <Label Text="Esqueceu a senha"
+       TextColor="Blue"
+       FontAttributes="Bold"
+       HorizontalOptions="Center">
+            <Label.GestureRecognizers>
+                <TapGestureRecognizer Tapped="GoToReset" />
             </Label.GestureRecognizers>
         </Label>
         

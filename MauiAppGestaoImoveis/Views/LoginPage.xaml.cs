@@ -35,8 +35,13 @@ public partial class LoginPage : ContentPage
 		button.Source = isPasswordHidden ? "eye_open.png" : "eye_closed.png";
 	}
 
-    private async void GoToRegister(object sender, TappedEventArgs e)
-    {
+	private async void GoToRegister(object sender, TappedEventArgs e)
+	{
 		await Shell.Current.GoToAsync("register");
+	}
+	
+	private async void GoToReset(object sender, TappedEventArgs e)
+    {
+		await Shell.Current.GoToAsync("reset");
     }
 }

@@ -20,6 +20,12 @@
       "problemMatcher": "$msCompile"
     },
     {
+      "label": "Run MAUI iOS",
+      "type": "shell",
+      "command": "dotnet build MauiAppGestaoImoveis/MauiAppGestaoImoveis.csproj -t:Run -f net8.0-ios -p:RuntimeIdentifier=iossimulator-arm64 -p:_DeviceName=:v2:udid=CDE5E214-0081-4510-B251-534EA4F769F4 -v:m",
+      "problemMatcher": "$msCompile"
+    },
+    {
       "label": "Build SharedClassess",
       "type": "shell",
       "command": "dotnet build ./SharedClassess",
@@ -34,6 +40,12 @@
     {
       "label": "Run All Mac",
       "dependsOn": ["Build SharedClassess", "Run API", "Run MAUI Mac"],
+      "dependsOrder": "parallel",
+      "problemMatcher": []
+    },
+    {
+      "label": "Run All iOS",
+      "dependsOn": ["Build SharedClassess", "Run API", "Run MAUI iOS"],
       "dependsOrder": "parallel",
       "problemMatcher": []
     }

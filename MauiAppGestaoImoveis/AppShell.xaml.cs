@@ -8,7 +8,7 @@ namespace MauiAppGestaoImoveis
         public AppShell()
         {
             InitializeComponent();
-            
+
             //Registro das rotas
             Routing.RegisterRoute("login", typeof(LoginPage));
             Routing.RegisterRoute("main", typeof(MainPageApp));
@@ -21,6 +21,7 @@ namespace MauiAppGestaoImoveis
             Routing.RegisterRoute("addAdress", typeof(AddRenterAdressPage));
             Routing.RegisterRoute("renterInfo", typeof(RenterInfoPage));
             Routing.RegisterRoute("register", typeof(RegisterPage));
+            Routing.RegisterRoute("reset", typeof(ResetPage));
             //em caso de esquecimento, lembre-se de olhar a classe LoginPage, la tem 
             //a estrutura de como mandar para a proxima pagina
 

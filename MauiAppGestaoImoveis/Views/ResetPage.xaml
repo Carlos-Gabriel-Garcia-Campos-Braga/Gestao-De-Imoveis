@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MauiAppGestaoImoveis.Views.ResetPage"
+             Title=""
+             >
+
+    <VerticalStackLayout>
+        <Entry x:Name="EmailInput" Placeholder="Digite seu E-mail" WidthRequest="260"/>
+        <Entry x:Name="SenhaInput" Placeholder="Digite sua senha" WidthRequest="260"/>
+        <Button x:Name="ResetButton" 
+                    Clicked="ResetButton_Clicked" 
+                    Text="Reset" 
+                    WidthRequest="100" 
+                    Margin="10"/>
+    </VerticalStackLayout>
+</ContentPage>
