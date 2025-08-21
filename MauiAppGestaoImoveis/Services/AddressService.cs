@@ -25,7 +25,8 @@ namespace MauiAppGestaoImoveis.Services
 
         public async Task<ViaCepResponse> GetAddressByZipCode(string zipCode)
         {
-            var url = $"https://gestaoapi.onrender.com/api/address/{zipCode}";
+            var url = $"http://localhost:5156/api/address/{zipCode}";
+            //var url = $"https://gestaoapi.onrender.com/api/address/{zipCode}";
             var response = await _httpClient.GetAsync(url);
 
             if (!response.IsSuccessStatusCode)
