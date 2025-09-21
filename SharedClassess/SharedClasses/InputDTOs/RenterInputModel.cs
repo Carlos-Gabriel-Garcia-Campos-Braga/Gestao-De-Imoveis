@@ -15,7 +15,7 @@ namespace SharedClasses.InputDTOs
 
         [Required(ErrorMessage = "O campo é obrigatório.")]
         [StringLength(15, ErrorMessage = "O telefone não pode exceder 15 caracteres.")]
-        [RegularExpression(@"^\d{10,15}$", ErrorMessage = "O telefone deve conter entre 10 e 15 números.")]
+        [RegularExpression(@"^\(?\d{2}\)?[\s-]?\d{4,5}-?\d{4}$", ErrorMessage = "Formato de telefone inválido. Use: (11)99999-9999")]
         public string PhoneNumber { get; set; } = string.Empty;
     }
 }

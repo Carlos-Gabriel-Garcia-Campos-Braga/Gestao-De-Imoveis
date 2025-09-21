@@ -10,7 +10,7 @@ namespace GestaoImoveisAPI.Interfaces
 {
     public interface IRentalContract
     {
-        void createContract(RentalContractInputModel rentalContract);
+        Task<RentalContract> createContract(RentalContractInputModel rentalContract);
         List<RentalContract> getContract();
     }
 }

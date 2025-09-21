@@ -2,6 +2,8 @@ using GestaoImoveisAPI.Data;
 using GestaoImoveisAPI.Services;
 using Microsoft.EntityFrameworkCore;
 using GestaoImoveisAPI.Validators;
+using GestaoImoveisAPI.Interfaces;
+using GestaoImoveisAPI.Repositories;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -28,6 +30,8 @@ builder.Services.AddCors(o => o.AddPolicy("AllowAll", p => //Libera o acesso ao 
 builder.Services.AddHttpClient<AddressService>();
 builder.Services.AddScoped<RentalContractValidator>();
 
+//DI
+builder.Services.AddScoped<IRentalContract, RentalContractRepository>();
 
 var app = builder.Build();
 

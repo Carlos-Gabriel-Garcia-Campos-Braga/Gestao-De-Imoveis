@@ -19,9 +19,9 @@ namespace GestaoImoveisAPI.Repositories
             _context = context;
         }
 
-        public async void createContract(RentalContractInputModel rc)
+        public async Task<RentalContract> createContract(RentalContractInputModel rc)
         {
-             // Primeiro salvamos o Renter e o Adress
+            // Primeiro salvamos o Renter e o Adress
             var renter = new Renter
             {
                 Name = rc.Renter.Name,
@@ -36,6 +36,7 @@ namespace GestaoImoveisAPI.Repositories
                     rc.Adress.Street,
                     rc.Adress.Complement,
                     rc.Adress.Number,
+                    rc.Adress.Neighborhood,
                     rc.Adress.City,
                     rc.Adress.State,
                     rc.Adress.ZipCode);
@@ -58,11 +59,13 @@ namespace GestaoImoveisAPI.Repositories
                 Bills = bills
             };
 
-            
+
 
             _context.Contract.Add(rentalContract);
             // Agora salva o contrato com os IDs corretos
             await _context.SaveChangesAsync();
+
+            return rentalContract;
         }
 
         public List<RentalContract> getContract()
