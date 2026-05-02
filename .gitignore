@@ -399,3 +399,9 @@ FodyWeavers.xsd
 # JetBrains Rider
 *.sln.iml
 .DS_Store
+
+# Arquivos de configuração com secrets — nunca commitar
+# Secrets reais devem ser configurados via variável de ambiente ou: dotnet user-secrets
+appsettings.Development.json
+appsettings.Production.json
+appsettings.Staging.json
