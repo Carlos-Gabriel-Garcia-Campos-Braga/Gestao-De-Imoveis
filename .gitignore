@@ -405,3 +405,9 @@ FodyWeavers.xsd
 appsettings.Development.json
 appsettings.Production.json
 appsettings.Staging.json
+
+#Relatorios e IAs
+.claude/
+Relatorios/
+CLAUDE.md
+API/GestaoImoveisAPI/Migrations
