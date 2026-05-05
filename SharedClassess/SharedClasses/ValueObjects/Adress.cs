@@ -9,8 +9,8 @@ namespace SharedClasses.ValueObjects
     public class Adress
     {
         public string Street { get; private set; }
-        public string Number { get; private set; }
-        public string Complement { get; private set; }
+        public string? Number { get; private set; }
+        public string? Complement { get; private set; }
         public string Neighborhood { get; private set; }
         public string City { get; private set; }
         public string State { get; private set; }
@@ -21,7 +21,6 @@ namespace SharedClasses.ValueObjects
         public Adress(string street, string complement, string number, string neighborhood, string city, string state, string zipCode)
         {
             if (string.IsNullOrWhiteSpace(street)) throw new ArgumentException("Rua não pode ser vazia.");
-            if (string.IsNullOrWhiteSpace(number)) throw new ArgumentException("Número não pode ser vazio.");
             if (string.IsNullOrWhiteSpace(city)) throw new ArgumentException("Cidade não pode ser vazia.");
             if (string.IsNullOrWhiteSpace(state)) throw new ArgumentException("Estado não pode ser vazio.");
             if (string.IsNullOrWhiteSpace(zipCode)) throw new ArgumentException("CEP não pode ser vazio.");
@@ -37,7 +36,6 @@ namespace SharedClasses.ValueObjects
         public Adress(string street, string number, string neighborhood, string city, string state, string zipCode)
         {
             if (string.IsNullOrWhiteSpace(street)) throw new ArgumentException("Rua não pode ser vazia.");
-            if (string.IsNullOrWhiteSpace(number)) throw new ArgumentException("Número não pode ser vazio.");
             if (string.IsNullOrWhiteSpace(city)) throw new ArgumentException("Cidade não pode ser vazia.");
             if (string.IsNullOrWhiteSpace(state)) throw new ArgumentException("Estado não pode ser vazio.");
             if (string.IsNullOrWhiteSpace(zipCode)) throw new ArgumentException("CEP não pode ser vazio.");
@@ -48,7 +46,7 @@ namespace SharedClasses.ValueObjects
             City = city;
             State = state;
             ZipCode = zipCode;
-            Complement = "Sem complemento";
+            Complement = null;
         }
 
         public override string ToString() =>

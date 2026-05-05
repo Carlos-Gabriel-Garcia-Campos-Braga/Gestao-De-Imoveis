@@ -26,5 +26,10 @@ namespace SharedClasses.InputDTOs
         [Required(ErrorMessage = "Valor do aluguel é obrigatório.")]
         [Range(0.01, double.MaxValue, ErrorMessage = "Valor do aluguel deve ser maior que zero.")]
         public decimal RentalValue { get; set; }
+
+        /// <summary>
+        /// Índice de reajuste: IPCA, INPC ou IGPM. Padrão: IPCA.
+        /// </summary>
+        public string PreferredIndex { get; set; } = "IPCA";
     }
 }

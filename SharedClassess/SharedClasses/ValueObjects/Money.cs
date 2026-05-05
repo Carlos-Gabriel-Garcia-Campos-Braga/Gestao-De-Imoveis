@@ -21,6 +21,16 @@ namespace SharedClasses.ValueObjects
             Amount = Math.Round(value, 2);
         }
 
+        public Money ApplyReadjustment(decimal indexRate) =>
+            new(Amount * (1 + indexRate / 100));
+
+        // Multa por atraso: máximo 2% (Lei 8.245/91)
+        public Money CalculateLateFee() => new(Amount * 0.02m);
+
+        // Juros de mora: máximo 1%/mês, pro-rata die
+        public Money CalculateDailyInterest(int daysOverdue) =>
+            new(Amount * (0.01m / 30m) * daysOverdue);
+
         public override string ToString() => Amount.ToString("C");
 
         public override bool Equals(object obj) =>
