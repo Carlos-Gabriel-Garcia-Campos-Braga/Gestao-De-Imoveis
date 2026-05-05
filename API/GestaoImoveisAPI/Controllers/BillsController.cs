@@ -1,39 +1,49 @@
-﻿using GestaoImoveisAPI.Data;
-using GestaoImoveisAPI.Models;
+using GestaoImoveisAPI.Application.Leasing.AddBillToContract;
+using GestaoImoveisAPI.Data;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using SharedClasses.InputDTOs;
+using SharedClasses.OutputsDTOs;
 
 namespace GestaoImoveisAPI.Controllers
 {
     [ApiController]
     [Route("api/[controller]")]
+    [Authorize]
     public class BillsController : ControllerBase
     {
         private readonly AppDbContext _context;
+        private readonly AddBillToContractHandler _addBillHandler;
 
-        public BillsController(AppDbContext context)
+        public BillsController(AppDbContext context, AddBillToContractHandler addBillHandler)
         {
             _context = context;
+            _addBillHandler = addBillHandler;
         }
 
         [HttpGet]
-        public async Task<IActionResult> GetAll()
+        public async Task<IActionResult> GetAll(CancellationToken ct)
         {
             var list = await _context.Bills
-                                              .Include(b => b.RentalContract)
-                                              .ThenInclude(rc => rc.Renter)
-                                              .Include(b => b.RentalContract)
-                                              .ThenInclude(rc => rc.Adress)
-                                              .ToListAsync();
+                .Select(b => new BillsOutputModel
+                {
+                    Id = b.Id,
+                    RentalContractId = b.RentalContractId,
+                    Type = b.Type,
+                    ValidationDate = b.ValidationDate,
+                    Value = b.Value.Amount
+                })
+                .ToListAsync(ct);
+
             return Ok(list);
         }
 
         [HttpPost]
-        public async Task<IActionResult> Create(Bills b)
+        public async Task<IActionResult> Create([FromBody] BillsInputModel input, CancellationToken ct)
         {
-            _context.Bills.Add(b);
-            await _context.SaveChangesAsync();
-            return CreatedAtAction(nameof(GetAll), new { id = b.Id }, b);
+            var output = await _addBillHandler.HandleAsync(input, ct);
+            return CreatedAtAction(nameof(GetAll), new { id = output.Id }, output);
         }
     }
 }

@@ -1,11 +1,13 @@
-﻿using SharedClasses.Models;
-using GestaoImoveisAPI.Services;
+﻿using GestaoImoveisAPI.Services;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using SharedClasses.Models;
 
 namespace GestaoImoveisAPI.Controllers
 {
     [ApiController]
     [Route("api/[controller]")]
+    [Authorize]
     public class AddressController : ControllerBase
     {
         private readonly AddressService _addressService;

@@ -1,61 +1,64 @@
-﻿using GestaoImoveisAPI.Data;
-using GestaoImoveisAPI.Models;
-using Microsoft.AspNetCore.Http.HttpResults;
+using GestaoImoveisAPI.Domain.Leasing;
+using GestaoImoveisAPI.Domain.Leasing.Repositories;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
+using SharedClasses.InputDTOs;
+using SharedClasses.OutputsDTOs;
+using SharedClasses.ValueObjects;
 
 namespace GestaoImoveisAPI.Controllers
 {
     [ApiController]
     [Route("api/[controller]")]
+    [Authorize]
     public class RenterController : ControllerBase
     {
-        private readonly AppDbContext _context;
+        private readonly IRenterRepository _repository;
 
-        public RenterController(AppDbContext context)
+        public RenterController(IRenterRepository repository)
         {
-            _context = context;
+            _repository = repository;
         }
 
-        //GET api/renters
         [HttpGet]
-        public async Task<IActionResult> GetAll()
+        public async Task<IActionResult> GetAll(CancellationToken ct)
         {
-            var list = await _context.Renter.
-                                            Include(r => r.Contracts)
-                                            .ThenInclude(c => c.Bills)
-                                            .ToListAsync();
-
-            return Ok(list);
+            var list = await _repository.GetAllAsync(ct);
+            return Ok(list.Select(ToOutput));
         }
 
         [HttpGet("{id}")]
-        public async Task<IActionResult> GetById(int id)
+        public async Task<IActionResult> GetById(int id, CancellationToken ct)
         {
-            var renter = await _context.Renter
-                                              .Include(r => r.Contracts)
-                                              .ThenInclude(c => c.Bills)
-                                              .FirstOrDefaultAsync(r => r.Id == id);
-            if (renter == null)
-                return NotFound();
-
-            return Ok(renter);
+            var renter = await _repository.GetByIdAsync(id, ct);
+            if (renter == null) return NotFound();
+            return Ok(ToOutput(renter));
         }
 
         [HttpGet("verifycpf/{cpf}")]
-        public async Task<IActionResult> VerifyCPFExists(string cpf)
+        public async Task<IActionResult> VerifyCPFExists(string cpf, CancellationToken ct)
         {
-            var exists = await _context.Renter.AnyAsync(r => r.CPF.Value == cpf);
+            var exists = await _repository.GetByCpfAsync(cpf, ct) != null;
             return Ok(exists);
         }
 
-        //POST api/renters
         [HttpPost]
-        public async Task<IActionResult> Create(Renter r)
+        public async Task<IActionResult> Create([FromBody] RenterInputModel input, CancellationToken ct)
         {
-            _context.Renter.Add(r);
-            await _context.SaveChangesAsync();
-            return CreatedAtAction(nameof(GetById), new {id = r.Id}, r);
+            var cpf = new CPF(input.CPF);
+            var phoneNumber = new PhoneNumber(input.PhoneNumber);
+
+            if (await _repository.GetByCpfAsync(cpf.Value, ct) != null)
+                throw new InvalidOperationException("CPF já cadastrado.");
+
+            var renter = Renter.Create(input.Name, cpf, phoneNumber);
+            await _repository.AddAsync(renter, ct);
+            await _repository.SaveChangesAsync(ct);
+
+            return CreatedAtAction(nameof(GetById), new { id = renter.Id }, ToOutput(renter));
         }
+
+        private static RenterOutputModel ToOutput(Renter r) =>
+            new() { Id = r.Id, Name = r.Name ?? string.Empty, CPF = r.CPF?.Value ?? string.Empty, PhoneNumber = r.PhoneNumber?.Value ?? string.Empty };
     }
 }

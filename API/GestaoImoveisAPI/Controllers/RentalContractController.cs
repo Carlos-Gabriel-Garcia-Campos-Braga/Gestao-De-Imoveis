@@ -1,98 +1,92 @@
-﻿using GestaoImoveisAPI.Data;
-using SharedClasses.InputDTOs;
-using GestaoImoveisAPI.Models;
+using GestaoImoveisAPI.Application.Leasing.ApplyReadjustment;
+using GestaoImoveisAPI.Application.Leasing.CreateContract;
+using GestaoImoveisAPI.Domain.Leasing.Repositories;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
-using SharedClasses.ValueObjects;
+using SharedClasses.InputDTOs;
 using SharedClasses.OutputsDTOs;
-using GestaoImoveisAPI.Validators;
-using GestaoImoveisAPI.Interfaces;
 
 namespace GestaoImoveisAPI.Controllers
 {
     [ApiController]
     [Route("api/[controller]")]
+    [Authorize]
     public class RentalContractController : ControllerBase
     {
-        private readonly AppDbContext _context;
-        private readonly IRentalContract _rentalContract;
-        private readonly RentalContractValidator _validator;
+        private readonly IRentalContractRepository _repository;
+        private readonly CreateContractHandler _createHandler;
+        private readonly ApplyReadjustmentHandler _readjustmentHandler;
 
-        public RentalContractController(AppDbContext context, RentalContractValidator validator, IRentalContract rentalContract)
+        public RentalContractController(
+            IRentalContractRepository repository,
+            CreateContractHandler createHandler,
+            ApplyReadjustmentHandler readjustmentHandler)
         {
-            _context = context;
-            _rentalContract = rentalContract;
-            _validator = validator;
+            _repository = repository;
+            _createHandler = createHandler;
+            _readjustmentHandler = readjustmentHandler;
         }
 
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<RentalContractOutputModel>>> GetAll()
+        public async Task<ActionResult<IEnumerable<RentalContractOutputModel>>> GetAll(CancellationToken ct)
         {
-            var list = await _context.Contract
-                .Include(rc => rc.Renter)
-                .Include(rc => rc.Adress)
-                .Include(rc => rc.Bills)
-                .ToListAsync();
+            var contracts = await _repository.GetAllWithDetailsAsync(ct);
+            return Ok(contracts.Select(ToOutput));
+        }
 
-            var outputList = list.Select(rc => new RentalContractOutputModel
+        [HttpPost]
+        public async Task<IActionResult> Create([FromBody] RentalContractInputModel input, CancellationToken ct)
+        {
+            var output = await _createHandler.HandleAsync(input, ct);
+            return CreatedAtAction(nameof(GetAll), output);
+        }
+
+        [HttpPatch("{id}/readjustment")]
+        public async Task<IActionResult> ApplyReadjustment(
+            int id,
+            [FromBody] ApplyReadjustmentInputModel input,
+            CancellationToken ct)
+        {
+            var output = await _readjustmentHandler.HandleAsync(id, input, ct);
+            return Ok(output);
+        }
+
+        private static RentalContractOutputModel ToOutput(Domain.Leasing.RentalContract rc) =>
+            new()
             {
+                Id = rc.Id,
                 Renter = new RenterOutputModel
                 {
-                    Name = rc.Renter.Name,
-                    CPF = rc.Renter?.CPF?.Value,
-                    PhoneNumber = rc.Renter?.PhoneNumber?.Value
+                    Id = rc.Renter.Id,
+                    Name = rc.Renter.Name ?? string.Empty,
+                    CPF = rc.Renter.CPF?.Value ?? string.Empty,
+                    PhoneNumber = rc.Renter.PhoneNumber?.Value ?? string.Empty
                 },
-
                 Adress = new AdressOutputModel
                 {
-                    Street = rc.Adress.Street,
+                    Street = rc.Adress.Street ?? string.Empty,
                     Complement = rc.Adress.Complement,
-                    Number = rc.Adress.Number,
-                    Neighborhood = rc.Adress.Neighborhood,
-                    City = rc.Adress.City,
-                    State = rc.Adress.State,
-                    ZipCode = rc.Adress.ZipCode
+                    Number = rc.Adress.Number ?? string.Empty,
+                    Neighborhood = rc.Adress.Neighborhood ?? string.Empty,
+                    City = rc.Adress.City ?? string.Empty,
+                    State = rc.Adress.State ?? string.Empty,
+                    ZipCode = rc.Adress.ZipCode ?? string.Empty
                 },
-
                 Bills = rc.Bills.Select(b => new BillsOutputModel
                 {
+                    Id = b.Id,
+                    RentalContractId = b.RentalContractId,
                     Type = b.Type,
                     ValidationDate = b.ValidationDate,
                     Value = b.Value.Amount
                 }).ToList(),
-
                 StartContract = rc.StartContract,
                 EndContract = rc.EndContract,
-                RentalValue = rc.RentalValue.Amount
-            }).ToList();
-
-            return Ok(outputList);
-        }
-
-        [HttpPost]
-        public async Task<IActionResult> Create([FromBody] RentalContractInputModel rc)
-        {
-            if (rc == null)
-            {
-                return BadRequest(new { Errors = new List<string> { "Dados do contrato são obrigatórios." } });
-            }
-
-            var validData = _validator.IsValidData(rc);
-            if (validData.Any)
-            {
-                return BadRequest(new { Errors = validData.Errors });
-            }
-
-            try
-            {
-                var createdContract = await _rentalContract.createContract(rc);
-                return CreatedAtAction(nameof(GetAll), new { id = createdContract.Id }, createdContract);
-            }
-            catch (Exception ex)
-            {
-                return BadRequest(new { Errors = new List<string> { ex.Message } });
-            }
-        }
-
+                RentalValue = rc.RentalValue.Amount,
+                PreferredIndex = rc.PreferredIndex.ToString(),
+                ReadjustmentHistory = rc.ReadjustmentHistory
+                    .Select(ApplyReadjustmentHandler.ToOutput)
+                    .ToList()
+            };
     }
 }
