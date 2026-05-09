@@ -9,7 +9,9 @@ import 'package:intl/date_symbol_data_local.dart';
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await initializeDateFormatting('pt_BR');
-  runApp(const ProviderScope(child: GestaoImoveisApp()));
+  final container = ProviderContainer();
+  await container.read(appThemeModeProvider.notifier).initialize();
+  runApp(UncontrolledProviderScope(container: container, child: const GestaoImoveisApp()));
 }
 
 class GestaoImoveisApp extends ConsumerWidget {
