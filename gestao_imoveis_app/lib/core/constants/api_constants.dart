@@ -14,13 +14,28 @@ abstract final class ApiConstants {
   static String propertyInspections(int id) => '/api/property/$id/inspections';
   static String updateProperty(int id) => '/api/property/$id';
   static String updatePropertyStatus(int id) => '/api/property/$id/status';
+  static const archivedProperties = '/api/property/archived';
+  static String archiveProperty(int id) => '/api/property/$id/archive';
+  static String unarchiveProperty(int id) => '/api/property/$id/unarchive';
 
   // Leasing
   static const contracts = '/api/rentalcontract';
   static String applyReadjustment(int id) => '/api/rentalcontract/$id/readjustment';
+  static const archivedContracts = '/api/rentalcontract/archived';
+  static String archiveContract(int id) => '/api/rentalcontract/$id/archive';
+  static String unarchiveContract(int id) => '/api/rentalcontract/$id/unarchive';
+  static String terminateContract(int id) => '/api/rentalcontract/$id/terminate';
   static const renters = '/api/renter';
   static String renterById(int id) => '/api/renter/$id';
   static String verifyCpf(String cpf) => '/api/renter/verifycpf/$cpf';
+  static const archivedRenters = '/api/renter/archived';
+  static String archiveRenter(int id) => '/api/renter/$id/archive';
+  static String unarchiveRenter(int id) => '/api/renter/$id/unarchive';
+
+  // Reports
+  static String annualReportPdf(int year) => '/api/report/annual/$year/pdf';
+  static String annualReportXlsx(int year) => '/api/report/annual/$year/xlsx';
+  static String contractPdf(int id) => '/api/report/contract/$id/pdf';
 
   // Billing
   static const invoices = '/api/invoice';

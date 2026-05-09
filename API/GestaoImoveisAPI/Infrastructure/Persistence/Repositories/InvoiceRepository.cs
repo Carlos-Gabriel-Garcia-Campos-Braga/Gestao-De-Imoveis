@@ -55,6 +55,12 @@ namespace GestaoImoveisAPI.Infrastructure.Persistence.Repositories
                 .ToListAsync(ct);
         }
 
+        public async Task<IReadOnlyList<Invoice>> GetByYearAsync(int year, CancellationToken ct = default) =>
+            await _context.Invoices
+                .Where(i => i.DueDate.Year == year)
+                .OrderBy(i => i.DueDate)
+                .ToListAsync(ct);
+
         public async Task AddAsync(Invoice invoice, CancellationToken ct = default) =>
             await _context.Invoices.AddAsync(invoice, ct);
 

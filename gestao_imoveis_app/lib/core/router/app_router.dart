@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:gestao_imoveis/core/router/route_names.dart';
+import 'package:gestao_imoveis/features/archive/presentation/screens/archive_screen.dart';
 import 'package:gestao_imoveis/features/billing/presentation/screens/invoice_detail_screen.dart';
 import 'package:gestao_imoveis/features/billing/presentation/screens/invoice_list_screen.dart';
 import 'package:gestao_imoveis/features/billing/presentation/screens/new_invoice_screen.dart';
@@ -19,6 +20,7 @@ import 'package:gestao_imoveis/features/property/presentation/screens/inspection
 import 'package:gestao_imoveis/features/property/presentation/screens/property_detail_screen.dart';
 import 'package:gestao_imoveis/features/property/presentation/screens/property_form_screen.dart';
 import 'package:gestao_imoveis/features/property/presentation/screens/property_list_screen.dart';
+import 'package:gestao_imoveis/features/reports/presentation/screens/reports_screen.dart';
 import 'package:go_router/go_router.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 
@@ -225,6 +227,18 @@ GoRouter appRouter(Ref ref) {
         path: RoutePaths.settings,
         name: RouteNames.settings,
         builder: (_, __) => const SettingsScreen(),
+        routes: [
+          GoRoute(
+            path: 'archive',
+            name: RouteNames.archive,
+            builder: (_, __) => const ArchiveScreen(),
+          ),
+          GoRoute(
+            path: 'reports',
+            name: RouteNames.reports,
+            builder: (_, __) => const ReportsScreen(),
+          ),
+        ],
       ),
       GoRoute(
         path: RoutePaths.changePassword,

@@ -28,6 +28,8 @@ abstract final class RouteNames {
   // Settings
   static const settings = 'settings';
   static const changePassword = 'change-password';
+  static const archive = 'archive';
+  static const reports = 'reports';
 }
 
 abstract final class RoutePaths {
@@ -49,4 +51,6 @@ abstract final class RoutePaths {
   static const invoiceDetail = '/billing/:id';
   static const settings = '/settings';
   static const changePassword = '/change-password';
+  static const archive = '/settings/archive';
+  static const reports = '/settings/reports';
 }

@@ -1,4 +1,6 @@
 using GestaoImoveisAPI.Application.Billing.AttachPixCharge;
+using GestaoImoveisAPI.Application.Reports;
+using QuestPDF.Infrastructure;
 using GestaoImoveisAPI.Application.Billing.CreateInvoice;
 using GestaoImoveisAPI.Application.Billing.MarkOverdue;
 using GestaoImoveisAPI.Application.Billing.RegisterPayment;
@@ -32,6 +34,8 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
 using System.Text;
 using System.Threading.RateLimiting;
+
+QuestPDF.Settings.License = LicenseType.Community;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -137,6 +141,9 @@ builder.Services.AddScoped<CreatePropertyHandler>();
 builder.Services.AddScoped<UpdatePropertyHandler>();
 builder.Services.AddScoped<UpdatePropertyStatusHandler>();
 builder.Services.AddScoped<AddInspectionReportHandler>();
+
+// Reports
+builder.Services.AddScoped<AnnualReportHandler>();
 
 // Billing — Domain / Application / Infrastructure
 builder.Services.AddScoped<IInvoiceRepository, InvoiceRepository>();

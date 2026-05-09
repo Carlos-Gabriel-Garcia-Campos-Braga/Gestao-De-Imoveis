@@ -8,6 +8,7 @@ namespace GestaoImoveisAPI.Domain.Billing.Repositories
         Task<IReadOnlyList<Invoice>> GetByContractAsync(int contractId, CancellationToken ct = default);
         Task<IReadOnlyList<Invoice>> GetOverdueAsync(CancellationToken ct = default);
         Task<IReadOnlyList<Invoice>> GetDueSoonAsync(int daysAhead, CancellationToken ct = default);
+        Task<IReadOnlyList<Invoice>> GetByYearAsync(int year, CancellationToken ct = default);
         Task AddAsync(Invoice invoice, CancellationToken ct = default);
         Task SaveChangesAsync(CancellationToken ct = default);
     }
