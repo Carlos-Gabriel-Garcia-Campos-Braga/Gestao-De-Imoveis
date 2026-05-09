@@ -23,7 +23,7 @@ mixin _$RenterModel {
   int get id => throw _privateConstructorUsedError;
   @JsonKey(name: 'name')
   String get name => throw _privateConstructorUsedError;
-  @JsonKey(name: 'cPF')
+  @JsonKey(name: 'cpf')
   String get cpf => throw _privateConstructorUsedError;
   @JsonKey(name: 'phoneNumber')
   String get phoneNumber => throw _privateConstructorUsedError;
@@ -47,7 +47,7 @@ abstract class $RenterModelCopyWith<$Res> {
   $Res call(
       {int id,
       @JsonKey(name: 'name') String name,
-      @JsonKey(name: 'cPF') String cpf,
+      @JsonKey(name: 'cpf') String cpf,
       @JsonKey(name: 'phoneNumber') String phoneNumber});
 }
 
@@ -103,7 +103,7 @@ abstract class _$$RenterModelImplCopyWith<$Res>
   $Res call(
       {int id,
       @JsonKey(name: 'name') String name,
-      @JsonKey(name: 'cPF') String cpf,
+      @JsonKey(name: 'cpf') String cpf,
       @JsonKey(name: 'phoneNumber') String phoneNumber});
 }
 
@@ -152,7 +152,7 @@ class _$RenterModelImpl implements _RenterModel {
   const _$RenterModelImpl(
       {required this.id,
       @JsonKey(name: 'name') required this.name,
-      @JsonKey(name: 'cPF') required this.cpf,
+      @JsonKey(name: 'cpf') required this.cpf,
       @JsonKey(name: 'phoneNumber') required this.phoneNumber});
 
   factory _$RenterModelImpl.fromJson(Map<String, dynamic> json) =>
@@ -164,7 +164,7 @@ class _$RenterModelImpl implements _RenterModel {
   @JsonKey(name: 'name')
   final String name;
   @override
-  @JsonKey(name: 'cPF')
+  @JsonKey(name: 'cpf')
   final String cpf;
   @override
   @JsonKey(name: 'phoneNumber')
@@ -211,7 +211,7 @@ abstract class _RenterModel implements RenterModel {
   const factory _RenterModel(
           {required final int id,
           @JsonKey(name: 'name') required final String name,
-          @JsonKey(name: 'cPF') required final String cpf,
+          @JsonKey(name: 'cpf') required final String cpf,
           @JsonKey(name: 'phoneNumber') required final String phoneNumber}) =
       _$RenterModelImpl;
 
@@ -224,7 +224,7 @@ abstract class _RenterModel implements RenterModel {
   @JsonKey(name: 'name')
   String get name;
   @override
-  @JsonKey(name: 'cPF')
+  @JsonKey(name: 'cpf')
   String get cpf;
   @override
   @JsonKey(name: 'phoneNumber')

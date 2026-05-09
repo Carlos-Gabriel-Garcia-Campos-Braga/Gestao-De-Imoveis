@@ -62,6 +62,12 @@ namespace GestaoImoveisAPI.Data
                       .HasConversion<string>()
                       .HasDefaultValue(EconomicIndex.IPCA);
 
+                entity.HasOne<PropertyEntity>()
+                      .WithMany()
+                      .HasForeignKey(c => c.PropertyId)
+                      .IsRequired(false)
+                      .OnDelete(DeleteBehavior.SetNull);
+
                 entity.OwnsOne(e => e.RentalValue, money =>
                     money.Property(p => p.Amount).HasColumnName("RentalValue"));
 

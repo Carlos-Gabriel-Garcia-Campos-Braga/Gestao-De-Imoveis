@@ -194,6 +194,24 @@ class _PropertyDetailProviderElement
   int get id => (origin as PropertyDetailProvider).id;
 }
 
+String _$vacantPropertiesHash() => r'33889fc710be484ab6a1505996b67e026179ff0c';
+
+/// See also [vacantProperties].
+@ProviderFor(vacantProperties)
+final vacantPropertiesProvider =
+    AutoDisposeFutureProvider<List<Property>>.internal(
+  vacantProperties,
+  name: r'vacantPropertiesProvider',
+  debugGetCreateSourceHash: const bool.fromEnvironment('dart.vm.product')
+      ? null
+      : _$vacantPropertiesHash,
+  dependencies: null,
+  allTransitiveDependencies: null,
+);
+
+@Deprecated('Will be removed in 3.0. Use Ref instead')
+// ignore: unused_element
+typedef VacantPropertiesRef = AutoDisposeFutureProviderRef<List<Property>>;
 String _$propertyInspectionsHash() =>
     r'bddf4827a9c6189b5f9a3387f6d101d8d4e70412';
 

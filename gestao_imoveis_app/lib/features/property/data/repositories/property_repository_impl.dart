@@ -77,6 +77,24 @@ class PropertyRepositoryImpl implements IPropertyRepository {
   }
 
   @override
+  Future<List<Property>> getArchived() async {
+    final models = await _dataSource.getArchived();
+    return models.map((m) => m.toEntity()).toList();
+  }
+
+  @override
+  Future<Property> archive(int id) async {
+    final model = await _dataSource.archive(id);
+    return model.toEntity();
+  }
+
+  @override
+  Future<Property> unarchive(int id) async {
+    final model = await _dataSource.unarchive(id);
+    return model.toEntity();
+  }
+
+  @override
   Future<List<InspectionReport>> getInspections(int id) async {
     final models = await _dataSource.getInspections(id);
     return models.map((m) => m.toEntity()).toList();

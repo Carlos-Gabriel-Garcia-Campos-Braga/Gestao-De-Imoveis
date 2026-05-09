@@ -7,5 +7,6 @@ namespace SharedClasses.OutputsDTOs
         public string Type { get; set; } = string.Empty;
         public string Status { get; set; } = string.Empty;
         public AdressOutputModel Address { get; set; } = new();
+        public DateTime? ArchivedAt { get; set; }
     }
 }

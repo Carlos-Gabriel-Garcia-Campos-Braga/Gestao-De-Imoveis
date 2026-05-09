@@ -23,13 +23,7 @@ class RentalContractRepositoryImpl implements IRentalContractRepository {
     required String renterName,
     required String renterCpf,
     required String renterPhone,
-    required String street,
-    required String number,
-    String? complement,
-    required String neighborhood,
-    required String city,
-    required String state,
-    required String zipCode,
+    required int propertyId,
     required DateTime startContract,
     required DateTime endContract,
     required double rentalValue,
@@ -41,15 +35,7 @@ class RentalContractRepositoryImpl implements IRentalContractRepository {
         'cPF': renterCpf,
         'phoneNumber': renterPhone,
       },
-      'adress': {
-        'street': street,
-        'number': number,
-        if (complement != null && complement.isNotEmpty) 'complement': complement,
-        'neighborhood': neighborhood,
-        'city': city,
-        'state': state,
-        'zipCode': zipCode,
-      },
+      'propertyId': propertyId,
       'bills': <dynamic>[],
       'startContract': startContract.toIso8601String(),
       'endContract': endContract.toIso8601String(),
@@ -73,6 +59,30 @@ class RentalContractRepositoryImpl implements IRentalContractRepository {
         manualRate: manualRate,
       ),
     );
+    return model.toEntity();
+  }
+
+  @override
+  Future<List<RentalContract>> getArchived() async {
+    final models = await _dataSource.getArchivedContracts();
+    return models.map((m) => m.toEntity()).toList();
+  }
+
+  @override
+  Future<RentalContract> archive(int id) async {
+    final model = await _dataSource.archiveContract(id);
+    return model.toEntity();
+  }
+
+  @override
+  Future<RentalContract> unarchive(int id) async {
+    final model = await _dataSource.unarchiveContract(id);
+    return model.toEntity();
+  }
+
+  @override
+  Future<RentalContract> terminate(int id, String terminatedBy) async {
+    final model = await _dataSource.terminateContract(id, terminatedBy);
     return model.toEntity();
   }
 }

@@ -9,13 +9,7 @@ abstract interface class IRentalContractRepository {
     required String renterName,
     required String renterCpf,
     required String renterPhone,
-    required String street,
-    required String number,
-    String? complement,
-    required String neighborhood,
-    required String city,
-    required String state,
-    required String zipCode,
+    required int propertyId,
     required DateTime startContract,
     required DateTime endContract,
     required double rentalValue,
@@ -27,4 +21,12 @@ abstract interface class IRentalContractRepository {
     EconomicIndex? index,
     double? manualRate,
   });
+
+  Future<List<RentalContract>> getArchived();
+
+  Future<RentalContract> archive(int id);
+
+  Future<RentalContract> unarchive(int id);
+
+  Future<RentalContract> terminate(int id, String terminatedBy);
 }

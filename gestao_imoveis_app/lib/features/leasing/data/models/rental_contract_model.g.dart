@@ -9,13 +9,13 @@ part of 'rental_contract_model.dart';
 _$ContractAddressModelImpl _$$ContractAddressModelImplFromJson(
         Map<String, dynamic> json) =>
     _$ContractAddressModelImpl(
-      street: (json['street'] as String?) ?? '',
+      street: json['street'] as String,
       complement: json['complement'] as String?,
-      number: (json['number'] as String?) ?? '',
-      neighborhood: (json['neighborhood'] as String?) ?? '',
-      city: (json['city'] as String?) ?? '',
-      state: (json['state'] as String?) ?? '',
-      zipCode: (json['zipCode'] as String?) ?? '',
+      number: json['number'] as String,
+      neighborhood: json['neighborhood'] as String,
+      city: json['city'] as String,
+      state: json['state'] as String,
+      zipCode: json['zipCode'] as String,
     );
 
 Map<String, dynamic> _$$ContractAddressModelImplToJson(
@@ -40,14 +40,18 @@ _$RentalContractModelImpl _$$RentalContractModelImplFromJson(
       bills: (json['bills'] as List<dynamic>)
           .map((e) => RentBillModel.fromJson(e as Map<String, dynamic>))
           .toList(),
-      startContract: DateTime.parse((json['startContract'] as String?) ?? DateTime.now().toIso8601String()),
-      endContract: DateTime.parse((json['endContract'] as String?) ?? DateTime.now().toIso8601String()),
+      startContract: DateTime.parse(json['startContract'] as String),
+      endContract: DateTime.parse(json['endContract'] as String),
       rentalValue: (json['rentalValue'] as num).toDouble(),
-      preferredIndex: (json['preferredIndex'] as String?) ?? 'IPCA',
+      preferredIndex: json['preferredIndex'] as String,
       readjustmentHistory: (json['readjustmentHistory'] as List<dynamic>)
           .map((e) =>
               ReadjustmentRecordModel.fromJson(e as Map<String, dynamic>))
           .toList(),
+      terminatedAt: json['terminatedAt'] == null
+          ? null
+          : DateTime.parse(json['terminatedAt'] as String),
+      terminatedBy: json['terminatedBy'] as String?,
     );
 
 Map<String, dynamic> _$$RentalContractModelImplToJson(
@@ -62,4 +66,6 @@ Map<String, dynamic> _$$RentalContractModelImplToJson(
       'rentalValue': instance.rentalValue,
       'preferredIndex': instance.preferredIndex,
       'readjustmentHistory': instance.readjustmentHistory,
+      'terminatedAt': instance.terminatedAt?.toIso8601String(),
+      'terminatedBy': instance.terminatedBy,
     };

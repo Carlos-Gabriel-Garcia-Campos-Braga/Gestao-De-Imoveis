@@ -1,6 +1,8 @@
 using GestaoImoveisAPI.Application.Leasing.ApplyReadjustment;
 using GestaoImoveisAPI.Application.Leasing.CreateContract;
 using GestaoImoveisAPI.Domain.Leasing.Repositories;
+using GestaoImoveisAPI.Domain.Property;
+using GestaoImoveisAPI.Domain.Property.Repositories;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using SharedClasses.InputDTOs;
@@ -8,21 +10,26 @@ using SharedClasses.OutputsDTOs;
 
 namespace GestaoImoveisAPI.Controllers
 {
+    public record TerminateContractRequest(string TerminatedBy, DateTime? TerminatedAt);
+
     [ApiController]
     [Route("api/[controller]")]
     [Authorize]
     public class RentalContractController : ControllerBase
     {
         private readonly IRentalContractRepository _repository;
+        private readonly IPropertyRepository _propertyRepository;
         private readonly CreateContractHandler _createHandler;
         private readonly ApplyReadjustmentHandler _readjustmentHandler;
 
         public RentalContractController(
             IRentalContractRepository repository,
+            IPropertyRepository propertyRepository,
             CreateContractHandler createHandler,
             ApplyReadjustmentHandler readjustmentHandler)
         {
             _repository = repository;
+            _propertyRepository = propertyRepository;
             _createHandler = createHandler;
             _readjustmentHandler = readjustmentHandler;
         }
@@ -32,6 +39,52 @@ namespace GestaoImoveisAPI.Controllers
         {
             var contracts = await _repository.GetAllWithDetailsAsync(ct);
             return Ok(contracts.Select(ToOutput));
+        }
+
+        [HttpGet("archived")]
+        public async Task<ActionResult<IEnumerable<RentalContractOutputModel>>> GetArchived(CancellationToken ct)
+        {
+            var contracts = await _repository.GetArchivedWithDetailsAsync(ct);
+            return Ok(contracts.Select(ToOutput));
+        }
+
+        [HttpPatch("{id}/archive")]
+        public async Task<IActionResult> Archive(int id, CancellationToken ct)
+        {
+            var contract = await _repository.GetByIdAsync(id, ct);
+            if (contract == null) return NotFound();
+            contract.Archive();
+            await _repository.SaveChangesAsync(ct);
+            return Ok(ToOutput(contract));
+        }
+
+        [HttpPatch("{id}/unarchive")]
+        public async Task<IActionResult> Unarchive(int id, CancellationToken ct)
+        {
+            var contract = await _repository.GetArchivedByIdAsync(id, ct);
+            if (contract == null) return NotFound();
+            contract.Unarchive();
+            await _repository.SaveChangesAsync(ct);
+            return Ok(ToOutput(contract));
+        }
+
+        [HttpPatch("{id}/terminate")]
+        public async Task<IActionResult> Terminate(int id, [FromBody] TerminateContractRequest request, CancellationToken ct)
+        {
+            var contract = await _repository.GetByIdAsync(id, ct);
+            if (contract == null) return NotFound();
+
+            contract.Terminate(request.TerminatedBy, request.TerminatedAt);
+
+            if (contract.PropertyId.HasValue)
+            {
+                var property = await _propertyRepository.GetByIdAsync(contract.PropertyId.Value, ct);
+                if (property != null && property.Status != PropertyStatus.Vacant)
+                    property.MarkAsVacant();
+            }
+
+            await _repository.SaveChangesAsync(ct);
+            return Ok(ToOutput(contract));
         }
 
         [HttpPost]
@@ -55,6 +108,7 @@ namespace GestaoImoveisAPI.Controllers
             new()
             {
                 Id = rc.Id,
+                PropertyId = rc.PropertyId ?? 0,
                 Renter = new RenterOutputModel
                 {
                     Id = rc.Renter.Id,
@@ -86,7 +140,10 @@ namespace GestaoImoveisAPI.Controllers
                 PreferredIndex = rc.PreferredIndex.ToString(),
                 ReadjustmentHistory = rc.ReadjustmentHistory
                     .Select(ApplyReadjustmentHandler.ToOutput)
-                    .ToList()
+                    .ToList(),
+                ArchivedAt = rc.ArchivedAt,
+                TerminatedAt = rc.TerminatedAt,
+                TerminatedBy = rc.TerminatedBy
             };
     }
 }

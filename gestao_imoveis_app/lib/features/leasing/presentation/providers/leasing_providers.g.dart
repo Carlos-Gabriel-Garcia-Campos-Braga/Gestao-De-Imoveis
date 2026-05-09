@@ -212,7 +212,7 @@ class _RenterDetailProviderElement
   int get id => (origin as RenterDetailProvider).id;
 }
 
-String _$contractListHash() => r'39b1c1328cb4798a258872bc81a8c5f220af5126';
+String _$contractListHash() => r'f8e79864b862658ddb64385e41d50455b23da7dd';
 
 /// See also [ContractList].
 @ProviderFor(ContractList)

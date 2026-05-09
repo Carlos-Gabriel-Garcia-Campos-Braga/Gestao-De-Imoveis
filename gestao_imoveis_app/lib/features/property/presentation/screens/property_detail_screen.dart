@@ -44,6 +44,57 @@ class PropertyDetailScreen extends ConsumerWidget {
               pathParameters: {'id': '$id'},
             ),
           ),
+          PopupMenuButton<String>(
+            onSelected: (value) async {
+              if (value == 'archive') {
+                final confirmed = await showDialog<bool>(
+                  context: context,
+                  builder: (ctx) => AlertDialog(
+                    title: const Text('Arquivar imóvel'),
+                    content: const Text(
+                      'O imóvel será movido para o arquivo e não aparecerá mais nas listas ativas. Deseja continuar?',
+                    ),
+                    actions: [
+                      TextButton(
+                        onPressed: () => Navigator.pop(ctx, false),
+                        child: const Text('Cancelar'),
+                      ),
+                      FilledButton(
+                        onPressed: () => Navigator.pop(ctx, true),
+                        child: const Text('Arquivar'),
+                      ),
+                    ],
+                  ),
+                );
+                if (confirmed ?? false) {
+                  try {
+                    await ref
+                        .read(propertyRepositoryProvider)
+                        .archive(id);
+                    ref.invalidate(propertyListProvider);
+                    ref.invalidate(vacantPropertiesProvider);
+                    if (context.mounted) context.pop();
+                  } catch (e) {
+                    if (context.mounted) {
+                      ScaffoldMessenger.of(context).showSnackBar(
+                        SnackBar(content: Text(e.toString())),
+                      );
+                    }
+                  }
+                }
+              }
+            },
+            itemBuilder: (_) => const [
+              PopupMenuItem(
+                value: 'archive',
+                child: ListTile(
+                  leading: Icon(Icons.archive_outlined),
+                  title: Text('Arquivar imóvel'),
+                  contentPadding: EdgeInsets.zero,
+                ),
+              ),
+            ],
+          ),
         ],
       ),
       body: propertyAsync.when(

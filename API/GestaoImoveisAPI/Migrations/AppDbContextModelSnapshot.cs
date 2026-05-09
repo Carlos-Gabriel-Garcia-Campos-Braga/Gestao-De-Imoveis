@@ -22,7 +22,129 @@ namespace GestaoImoveisAPI.Migrations
 
             MySqlModelBuilderExtensions.AutoIncrementColumns(modelBuilder);
 
-            modelBuilder.Entity("GestaoImoveisAPI.Models.Bills", b =>
+            modelBuilder.Entity("GestaoImoveisAPI.Domain.Billing.Invoice", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    MySqlPropertyBuilderExtensions.UseMySqlIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<decimal>("Amount")
+                        .HasColumnType("decimal(65,30)");
+
+                    b.Property<string>("Description")
+                        .IsRequired()
+                        .HasColumnType("longtext");
+
+                    b.Property<DateOnly>("DueDate")
+                        .HasColumnType("date");
+
+                    b.Property<int>("RentalContractId")
+                        .HasColumnType("int");
+
+                    b.Property<string>("Status")
+                        .IsRequired()
+                        .HasColumnType("longtext");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Invoices", (string)null);
+                });
+
+            modelBuilder.Entity("GestaoImoveisAPI.Domain.Billing.PixCharge", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    MySqlPropertyBuilderExtensions.UseMySqlIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<DateTime>("ExpiresAt")
+                        .HasColumnType("datetime(6)");
+
+                    b.Property<int>("InvoiceId")
+                        .HasColumnType("int");
+
+                    b.Property<string>("QrCode")
+                        .IsRequired()
+                        .HasColumnType("longtext");
+
+                    b.Property<string>("Status")
+                        .IsRequired()
+                        .HasColumnType("longtext");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("InvoiceId")
+                        .IsUnique();
+
+                    b.ToTable("PixCharges", (string)null);
+                });
+
+            modelBuilder.Entity("GestaoImoveisAPI.Domain.Identity.User", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    MySqlPropertyBuilderExtensions.UseMySqlIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasColumnType("longtext");
+
+                    b.Property<string>("PasswordHash")
+                        .IsRequired()
+                        .HasColumnType("longtext")
+                        .HasColumnName("Password");
+
+                    b.Property<string>("RefreshToken")
+                        .HasColumnType("longtext");
+
+                    b.Property<DateTime?>("RefreshTokenExpiresAt")
+                        .HasColumnType("datetime(6)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("User", (string)null);
+                });
+
+            modelBuilder.Entity("GestaoImoveisAPI.Domain.Leasing.ReadjustmentRecord", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    MySqlPropertyBuilderExtensions.UseMySqlIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<DateTime>("AppliedAt")
+                        .HasColumnType("datetime(6)");
+
+                    b.Property<int>("ContractId")
+                        .HasColumnType("int");
+
+                    b.Property<string>("Index")
+                        .IsRequired()
+                        .HasColumnType("longtext");
+
+                    b.Property<decimal>("NewValue")
+                        .HasColumnType("decimal(65,30)");
+
+                    b.Property<decimal>("OldValue")
+                        .HasColumnType("decimal(65,30)");
+
+                    b.Property<decimal>("Rate")
+                        .HasColumnType("decimal(65,30)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("ContractId");
+
+                    b.ToTable("ReadjustmentRecords", (string)null);
+                });
+
+            modelBuilder.Entity("GestaoImoveisAPI.Domain.Leasing.RentBill", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -44,10 +166,10 @@ namespace GestaoImoveisAPI.Migrations
 
                     b.HasIndex("RentalContractId");
 
-                    b.ToTable("Bills");
+                    b.ToTable("Bills", (string)null);
                 });
 
-            modelBuilder.Entity("GestaoImoveisAPI.Models.RentalContract", b =>
+            modelBuilder.Entity("GestaoImoveisAPI.Domain.Leasing.RentalContract", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -55,8 +177,20 @@ namespace GestaoImoveisAPI.Migrations
 
                     MySqlPropertyBuilderExtensions.UseMySqlIdentityColumn(b.Property<int>("Id"));
 
+                    b.Property<DateTime?>("ArchivedAt")
+                        .HasColumnType("datetime(6)");
+
                     b.Property<DateTime>("EndContract")
                         .HasColumnType("datetime(6)");
+
+                    b.Property<string>("PreferredIndex")
+                        .IsRequired()
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("longtext")
+                        .HasDefaultValue("IPCA");
+
+                    b.Property<int?>("PropertyId")
+                        .HasColumnType("int");
 
                     b.Property<int>("RenterId")
                         .HasColumnType("int");
@@ -64,14 +198,22 @@ namespace GestaoImoveisAPI.Migrations
                     b.Property<DateTime>("StartContract")
                         .HasColumnType("datetime(6)");
 
+                    b.Property<DateTime?>("TerminatedAt")
+                        .HasColumnType("datetime(6)");
+
+                    b.Property<string>("TerminatedBy")
+                        .HasColumnType("longtext");
+
                     b.HasKey("Id");
+
+                    b.HasIndex("PropertyId");
 
                     b.HasIndex("RenterId");
 
-                    b.ToTable("Contract");
+                    b.ToTable("Contract", (string)null);
                 });
 
-            modelBuilder.Entity("GestaoImoveisAPI.Models.Renter", b =>
+            modelBuilder.Entity("GestaoImoveisAPI.Domain.Leasing.Renter", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -79,16 +221,19 @@ namespace GestaoImoveisAPI.Migrations
 
                     MySqlPropertyBuilderExtensions.UseMySqlIdentityColumn(b.Property<int>("Id"));
 
+                    b.Property<DateTime?>("ArchivedAt")
+                        .HasColumnType("datetime(6)");
+
                     b.Property<string>("Name")
                         .IsRequired()
                         .HasColumnType("longtext");
 
                     b.HasKey("Id");
 
-                    b.ToTable("Renter");
+                    b.ToTable("Renter", (string)null);
                 });
 
-            modelBuilder.Entity("GestaoImoveisAPI.Models.User", b =>
+            modelBuilder.Entity("GestaoImoveisAPI.Domain.Property.InspectionReport", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -96,72 +241,199 @@ namespace GestaoImoveisAPI.Migrations
 
                     MySqlPropertyBuilderExtensions.UseMySqlIdentityColumn(b.Property<int>("Id"));
 
-                    b.Property<string>("Name")
+                    b.Property<DateTime>("InspectedAt")
+                        .HasColumnType("datetime(6)");
+
+                    b.Property<string>("Inspector")
                         .IsRequired()
                         .HasColumnType("longtext");
 
-                    b.Property<string>("Password")
+                    b.Property<string>("Notes")
+                        .HasColumnType("longtext");
+
+                    b.Property<int>("PropertyId")
+                        .HasColumnType("int");
+
+                    b.Property<string>("Type")
                         .IsRequired()
                         .HasColumnType("longtext");
 
                     b.HasKey("Id");
 
-                    b.ToTable("User");
+                    b.HasIndex("PropertyId");
+
+                    b.ToTable("InspectionReports", (string)null);
                 });
 
-            modelBuilder.Entity("GestaoImoveisAPI.Models.Bills", b =>
+            modelBuilder.Entity("GestaoImoveisAPI.Domain.Property.Property", b =>
                 {
-                    b.HasOne("GestaoImoveisAPI.Models.RentalContract", "RentalContract")
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    MySqlPropertyBuilderExtensions.UseMySqlIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<DateTime?>("ArchivedAt")
+                        .HasColumnType("datetime(6)");
+
+                    b.Property<string>("Description")
+                        .IsRequired()
+                        .HasColumnType("longtext");
+
+                    b.Property<string>("Status")
+                        .IsRequired()
+                        .HasColumnType("longtext");
+
+                    b.Property<string>("Type")
+                        .IsRequired()
+                        .HasColumnType("longtext");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Properties", (string)null);
+                });
+
+            modelBuilder.Entity("GestaoImoveisAPI.Domain.Billing.Invoice", b =>
+                {
+                    b.OwnsOne("GestaoImoveisAPI.Domain.Billing.LateFeeCalculation", "LateFee", b1 =>
+                        {
+                            b1.Property<int>("InvoiceId")
+                                .HasColumnType("int");
+
+                            b1.Property<int>("DaysOverdue")
+                                .HasColumnType("int")
+                                .HasColumnName("LateFee_DaysOverdue");
+
+                            b1.Property<decimal>("InterestAmount")
+                                .HasColumnType("decimal(65,30)")
+                                .HasColumnName("LateFee_InterestAmount");
+
+                            b1.Property<decimal>("LateFeeAmount")
+                                .HasColumnType("decimal(65,30)")
+                                .HasColumnName("LateFee_LateFeeAmount");
+
+                            b1.Property<decimal>("TotalAmount")
+                                .HasColumnType("decimal(65,30)")
+                                .HasColumnName("LateFee_TotalAmount");
+
+                            b1.HasKey("InvoiceId");
+
+                            b1.ToTable("Invoices");
+
+                            b1.WithOwner()
+                                .HasForeignKey("InvoiceId");
+                        });
+
+                    b.OwnsOne("GestaoImoveisAPI.Domain.Billing.PaymentRecord", "Payment", b1 =>
+                        {
+                            b1.Property<int>("InvoiceId")
+                                .HasColumnType("int");
+
+                            b1.Property<decimal>("AmountPaid")
+                                .HasColumnType("decimal(65,30)")
+                                .HasColumnName("Payment_AmountPaid");
+
+                            b1.Property<DateTime>("PaidAt")
+                                .HasColumnType("datetime(6)")
+                                .HasColumnName("Payment_PaidAt");
+
+                            b1.Property<string>("PaymentMethod")
+                                .IsRequired()
+                                .HasColumnType("longtext")
+                                .HasColumnName("Payment_PaymentMethod");
+
+                            b1.HasKey("InvoiceId");
+
+                            b1.ToTable("Invoices");
+
+                            b1.WithOwner()
+                                .HasForeignKey("InvoiceId");
+                        });
+
+                    b.Navigation("LateFee");
+
+                    b.Navigation("Payment");
+                });
+
+            modelBuilder.Entity("GestaoImoveisAPI.Domain.Billing.PixCharge", b =>
+                {
+                    b.HasOne("GestaoImoveisAPI.Domain.Billing.Invoice", null)
+                        .WithOne("PixCharge")
+                        .HasForeignKey("GestaoImoveisAPI.Domain.Billing.PixCharge", "InvoiceId");
+                });
+
+            modelBuilder.Entity("GestaoImoveisAPI.Domain.Identity.User", b =>
+                {
+                    b.OwnsOne("SharedClasses.ValueObjects.Email", "Email", b1 =>
+                        {
+                            b1.Property<int>("UserId")
+                                .HasColumnType("int");
+
+                            b1.Property<string>("Value")
+                                .IsRequired()
+                                .HasColumnType("longtext")
+                                .HasColumnName("Email");
+
+                            b1.HasKey("UserId");
+
+                            b1.ToTable("User");
+
+                            b1.WithOwner()
+                                .HasForeignKey("UserId");
+                        });
+
+                    b.Navigation("Email")
+                        .IsRequired();
+                });
+
+            modelBuilder.Entity("GestaoImoveisAPI.Domain.Leasing.ReadjustmentRecord", b =>
+                {
+                    b.HasOne("GestaoImoveisAPI.Domain.Leasing.RentalContract", null)
+                        .WithMany("ReadjustmentHistory")
+                        .HasForeignKey("ContractId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+                });
+
+            modelBuilder.Entity("GestaoImoveisAPI.Domain.Leasing.RentBill", b =>
+                {
+                    b.HasOne("GestaoImoveisAPI.Domain.Leasing.RentalContract", null)
                         .WithMany("Bills")
                         .HasForeignKey("RentalContractId");
 
                     b.OwnsOne("SharedClasses.ValueObjects.Money", "Value", b1 =>
                         {
-                            b1.Property<int>("BillsId")
+                            b1.Property<int>("RentBillId")
                                 .HasColumnType("int");
 
                             b1.Property<decimal>("Amount")
                                 .HasColumnType("decimal(65,30)")
                                 .HasColumnName("Value");
 
-                            b1.HasKey("BillsId");
+                            b1.HasKey("RentBillId");
 
                             b1.ToTable("Bills");
 
                             b1.WithOwner()
-                                .HasForeignKey("BillsId");
+                                .HasForeignKey("RentBillId");
                         });
-
-                    b.Navigation("RentalContract");
 
                     b.Navigation("Value")
                         .IsRequired();
                 });
 
-            modelBuilder.Entity("GestaoImoveisAPI.Models.RentalContract", b =>
+            modelBuilder.Entity("GestaoImoveisAPI.Domain.Leasing.RentalContract", b =>
                 {
-                    b.HasOne("GestaoImoveisAPI.Models.Renter", "Renter")
+                    b.HasOne("GestaoImoveisAPI.Domain.Property.Property", null)
+                        .WithMany()
+                        .HasForeignKey("PropertyId")
+                        .OnDelete(DeleteBehavior.SetNull);
+
+                    b.HasOne("GestaoImoveisAPI.Domain.Leasing.Renter", "Renter")
                         .WithMany("Contracts")
                         .HasForeignKey("RenterId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
-
-                    b.OwnsOne("SharedClasses.ValueObjects.Money", "RentalValue", b1 =>
-                        {
-                            b1.Property<int>("RentalContractId")
-                                .HasColumnType("int");
-
-                            b1.Property<decimal>("Amount")
-                                .HasColumnType("decimal(65,30)")
-                                .HasColumnName("RentalValue");
-
-                            b1.HasKey("RentalContractId");
-
-                            b1.ToTable("Contract");
-
-                            b1.WithOwner()
-                                .HasForeignKey("RentalContractId");
-                        });
 
                     b.OwnsOne("SharedClasses.ValueObjects.Adress", "Adress", b1 =>
                         {
@@ -174,7 +446,6 @@ namespace GestaoImoveisAPI.Migrations
                                 .HasColumnName("City");
 
                             b1.Property<string>("Complement")
-                                .IsRequired()
                                 .HasColumnType("longtext")
                                 .HasColumnName("Complement");
 
@@ -184,7 +455,6 @@ namespace GestaoImoveisAPI.Migrations
                                 .HasColumnName("Neighborhood");
 
                             b1.Property<string>("Number")
-                                .IsRequired()
                                 .HasColumnType("longtext")
                                 .HasColumnName("Number");
 
@@ -211,6 +481,23 @@ namespace GestaoImoveisAPI.Migrations
                                 .HasForeignKey("RentalContractId");
                         });
 
+                    b.OwnsOne("SharedClasses.ValueObjects.Money", "RentalValue", b1 =>
+                        {
+                            b1.Property<int>("RentalContractId")
+                                .HasColumnType("int");
+
+                            b1.Property<decimal>("Amount")
+                                .HasColumnType("decimal(65,30)")
+                                .HasColumnName("RentalValue");
+
+                            b1.HasKey("RentalContractId");
+
+                            b1.ToTable("Contract");
+
+                            b1.WithOwner()
+                                .HasForeignKey("RentalContractId");
+                        });
+
                     b.Navigation("Adress")
                         .IsRequired();
 
@@ -220,7 +507,7 @@ namespace GestaoImoveisAPI.Migrations
                     b.Navigation("Renter");
                 });
 
-            modelBuilder.Entity("GestaoImoveisAPI.Models.Renter", b =>
+            modelBuilder.Entity("GestaoImoveisAPI.Domain.Leasing.Renter", b =>
                 {
                     b.OwnsOne("SharedClasses.ValueObjects.CPF", "CPF", b1 =>
                         {
@@ -265,38 +552,87 @@ namespace GestaoImoveisAPI.Migrations
                         .IsRequired();
                 });
 
-            modelBuilder.Entity("GestaoImoveisAPI.Models.User", b =>
+            modelBuilder.Entity("GestaoImoveisAPI.Domain.Property.InspectionReport", b =>
                 {
-                    b.OwnsOne("SharedClasses.ValueObjects.Email", "Email", b1 =>
-                        {
-                            b1.Property<int>("UserId")
-                                .HasColumnType("int");
-
-                            b1.Property<string>("email")
-                                .IsRequired()
-                                .HasColumnType("longtext")
-                                .HasColumnName("Email");
-
-                            b1.HasKey("UserId");
-
-                            b1.ToTable("User");
-
-                            b1.WithOwner()
-                                .HasForeignKey("UserId");
-                        });
-
-                    b.Navigation("Email")
+                    b.HasOne("GestaoImoveisAPI.Domain.Property.Property", null)
+                        .WithMany("InspectionReports")
+                        .HasForeignKey("PropertyId")
+                        .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
                 });
 
-            modelBuilder.Entity("GestaoImoveisAPI.Models.RentalContract", b =>
+            modelBuilder.Entity("GestaoImoveisAPI.Domain.Property.Property", b =>
                 {
-                    b.Navigation("Bills");
+                    b.OwnsOne("SharedClasses.ValueObjects.Adress", "Address", b1 =>
+                        {
+                            b1.Property<int>("PropertyId")
+                                .HasColumnType("int");
+
+                            b1.Property<string>("City")
+                                .IsRequired()
+                                .HasColumnType("longtext")
+                                .HasColumnName("City");
+
+                            b1.Property<string>("Complement")
+                                .HasColumnType("longtext")
+                                .HasColumnName("Complement");
+
+                            b1.Property<string>("Neighborhood")
+                                .IsRequired()
+                                .HasColumnType("longtext")
+                                .HasColumnName("Neighborhood");
+
+                            b1.Property<string>("Number")
+                                .HasColumnType("longtext")
+                                .HasColumnName("Number");
+
+                            b1.Property<string>("State")
+                                .IsRequired()
+                                .HasColumnType("longtext")
+                                .HasColumnName("State");
+
+                            b1.Property<string>("Street")
+                                .IsRequired()
+                                .HasColumnType("longtext")
+                                .HasColumnName("Street");
+
+                            b1.Property<string>("ZipCode")
+                                .IsRequired()
+                                .HasColumnType("longtext")
+                                .HasColumnName("ZipCode");
+
+                            b1.HasKey("PropertyId");
+
+                            b1.ToTable("Properties");
+
+                            b1.WithOwner()
+                                .HasForeignKey("PropertyId");
+                        });
+
+                    b.Navigation("Address")
+                        .IsRequired();
                 });
 
-            modelBuilder.Entity("GestaoImoveisAPI.Models.Renter", b =>
+            modelBuilder.Entity("GestaoImoveisAPI.Domain.Billing.Invoice", b =>
+                {
+                    b.Navigation("PixCharge");
+                });
+
+            modelBuilder.Entity("GestaoImoveisAPI.Domain.Leasing.RentalContract", b =>
+                {
+                    b.Navigation("Bills");
+
+                    b.Navigation("ReadjustmentHistory");
+                });
+
+            modelBuilder.Entity("GestaoImoveisAPI.Domain.Leasing.Renter", b =>
                 {
                     b.Navigation("Contracts");
+                });
+
+            modelBuilder.Entity("GestaoImoveisAPI.Domain.Property.Property", b =>
+                {
+                    b.Navigation("InspectionReports");
                 });
 #pragma warning restore 612, 618
         }

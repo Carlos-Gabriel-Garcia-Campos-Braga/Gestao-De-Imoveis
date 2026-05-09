@@ -11,6 +11,8 @@ namespace GestaoImoveisAPI.Domain.Property
         public PropertyType Type { get; private set; }
         public PropertyStatus Status { get; private set; }
         public Adress Address { get; private set; } = null!;
+        public DateTime? ArchivedAt { get; private set; }
+        public bool IsArchived => ArchivedAt.HasValue;
         public IReadOnlyList<InspectionReport> InspectionReports => _inspectionReports.AsReadOnly();
 
         private Property() { } // EF Core
@@ -64,6 +66,20 @@ namespace GestaoImoveisAPI.Domain.Property
 
         public void UpdateAddress(Adress newAddress) =>
             Address = newAddress;
+
+        public void Archive()
+        {
+            if (IsArchived)
+                throw new InvalidOperationException("Imóvel já está arquivado.");
+            ArchivedAt = DateTime.UtcNow;
+        }
+
+        public void Unarchive()
+        {
+            if (!IsArchived)
+                throw new InvalidOperationException("Imóvel não está arquivado.");
+            ArchivedAt = null;
+        }
 
         public InspectionReport AddInspectionReport(
             InspectionType type,

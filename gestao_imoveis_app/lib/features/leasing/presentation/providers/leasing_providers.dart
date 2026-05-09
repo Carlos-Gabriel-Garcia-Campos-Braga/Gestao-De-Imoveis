@@ -49,6 +49,15 @@ class ContractList extends _$ContractList {
     return result.valueOrNull;
   }
 
+  Future<void> terminate(int contractId, String terminatedBy) async {
+    await AsyncValue.guard(
+      () => ref
+          .read(rentalContractRepositoryProvider)
+          .terminate(contractId, terminatedBy),
+    );
+    ref.invalidateSelf();
+  }
+
   Future<void> refresh() async => ref.invalidateSelf();
 }
 

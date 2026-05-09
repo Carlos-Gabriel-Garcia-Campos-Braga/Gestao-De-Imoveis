@@ -61,6 +61,33 @@ namespace GestaoImoveisAPI.Controllers
             return Ok(properties.Select(CreatePropertyHandler.ToOutput));
         }
 
+        [HttpGet("archived")]
+        public async Task<IActionResult> GetArchived(CancellationToken ct)
+        {
+            var properties = await _repository.GetArchivedAsync(ct);
+            return Ok(properties.Select(CreatePropertyHandler.ToOutput));
+        }
+
+        [HttpPatch("{id}/archive")]
+        public async Task<IActionResult> Archive(int id, CancellationToken ct)
+        {
+            var property = await _repository.GetByIdAsync(id, ct);
+            if (property == null) return NotFound();
+            property.Archive();
+            await _repository.SaveChangesAsync(ct);
+            return Ok(CreatePropertyHandler.ToOutput(property));
+        }
+
+        [HttpPatch("{id}/unarchive")]
+        public async Task<IActionResult> Unarchive(int id, CancellationToken ct)
+        {
+            var property = await _repository.GetArchivedByIdAsync(id, ct);
+            if (property == null) return NotFound();
+            property.Unarchive();
+            await _repository.SaveChangesAsync(ct);
+            return Ok(CreatePropertyHandler.ToOutput(property));
+        }
+
         [HttpPost]
         public async Task<IActionResult> Create(
             [FromBody] CreatePropertyFromCepInputModel input,

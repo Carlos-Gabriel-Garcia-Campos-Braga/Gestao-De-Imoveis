@@ -10,7 +10,7 @@ _$ReadjustmentRecordModelImpl _$$ReadjustmentRecordModelImplFromJson(
         Map<String, dynamic> json) =>
     _$ReadjustmentRecordModelImpl(
       contractId: (json['contractId'] as num).toInt(),
-      index: (json['index'] as String?) ?? 'IPCA',
+      index: json['index'] as String,
       rate: (json['rate'] as num).toDouble(),
       oldValue: (json['oldValue'] as num).toDouble(),
       newValue: (json['newValue'] as num).toDouble(),

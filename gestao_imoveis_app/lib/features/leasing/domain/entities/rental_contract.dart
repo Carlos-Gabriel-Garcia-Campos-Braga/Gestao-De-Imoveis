@@ -25,11 +25,14 @@ class RentalContract with _$RentalContract {
     required double rentalValue,
     required EconomicIndex preferredIndex,
     required List<ReadjustmentRecord> readjustmentHistory,
+    DateTime? terminatedAt,
+    String? terminatedBy,
   }) = _RentalContract;
 
   const RentalContract._();
 
   ContractStatus get status {
+    if (terminatedAt != null) return ContractStatus.terminated;
     final now = DateTime.now();
     if (now.isBefore(endContract)) return ContractStatus.active;
     return ContractStatus.expired;

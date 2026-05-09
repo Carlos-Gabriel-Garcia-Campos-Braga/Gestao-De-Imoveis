@@ -97,6 +97,41 @@ class PropertyRemoteDataSource {
     }
   }
 
+  Future<List<PropertyModel>> getArchived() async {
+    try {
+      final response =
+          await _dio.get<List<dynamic>>(ApiConstants.archivedProperties);
+      return (response.data ?? [])
+          .cast<Map<String, dynamic>>()
+          .map(PropertyModel.fromJson)
+          .toList();
+    } on DioException catch (e) {
+      throw mapDioException(e);
+    }
+  }
+
+  Future<PropertyModel> archive(int id) async {
+    try {
+      final response = await _dio.patch<Map<String, dynamic>>(
+        ApiConstants.archiveProperty(id),
+      );
+      return PropertyModel.fromJson(response.data!);
+    } on DioException catch (e) {
+      throw mapDioException(e);
+    }
+  }
+
+  Future<PropertyModel> unarchive(int id) async {
+    try {
+      final response = await _dio.patch<Map<String, dynamic>>(
+        ApiConstants.unarchiveProperty(id),
+      );
+      return PropertyModel.fromJson(response.data!);
+    } on DioException catch (e) {
+      throw mapDioException(e);
+    }
+  }
+
   Future<List<InspectionReportModel>> getInspections(int id) async {
     try {
       final response = await _dio.get<List<dynamic>>(

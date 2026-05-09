@@ -9,8 +9,15 @@ namespace GestaoImoveisAPI.Domain.Leasing
         private readonly List<ReadjustmentRecord> _readjustments = [];
 
         public int RenterId { get; private set; }
+        public int? PropertyId { get; private set; }
+        public DateTime? ArchivedAt { get; private set; }
+        public bool IsArchived => ArchivedAt.HasValue;
 
-        // Navigation property para EF Core — lógica de domínio usa RenterId
+        public DateTime? TerminatedAt { get; private set; }
+        public string? TerminatedBy { get; private set; }
+        public bool IsTerminated => TerminatedAt.HasValue;
+
+        // Navigation properties para EF Core — lógica de domínio usa os IDs
         public Renter Renter { get; private set; } = null!;
 
         public Adress Adress { get; private set; } = null!;
@@ -25,6 +32,7 @@ namespace GestaoImoveisAPI.Domain.Leasing
 
         public static RentalContract Create(
             int renterId,
+            int propertyId,
             Adress address,
             DateTime startContract,
             DateTime endContract,
@@ -37,12 +45,38 @@ namespace GestaoImoveisAPI.Domain.Leasing
             return new RentalContract
             {
                 RenterId = renterId,
+                PropertyId = propertyId,
                 Adress = address,
                 StartContract = startContract,
                 EndContract = endContract,
                 RentalValue = rentalValue,
                 PreferredIndex = preferredIndex
             };
+        }
+
+        public void Archive()
+        {
+            if (IsArchived)
+                throw new InvalidOperationException("Contrato já está arquivado.");
+            ArchivedAt = DateTime.UtcNow;
+        }
+
+        public void Unarchive()
+        {
+            if (!IsArchived)
+                throw new InvalidOperationException("Contrato não está arquivado.");
+            ArchivedAt = null;
+        }
+
+        public void Terminate(string terminatedBy, DateTime? terminatedAt = null)
+        {
+            if (IsTerminated)
+                throw new InvalidOperationException("Contrato já foi rescindido.");
+            if (string.IsNullOrWhiteSpace(terminatedBy))
+                throw new ArgumentException("Responsável pela rescisão é obrigatório.");
+
+            TerminatedAt = terminatedAt?.ToUniversalTime() ?? DateTime.UtcNow;
+            TerminatedBy = terminatedBy;
         }
 
         public RentBill AddBill(string type, DateTime validationDate, Money value)

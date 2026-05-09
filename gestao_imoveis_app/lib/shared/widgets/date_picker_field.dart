@@ -26,6 +26,7 @@ class DatePickerField extends StatefulWidget {
 class _DatePickerFieldState extends State<DatePickerField> {
   DateTime? _selectedDate;
   final _controller = TextEditingController();
+  final _fieldKey = GlobalKey<FormFieldState<DateTime>>();
 
   @override
   void initState() {
@@ -57,6 +58,7 @@ class _DatePickerFieldState extends State<DatePickerField> {
         _selectedDate = picked;
         _controller.text = picked.toBrDate();
       });
+      _fieldKey.currentState?.didChange(picked);
       widget.onChanged?.call(picked);
     }
   }
@@ -64,6 +66,7 @@ class _DatePickerFieldState extends State<DatePickerField> {
   @override
   Widget build(BuildContext context) {
     return FormField<DateTime>(
+      key: _fieldKey,
       initialValue: _selectedDate,
       validator: widget.validator,
       builder: (state) => Column(

@@ -23,11 +23,19 @@ namespace GestaoImoveisAPI.Infrastructure.Persistence.Repositories
                 .FirstOrDefaultAsync(p => p.Id == id, ct);
 
         public async Task<IReadOnlyList<Domain.Property.Property>> GetAllAsync(CancellationToken ct = default) =>
-            await _context.Properties.ToListAsync(ct);
+            await _context.Properties.Where(p => p.ArchivedAt == null).ToListAsync(ct);
 
         public async Task<IReadOnlyList<Domain.Property.Property>> GetByStatusAsync(
             PropertyStatus status, CancellationToken ct = default) =>
-            await _context.Properties.Where(p => p.Status == status).ToListAsync(ct);
+            await _context.Properties
+                .Where(p => p.Status == status && p.ArchivedAt == null)
+                .ToListAsync(ct);
+
+        public async Task<IReadOnlyList<Domain.Property.Property>> GetArchivedAsync(CancellationToken ct = default) =>
+            await _context.Properties.Where(p => p.ArchivedAt != null).ToListAsync(ct);
+
+        public async Task<Domain.Property.Property?> GetArchivedByIdAsync(int id, CancellationToken ct = default) =>
+            await _context.Properties.FirstOrDefaultAsync(p => p.Id == id && p.ArchivedAt != null, ct);
 
         public async Task AddAsync(Domain.Property.Property property, CancellationToken ct = default) =>
             await _context.Properties.AddAsync(property, ct);

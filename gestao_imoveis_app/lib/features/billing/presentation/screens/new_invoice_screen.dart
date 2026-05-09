@@ -84,6 +84,7 @@ class _NewInvoiceScreenState extends ConsumerState<NewInvoiceScreen> {
                     .where((c) => c.endContract.isAfter(DateTime.now()))
                     .toList();
                 return DropdownButtonFormField<RentalContract>(
+                  isExpanded: true,
                   initialValue: _selectedContract,
                   decoration:
                       const InputDecoration(labelText: 'Contrato'),

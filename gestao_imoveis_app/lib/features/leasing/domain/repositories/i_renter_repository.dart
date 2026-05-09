@@ -12,4 +12,10 @@ abstract interface class IRenterRepository {
     required String cpf,
     required String phoneNumber,
   });
+
+  Future<List<Renter>> getArchived();
+
+  Future<Renter> archive(int id);
+
+  Future<Renter> unarchive(int id);
 }

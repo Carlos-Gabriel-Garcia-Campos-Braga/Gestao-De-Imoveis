@@ -18,10 +18,16 @@ namespace GestaoImoveisAPI.Infrastructure.Persistence.Repositories
             await _context.Renters.FirstOrDefaultAsync(r => r.Id == id, ct);
 
         public async Task<IReadOnlyList<Renter>> GetAllAsync(CancellationToken ct = default) =>
-            await _context.Renters.ToListAsync(ct);
+            await _context.Renters.Where(r => r.ArchivedAt == null).ToListAsync(ct);
 
         public async Task<Renter?> GetByCpfAsync(string cpf, CancellationToken ct = default) =>
             await _context.Renters.FirstOrDefaultAsync(r => r.CPF.Value == cpf, ct);
+
+        public async Task<IReadOnlyList<Renter>> GetArchivedAsync(CancellationToken ct = default) =>
+            await _context.Renters.Where(r => r.ArchivedAt != null).ToListAsync(ct);
+
+        public async Task<Renter?> GetArchivedByIdAsync(int id, CancellationToken ct = default) =>
+            await _context.Renters.FirstOrDefaultAsync(r => r.Id == id && r.ArchivedAt != null, ct);
 
         public async Task AddAsync(Renter renter, CancellationToken ct = default) =>
             await _context.Renters.AddAsync(renter, ct);

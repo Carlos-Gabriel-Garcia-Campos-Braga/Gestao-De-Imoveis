@@ -10,8 +10,8 @@ _$RentBillModelImpl _$$RentBillModelImplFromJson(Map<String, dynamic> json) =>
     _$RentBillModelImpl(
       id: (json['id'] as num).toInt(),
       rentalContractId: (json['rentalContractId'] as num?)?.toInt(),
-      type: (json['type'] as String?) ?? '',
-      validationDate: DateTime.parse((json['validationDate'] as String?) ?? DateTime.now().toIso8601String()),
+      type: json['type'] as String,
+      validationDate: DateTime.parse(json['validationDate'] as String),
       value: (json['value'] as num).toDouble(),
     );
 

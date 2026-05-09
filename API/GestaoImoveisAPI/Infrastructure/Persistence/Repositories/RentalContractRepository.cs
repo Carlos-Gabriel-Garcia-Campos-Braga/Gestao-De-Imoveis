@@ -27,14 +27,29 @@ namespace GestaoImoveisAPI.Infrastructure.Persistence.Repositories
 
         public async Task<IReadOnlyList<RentalContract>> GetAllWithDetailsAsync(CancellationToken ct = default) =>
             await _context.Contract
+                .Where(c => c.ArchivedAt == null)
                 .Include(c => c.Renter)
                 .Include(c => c.ReadjustmentHistory)
                 .ToListAsync(ct);
 
+        public async Task<IReadOnlyList<RentalContract>> GetArchivedWithDetailsAsync(CancellationToken ct = default) =>
+            await _context.Contract
+                .Where(c => c.ArchivedAt != null)
+                .Include(c => c.Renter)
+                .Include(c => c.ReadjustmentHistory)
+                .ToListAsync(ct);
+
+        public async Task<RentalContract?> GetArchivedByIdAsync(int id, CancellationToken ct = default) =>
+            await _context.Contract
+                .Include(c => c.Renter)
+                .FirstOrDefaultAsync(c => c.Id == id && c.ArchivedAt != null, ct);
+
         public async Task<bool> HasActiveContractForCpfAsync(string cpf, CancellationToken ct = default) =>
             await _context.Contract
                 .Include(c => c.Renter)
-                .AnyAsync(c => c.Renter.CPF.Value == cpf, ct);
+                .AnyAsync(c => c.Renter.CPF.Value == cpf
+                    && c.TerminatedAt == null
+                    && c.ArchivedAt == null, ct);
 
         public async Task AddAsync(RentalContract contract, CancellationToken ct = default) =>
             await _context.Contract.AddAsync(contract, ct);

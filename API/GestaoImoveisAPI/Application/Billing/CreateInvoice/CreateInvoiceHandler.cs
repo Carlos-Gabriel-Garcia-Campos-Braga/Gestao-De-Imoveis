@@ -51,7 +51,7 @@ namespace GestaoImoveisAPI.Application.Billing.CreateInvoice
                 Id = invoice.Id,
                 RentalContractId = invoice.RentalContractId,
                 Description = invoice.Description,
-                DueDate = invoice.DueDate.ToString("dd/MM/yyyy"),
+                DueDate = invoice.DueDate.ToString("yyyy-MM-dd"),
                 Amount = invoice.Amount,
                 Status = invoice.Status.ToString(),
                 PixCharge = invoice.PixCharge is null ? null : new PixChargeOutputModel

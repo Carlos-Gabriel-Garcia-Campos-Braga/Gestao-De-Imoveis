@@ -64,7 +64,8 @@ namespace GestaoImoveisAPI.Application.Property.CreateProperty
                     City = p.Address.City,
                     State = p.Address.State,
                     ZipCode = p.Address.ZipCode
-                }
+                },
+                ArchivedAt = p.ArchivedAt
             };
     }
 }

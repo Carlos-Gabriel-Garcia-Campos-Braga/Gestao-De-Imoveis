@@ -31,12 +31,23 @@ class _MoneyTextFieldState extends State<MoneyTextField> {
     super.initState();
     _effectiveController = widget.controller ?? TextEditingController();
     if (widget.initialValue != null && _effectiveController.text.isEmpty) {
-      final formatted = widget.initialValue!
-          .toStringAsFixed(2)
-          .replaceAll('.', ',');
-      _effectiveController.text = formatted;
+      _effectiveController.text = _format(widget.initialValue!);
     }
   }
+
+  @override
+  void didUpdateWidget(MoneyTextField oldWidget) {
+    super.didUpdateWidget(oldWidget);
+    if (widget.controller == null &&
+        widget.initialValue != oldWidget.initialValue &&
+        widget.initialValue != null) {
+      _effectiveController.text = _format(widget.initialValue!);
+      widget.onChanged?.call(widget.initialValue);
+    }
+  }
+
+  String _format(double value) =>
+      value.toStringAsFixed(2).replaceAll('.', ',');
 
   @override
   void dispose() {

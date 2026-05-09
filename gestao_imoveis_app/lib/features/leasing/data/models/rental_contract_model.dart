@@ -36,6 +36,8 @@ class RentalContractModel with _$RentalContractModel {
     required double rentalValue,
     required String preferredIndex,
     required List<ReadjustmentRecordModel> readjustmentHistory,
+    DateTime? terminatedAt,
+    String? terminatedBy,
   }) = _RentalContractModel;
 
   factory RentalContractModel.fromJson(Map<String, dynamic> json) =>
@@ -60,5 +62,7 @@ extension RentalContractModelToEntity on RentalContractModel {
         preferredIndex: EconomicIndexLabel.fromApi(preferredIndex),
         readjustmentHistory:
             readjustmentHistory.map((r) => r.toEntity()).toList(),
+        terminatedAt: terminatedAt,
+        terminatedBy: terminatedBy,
       );
 }

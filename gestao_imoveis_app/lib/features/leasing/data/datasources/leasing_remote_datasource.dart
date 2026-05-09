@@ -100,4 +100,87 @@ class LeasingRemoteDataSource {
       throw mapDioException(e);
     }
   }
+
+  Future<List<RenterModel>> getArchivedRenters() async {
+    try {
+      final response =
+          await _dio.get<List<dynamic>>(ApiConstants.archivedRenters);
+      return (response.data ?? [])
+          .cast<Map<String, dynamic>>()
+          .map(RenterModel.fromJson)
+          .toList();
+    } on DioException catch (e) {
+      throw mapDioException(e);
+    }
+  }
+
+  Future<RenterModel> archiveRenter(int id) async {
+    try {
+      final response = await _dio.patch<Map<String, dynamic>>(
+        ApiConstants.archiveRenter(id),
+      );
+      return RenterModel.fromJson(response.data!);
+    } on DioException catch (e) {
+      throw mapDioException(e);
+    }
+  }
+
+  Future<RenterModel> unarchiveRenter(int id) async {
+    try {
+      final response = await _dio.patch<Map<String, dynamic>>(
+        ApiConstants.unarchiveRenter(id),
+      );
+      return RenterModel.fromJson(response.data!);
+    } on DioException catch (e) {
+      throw mapDioException(e);
+    }
+  }
+
+  Future<List<RentalContractModel>> getArchivedContracts() async {
+    try {
+      final response =
+          await _dio.get<List<dynamic>>(ApiConstants.archivedContracts);
+      return (response.data ?? [])
+          .cast<Map<String, dynamic>>()
+          .map(RentalContractModel.fromJson)
+          .toList();
+    } on DioException catch (e) {
+      throw mapDioException(e);
+    }
+  }
+
+  Future<RentalContractModel> archiveContract(int id) async {
+    try {
+      final response = await _dio.patch<Map<String, dynamic>>(
+        ApiConstants.archiveContract(id),
+      );
+      return RentalContractModel.fromJson(response.data!);
+    } on DioException catch (e) {
+      throw mapDioException(e);
+    }
+  }
+
+  Future<RentalContractModel> unarchiveContract(int id) async {
+    try {
+      final response = await _dio.patch<Map<String, dynamic>>(
+        ApiConstants.unarchiveContract(id),
+      );
+      return RentalContractModel.fromJson(response.data!);
+    } on DioException catch (e) {
+      throw mapDioException(e);
+    }
+  }
+
+  Future<RentalContractModel> terminateContract(
+      int id, String terminatedBy) async {
+    try {
+      final response = await _dio.patch<Map<String, dynamic>>(
+        ApiConstants.terminateContract(id),
+        data: {'terminatedBy': terminatedBy},
+      );
+      return RentalContractModel.fromJson(response.data!);
+    } on DioException catch (e) {
+      throw mapDioException(e);
+    }
+  }
 }

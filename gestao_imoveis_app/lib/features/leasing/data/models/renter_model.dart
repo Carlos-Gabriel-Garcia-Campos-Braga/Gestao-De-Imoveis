@@ -9,7 +9,7 @@ class RenterModel with _$RenterModel {
   const factory RenterModel({
     required int id,
     @JsonKey(name: 'name') required String name,
-    @JsonKey(name: 'cPF') required String cpf,
+    @JsonKey(name: 'cpf') required String cpf,
     @JsonKey(name: 'phoneNumber') required String phoneNumber,
   }) = _RenterModel;
 

@@ -35,4 +35,22 @@ class RenterRepositoryImpl implements IRenterRepository {
     );
     return model.toEntity();
   }
+
+  @override
+  Future<List<Renter>> getArchived() async {
+    final models = await _dataSource.getArchivedRenters();
+    return models.map((m) => m.toEntity()).toList();
+  }
+
+  @override
+  Future<Renter> archive(int id) async {
+    final model = await _dataSource.archiveRenter(id);
+    return model.toEntity();
+  }
+
+  @override
+  Future<Renter> unarchive(int id) async {
+    final model = await _dataSource.unarchiveRenter(id);
+    return model.toEntity();
+  }
 }

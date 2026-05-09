@@ -1,11 +1,15 @@
 #!/bin/bash
 # dev.sh — Gestão de Imóveis — Script de desenvolvimento local
-# Uso: ./dev.sh [api|flutter|all|migrate|setup]
-#   api     → sobe só a API
-#   flutter → roda só o Flutter
-#   all     → API em background + Flutter em foreground (padrão)
-#   migrate → aplica migrations no banco
-#   setup   → guia de configuração inicial (credenciais)
+# Uso: ./dev.sh [api|flutter|all|migrate|setup] [web|device]
+#   api          → sobe só a API
+#   flutter      → roda só o Flutter (pergunta o target se não informado)
+#   flutter web  → Flutter no Chrome
+#   flutter device → Flutter no celular conectado
+#   all          → API + Flutter (pergunta o target se não informado)
+#   all web      → API + Flutter no Chrome
+#   all device   → API + Flutter no celular
+#   migrate      → aplica migrations no banco
+#   setup        → guia de configuração inicial (credenciais)
 
 set -euo pipefail
 
@@ -159,23 +163,59 @@ start_api_background() {
     info "API pronta após ${attempts}s"
 }
 
+pick_flutter_target() {
+    echo ""
+    echo "  Onde rodar o Flutter?"
+    echo "  ${CYAN}1)${NC} Celular (dispositivo conectado)"
+    echo "  ${CYAN}2)${NC} Web (Chrome)"
+    echo ""
+    read -rp "  Escolha [1/2]: " choice
+    case "$choice" in
+        2) echo "web" ;;
+        *) echo "device" ;;
+    esac
+}
+
 start_flutter() {
-    title "Iniciando Flutter"
+    local target="${1:-}"
+    [[ -z "$target" ]] && target="$(pick_flutter_target)"
+
+    title "Iniciando Flutter ($target)"
     cd "$FLUTTER_DIR"
     flutter pub get
-    flutter run
+
+    case "$target" in
+        web)
+            flutter run -d chrome
+            ;;
+        device)
+            local devices
+            devices=$(flutter devices 2>/dev/null | grep -v "^No devices" | grep -c "•" || true)
+            if [[ "$devices" -eq 0 ]]; then
+                warn "Nenhum dispositivo físico encontrado. Conecte o celular e habilite a depuração USB."
+                exit 1
+            fi
+            flutter run
+            ;;
+        *)
+            err "Target inválido: '$target'. Use 'web' ou 'device'."
+            exit 1
+            ;;
+    esac
 }
 
 run_all() {
+    local target="${1:-}"
     check_prereqs
     start_api_background
     trap "info 'Encerrando API (PID: $API_PID)...'; kill $API_PID 2>/dev/null || true" EXIT INT TERM
-    start_flutter
+    start_flutter "$target"
 }
 
 # ── Ponto de entrada ──────────────────────────────────────────────────────────
 
 CMD="${1:-all}"
+TARGET="${2:-}"
 
 case "$CMD" in
     setup)
@@ -191,19 +231,23 @@ case "$CMD" in
         ;;
     flutter)
         check_prereqs
-        start_flutter
+        start_flutter "$TARGET"
         ;;
     all)
-        run_all
+        run_all "$TARGET"
         ;;
     *)
-        echo "Uso: ./dev.sh [setup|migrate|api|flutter|all]"
+        echo "Uso: ./dev.sh [setup|migrate|api|flutter|all] [web|device]"
         echo ""
-        echo "  setup   → configurar credenciais do banco (primeira vez)"
-        echo "  migrate → aplicar migrations no banco"
-        echo "  api     → subir só a API"
-        echo "  flutter → rodar só o Flutter"
-        echo "  all     → API + Flutter (padrão)"
+        echo "  setup          → configurar credenciais do banco (primeira vez)"
+        echo "  migrate        → aplicar migrations no banco"
+        echo "  api            → subir só a API"
+        echo "  flutter        → rodar só o Flutter (pergunta o target)"
+        echo "  flutter web    → Flutter no Chrome"
+        echo "  flutter device → Flutter no celular"
+        echo "  all            → API + Flutter (pergunta o target)"
+        echo "  all web        → API + Flutter no Chrome"
+        echo "  all device     → API + Flutter no celular"
         exit 1
         ;;
 esac

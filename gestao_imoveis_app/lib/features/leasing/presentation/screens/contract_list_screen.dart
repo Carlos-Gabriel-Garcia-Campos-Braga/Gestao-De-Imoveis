@@ -12,35 +12,59 @@ import 'package:gestao_imoveis/shared/widgets/skeleton_list.dart';
 import 'package:gestao_imoveis/shared/widgets/status_badge.dart';
 import 'package:go_router/go_router.dart';
 
-class ContractListScreen extends ConsumerWidget {
+class ContractListScreen extends ConsumerStatefulWidget {
   const ContractListScreen({super.key});
 
   @override
-  Widget build(BuildContext context, WidgetRef ref) {
-    final contractsAsync = ref.watch(contractListProvider);
+  ConsumerState<ContractListScreen> createState() => _ContractListScreenState();
+}
 
-    return DefaultTabController(
-      length: 2,
-      child: Scaffold(
-        appBar: AppBar(
-          title: const Text('Contratos'),
-          bottom: const TabBar(
-            tabs: [
-              Tab(text: 'Contratos'),
-              Tab(text: 'Inquilinos'),
-            ],
-          ),
-        ),
-        body: TabBarView(
-          children: [
-            _ContractTab(contractsAsync: contractsAsync),
-            const _RentersTab(),
+class _ContractListScreenState extends ConsumerState<ContractListScreen>
+    with SingleTickerProviderStateMixin {
+  late final TabController _tabController;
+
+  @override
+  void initState() {
+    super.initState();
+    _tabController = TabController(length: 2, vsync: this);
+    _tabController.addListener(() => setState(() {}));
+  }
+
+  @override
+  void dispose() {
+    _tabController.dispose();
+    super.dispose();
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    final contractsAsync = ref.watch(contractListProvider);
+    final onRentersTab = _tabController.index == 1;
+
+    return Scaffold(
+      appBar: AppBar(
+        title: const Text('Contratos'),
+        bottom: TabBar(
+          controller: _tabController,
+          tabs: const [
+            Tab(text: 'Contratos'),
+            Tab(text: 'Inquilinos'),
           ],
         ),
-        floatingActionButton: FloatingActionButton(
-          onPressed: () => context.pushNamed(RouteNames.newContract),
-          child: const Icon(Icons.add),
-        ),
+      ),
+      body: TabBarView(
+        controller: _tabController,
+        children: [
+          _ContractTab(contractsAsync: contractsAsync),
+          const _RentersTab(),
+        ],
+      ),
+      floatingActionButton: FloatingActionButton(
+        onPressed: () => onRentersTab
+            ? context.pushNamed(RouteNames.newRenter)
+            : context.pushNamed(RouteNames.newContract),
+        tooltip: onRentersTab ? 'Novo inquilino' : 'Novo contrato',
+        child: Icon(onRentersTab ? Icons.person_add : Icons.add),
       ),
     );
   }

@@ -15,6 +15,7 @@ Failure mapDioException(DioException e) => switch (e.type) {
 Failure _mapStatusCode(int? code, Object? data) {
   final message = _extractMessage(data);
   if (code == null) return Failure.unknown(message: message);
+  if (code == 400) return Failure.validation(message: message ?? 'Dados inválidos.');
   if (code == 401) return const Failure.unauthorized();
   if (code == 404) return Failure.notFound(message ?? 'Recurso');
   if (code == 422) return Failure.validation(message: message ?? 'Dados inválidos.');
@@ -24,7 +25,10 @@ Failure _mapStatusCode(int? code, Object? data) {
 
 String? _extractMessage(Object? data) {
   if (data is Map<String, dynamic>) {
-    return (data['message'] ?? data['title'] ?? data['error']) as String?;
+    // 'detail' traz a mensagem real do domínio (ex: "Vencimento fora do período")
+    // 'title' é o rótulo genérico (ex: "Requisição inválida")
+    return (data['detail'] ?? data['message'] ?? data['title'] ?? data['error'])
+        as String?;
   }
   return null;
 }

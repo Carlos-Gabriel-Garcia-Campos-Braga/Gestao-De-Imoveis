@@ -32,6 +32,8 @@ mixin _$RentalContract {
   EconomicIndex get preferredIndex => throw _privateConstructorUsedError;
   List<ReadjustmentRecord> get readjustmentHistory =>
       throw _privateConstructorUsedError;
+  DateTime? get terminatedAt => throw _privateConstructorUsedError;
+  String? get terminatedBy => throw _privateConstructorUsedError;
 
   /// Create a copy of RentalContract
   /// with the given fields replaced by the non-null parameter values.
@@ -61,7 +63,9 @@ abstract class $RentalContractCopyWith<$Res> {
       DateTime endContract,
       double rentalValue,
       EconomicIndex preferredIndex,
-      List<ReadjustmentRecord> readjustmentHistory});
+      List<ReadjustmentRecord> readjustmentHistory,
+      DateTime? terminatedAt,
+      String? terminatedBy});
 
   $RenterCopyWith<$Res> get renter;
 }
@@ -96,6 +100,8 @@ class _$RentalContractCopyWithImpl<$Res, $Val extends RentalContract>
     Object? rentalValue = null,
     Object? preferredIndex = null,
     Object? readjustmentHistory = null,
+    Object? terminatedAt = freezed,
+    Object? terminatedBy = freezed,
   }) {
     return _then(_value.copyWith(
       id: null == id
@@ -158,6 +164,14 @@ class _$RentalContractCopyWithImpl<$Res, $Val extends RentalContract>
           ? _value.readjustmentHistory
           : readjustmentHistory // ignore: cast_nullable_to_non_nullable
               as List<ReadjustmentRecord>,
+      terminatedAt: freezed == terminatedAt
+          ? _value.terminatedAt
+          : terminatedAt // ignore: cast_nullable_to_non_nullable
+              as DateTime?,
+      terminatedBy: freezed == terminatedBy
+          ? _value.terminatedBy
+          : terminatedBy // ignore: cast_nullable_to_non_nullable
+              as String?,
     ) as $Val);
   }
 
@@ -195,7 +209,9 @@ abstract class _$$RentalContractImplCopyWith<$Res>
       DateTime endContract,
       double rentalValue,
       EconomicIndex preferredIndex,
-      List<ReadjustmentRecord> readjustmentHistory});
+      List<ReadjustmentRecord> readjustmentHistory,
+      DateTime? terminatedAt,
+      String? terminatedBy});
 
   @override
   $RenterCopyWith<$Res> get renter;
@@ -229,6 +245,8 @@ class __$$RentalContractImplCopyWithImpl<$Res>
     Object? rentalValue = null,
     Object? preferredIndex = null,
     Object? readjustmentHistory = null,
+    Object? terminatedAt = freezed,
+    Object? terminatedBy = freezed,
   }) {
     return _then(_$RentalContractImpl(
       id: null == id
@@ -291,6 +309,14 @@ class __$$RentalContractImplCopyWithImpl<$Res>
           ? _value._readjustmentHistory
           : readjustmentHistory // ignore: cast_nullable_to_non_nullable
               as List<ReadjustmentRecord>,
+      terminatedAt: freezed == terminatedAt
+          ? _value.terminatedAt
+          : terminatedAt // ignore: cast_nullable_to_non_nullable
+              as DateTime?,
+      terminatedBy: freezed == terminatedBy
+          ? _value.terminatedBy
+          : terminatedBy // ignore: cast_nullable_to_non_nullable
+              as String?,
     ));
   }
 }
@@ -313,7 +339,9 @@ class _$RentalContractImpl extends _RentalContract {
       required this.endContract,
       required this.rentalValue,
       required this.preferredIndex,
-      required final List<ReadjustmentRecord> readjustmentHistory})
+      required final List<ReadjustmentRecord> readjustmentHistory,
+      this.terminatedAt,
+      this.terminatedBy})
       : _bills = bills,
         _readjustmentHistory = readjustmentHistory,
         super._();
@@ -362,8 +390,13 @@ class _$RentalContractImpl extends _RentalContract {
   }
 
   @override
+  final DateTime? terminatedAt;
+  @override
+  final String? terminatedBy;
+
+  @override
   String toString() {
-    return 'RentalContract(id: $id, renter: $renter, street: $street, number: $number, complement: $complement, neighborhood: $neighborhood, city: $city, state: $state, zipCode: $zipCode, bills: $bills, startContract: $startContract, endContract: $endContract, rentalValue: $rentalValue, preferredIndex: $preferredIndex, readjustmentHistory: $readjustmentHistory)';
+    return 'RentalContract(id: $id, renter: $renter, street: $street, number: $number, complement: $complement, neighborhood: $neighborhood, city: $city, state: $state, zipCode: $zipCode, bills: $bills, startContract: $startContract, endContract: $endContract, rentalValue: $rentalValue, preferredIndex: $preferredIndex, readjustmentHistory: $readjustmentHistory, terminatedAt: $terminatedAt, terminatedBy: $terminatedBy)';
   }
 
   @override
@@ -392,7 +425,11 @@ class _$RentalContractImpl extends _RentalContract {
             (identical(other.preferredIndex, preferredIndex) ||
                 other.preferredIndex == preferredIndex) &&
             const DeepCollectionEquality()
-                .equals(other._readjustmentHistory, _readjustmentHistory));
+                .equals(other._readjustmentHistory, _readjustmentHistory) &&
+            (identical(other.terminatedAt, terminatedAt) ||
+                other.terminatedAt == terminatedAt) &&
+            (identical(other.terminatedBy, terminatedBy) ||
+                other.terminatedBy == terminatedBy));
   }
 
   @override
@@ -412,7 +449,9 @@ class _$RentalContractImpl extends _RentalContract {
       endContract,
       rentalValue,
       preferredIndex,
-      const DeepCollectionEquality().hash(_readjustmentHistory));
+      const DeepCollectionEquality().hash(_readjustmentHistory),
+      terminatedAt,
+      terminatedBy);
 
   /// Create a copy of RentalContract
   /// with the given fields replaced by the non-null parameter values.
@@ -426,22 +465,23 @@ class _$RentalContractImpl extends _RentalContract {
 
 abstract class _RentalContract extends RentalContract {
   const factory _RentalContract(
-          {required final int id,
-          required final Renter renter,
-          required final String street,
-          required final String number,
-          final String? complement,
-          required final String neighborhood,
-          required final String city,
-          required final String state,
-          required final String zipCode,
-          required final List<RentBill> bills,
-          required final DateTime startContract,
-          required final DateTime endContract,
-          required final double rentalValue,
-          required final EconomicIndex preferredIndex,
-          required final List<ReadjustmentRecord> readjustmentHistory}) =
-      _$RentalContractImpl;
+      {required final int id,
+      required final Renter renter,
+      required final String street,
+      required final String number,
+      final String? complement,
+      required final String neighborhood,
+      required final String city,
+      required final String state,
+      required final String zipCode,
+      required final List<RentBill> bills,
+      required final DateTime startContract,
+      required final DateTime endContract,
+      required final double rentalValue,
+      required final EconomicIndex preferredIndex,
+      required final List<ReadjustmentRecord> readjustmentHistory,
+      final DateTime? terminatedAt,
+      final String? terminatedBy}) = _$RentalContractImpl;
   const _RentalContract._() : super._();
 
   @override
@@ -474,6 +514,10 @@ abstract class _RentalContract extends RentalContract {
   EconomicIndex get preferredIndex;
   @override
   List<ReadjustmentRecord> get readjustmentHistory;
+  @override
+  DateTime? get terminatedAt;
+  @override
+  String? get terminatedBy;
 
   /// Create a copy of RentalContract
   /// with the given fields replaced by the non-null parameter values.

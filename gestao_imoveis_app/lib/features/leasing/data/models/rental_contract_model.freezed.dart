@@ -310,6 +310,8 @@ mixin _$RentalContractModel {
   String get preferredIndex => throw _privateConstructorUsedError;
   List<ReadjustmentRecordModel> get readjustmentHistory =>
       throw _privateConstructorUsedError;
+  DateTime? get terminatedAt => throw _privateConstructorUsedError;
+  String? get terminatedBy => throw _privateConstructorUsedError;
 
   /// Serializes this RentalContractModel to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -336,7 +338,9 @@ abstract class $RentalContractModelCopyWith<$Res> {
       DateTime endContract,
       double rentalValue,
       String preferredIndex,
-      List<ReadjustmentRecordModel> readjustmentHistory});
+      List<ReadjustmentRecordModel> readjustmentHistory,
+      DateTime? terminatedAt,
+      String? terminatedBy});
 
   $RenterModelCopyWith<$Res> get renter;
   $ContractAddressModelCopyWith<$Res> get address;
@@ -366,6 +370,8 @@ class _$RentalContractModelCopyWithImpl<$Res, $Val extends RentalContractModel>
     Object? rentalValue = null,
     Object? preferredIndex = null,
     Object? readjustmentHistory = null,
+    Object? terminatedAt = freezed,
+    Object? terminatedBy = freezed,
   }) {
     return _then(_value.copyWith(
       id: null == id
@@ -404,6 +410,14 @@ class _$RentalContractModelCopyWithImpl<$Res, $Val extends RentalContractModel>
           ? _value.readjustmentHistory
           : readjustmentHistory // ignore: cast_nullable_to_non_nullable
               as List<ReadjustmentRecordModel>,
+      terminatedAt: freezed == terminatedAt
+          ? _value.terminatedAt
+          : terminatedAt // ignore: cast_nullable_to_non_nullable
+              as DateTime?,
+      terminatedBy: freezed == terminatedBy
+          ? _value.terminatedBy
+          : terminatedBy // ignore: cast_nullable_to_non_nullable
+              as String?,
     ) as $Val);
   }
 
@@ -445,7 +459,9 @@ abstract class _$$RentalContractModelImplCopyWith<$Res>
       DateTime endContract,
       double rentalValue,
       String preferredIndex,
-      List<ReadjustmentRecordModel> readjustmentHistory});
+      List<ReadjustmentRecordModel> readjustmentHistory,
+      DateTime? terminatedAt,
+      String? terminatedBy});
 
   @override
   $RenterModelCopyWith<$Res> get renter;
@@ -475,6 +491,8 @@ class __$$RentalContractModelImplCopyWithImpl<$Res>
     Object? rentalValue = null,
     Object? preferredIndex = null,
     Object? readjustmentHistory = null,
+    Object? terminatedAt = freezed,
+    Object? terminatedBy = freezed,
   }) {
     return _then(_$RentalContractModelImpl(
       id: null == id
@@ -513,6 +531,14 @@ class __$$RentalContractModelImplCopyWithImpl<$Res>
           ? _value._readjustmentHistory
           : readjustmentHistory // ignore: cast_nullable_to_non_nullable
               as List<ReadjustmentRecordModel>,
+      terminatedAt: freezed == terminatedAt
+          ? _value.terminatedAt
+          : terminatedAt // ignore: cast_nullable_to_non_nullable
+              as DateTime?,
+      terminatedBy: freezed == terminatedBy
+          ? _value.terminatedBy
+          : terminatedBy // ignore: cast_nullable_to_non_nullable
+              as String?,
     ));
   }
 }
@@ -529,7 +555,9 @@ class _$RentalContractModelImpl implements _RentalContractModel {
       required this.endContract,
       required this.rentalValue,
       required this.preferredIndex,
-      required final List<ReadjustmentRecordModel> readjustmentHistory})
+      required final List<ReadjustmentRecordModel> readjustmentHistory,
+      this.terminatedAt,
+      this.terminatedBy})
       : _bills = bills,
         _readjustmentHistory = readjustmentHistory;
 
@@ -569,8 +597,13 @@ class _$RentalContractModelImpl implements _RentalContractModel {
   }
 
   @override
+  final DateTime? terminatedAt;
+  @override
+  final String? terminatedBy;
+
+  @override
   String toString() {
-    return 'RentalContractModel(id: $id, renter: $renter, address: $address, bills: $bills, startContract: $startContract, endContract: $endContract, rentalValue: $rentalValue, preferredIndex: $preferredIndex, readjustmentHistory: $readjustmentHistory)';
+    return 'RentalContractModel(id: $id, renter: $renter, address: $address, bills: $bills, startContract: $startContract, endContract: $endContract, rentalValue: $rentalValue, preferredIndex: $preferredIndex, readjustmentHistory: $readjustmentHistory, terminatedAt: $terminatedAt, terminatedBy: $terminatedBy)';
   }
 
   @override
@@ -591,7 +624,11 @@ class _$RentalContractModelImpl implements _RentalContractModel {
             (identical(other.preferredIndex, preferredIndex) ||
                 other.preferredIndex == preferredIndex) &&
             const DeepCollectionEquality()
-                .equals(other._readjustmentHistory, _readjustmentHistory));
+                .equals(other._readjustmentHistory, _readjustmentHistory) &&
+            (identical(other.terminatedAt, terminatedAt) ||
+                other.terminatedAt == terminatedAt) &&
+            (identical(other.terminatedBy, terminatedBy) ||
+                other.terminatedBy == terminatedBy));
   }
 
   @JsonKey(includeFromJson: false, includeToJson: false)
@@ -606,7 +643,9 @@ class _$RentalContractModelImpl implements _RentalContractModel {
       endContract,
       rentalValue,
       preferredIndex,
-      const DeepCollectionEquality().hash(_readjustmentHistory));
+      const DeepCollectionEquality().hash(_readjustmentHistory),
+      terminatedAt,
+      terminatedBy);
 
   /// Create a copy of RentalContractModel
   /// with the given fields replaced by the non-null parameter values.
@@ -627,16 +666,17 @@ class _$RentalContractModelImpl implements _RentalContractModel {
 
 abstract class _RentalContractModel implements RentalContractModel {
   const factory _RentalContractModel(
-          {required final int id,
-          required final RenterModel renter,
-          @JsonKey(name: 'adress') required final ContractAddressModel address,
-          required final List<RentBillModel> bills,
-          required final DateTime startContract,
-          required final DateTime endContract,
-          required final double rentalValue,
-          required final String preferredIndex,
-          required final List<ReadjustmentRecordModel> readjustmentHistory}) =
-      _$RentalContractModelImpl;
+      {required final int id,
+      required final RenterModel renter,
+      @JsonKey(name: 'adress') required final ContractAddressModel address,
+      required final List<RentBillModel> bills,
+      required final DateTime startContract,
+      required final DateTime endContract,
+      required final double rentalValue,
+      required final String preferredIndex,
+      required final List<ReadjustmentRecordModel> readjustmentHistory,
+      final DateTime? terminatedAt,
+      final String? terminatedBy}) = _$RentalContractModelImpl;
 
   factory _RentalContractModel.fromJson(Map<String, dynamic> json) =
       _$RentalContractModelImpl.fromJson;
@@ -660,6 +700,10 @@ abstract class _RentalContractModel implements RentalContractModel {
   String get preferredIndex;
   @override
   List<ReadjustmentRecordModel> get readjustmentHistory;
+  @override
+  DateTime? get terminatedAt;
+  @override
+  String? get terminatedBy;
 
   /// Create a copy of RentalContractModel
   /// with the given fields replaced by the non-null parameter values.

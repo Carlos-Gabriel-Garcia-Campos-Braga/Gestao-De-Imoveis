@@ -9,15 +9,15 @@ part of 'renter_model.dart';
 _$RenterModelImpl _$$RenterModelImplFromJson(Map<String, dynamic> json) =>
     _$RenterModelImpl(
       id: (json['id'] as num).toInt(),
-      name: (json['name'] as String?) ?? '',
-      cpf: (json['cPF'] as String?) ?? '',
-      phoneNumber: (json['phoneNumber'] as String?) ?? '',
+      name: json['name'] as String,
+      cpf: json['cpf'] as String,
+      phoneNumber: json['phoneNumber'] as String,
     );
 
 Map<String, dynamic> _$$RenterModelImplToJson(_$RenterModelImpl instance) =>
     <String, dynamic>{
       'id': instance.id,
       'name': instance.name,
-      'cPF': instance.cpf,
+      'cpf': instance.cpf,
       'phoneNumber': instance.phoneNumber,
     };

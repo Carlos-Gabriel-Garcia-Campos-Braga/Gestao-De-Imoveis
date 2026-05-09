@@ -1,5 +1,6 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:gestao_imoveis/features/billing/presentation/providers/billing_providers.dart';
+import 'package:gestao_imoveis/features/leasing/domain/value_objects/contract_status.dart';
 import 'package:gestao_imoveis/features/leasing/presentation/providers/leasing_providers.dart';
 import 'package:gestao_imoveis/features/property/domain/value_objects/property_status.dart';
 import 'package:gestao_imoveis/features/property/presentation/providers/property_providers.dart';
@@ -42,13 +43,12 @@ Future<DashboardKpis> dashboardKpis(Ref ref) async {
       .where((p) => p.status == PropertyStatus.vacant)
       .length;
 
-  final now = DateTime.now();
   final activeContracts = contracts
-      .where((c) => c.endContract.isAfter(now))
+      .where((c) => c.status == ContractStatus.active)
       .length;
 
   final monthlyRevenue = contracts
-      .where((c) => c.endContract.isAfter(now))
+      .where((c) => c.status == ContractStatus.active)
       .fold<double>(0, (sum, c) => sum + c.rentalValue);
 
   return DashboardKpis(

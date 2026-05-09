@@ -28,6 +28,12 @@ abstract interface class IPropertyRepository {
 
   Future<Property> updateStatus(int id, PropertyStatus status);
 
+  Future<List<Property>> getArchived();
+
+  Future<Property> archive(int id);
+
+  Future<Property> unarchive(int id);
+
   Future<List<InspectionReport>> getInspections(int id);
 
   Future<InspectionReport> addInspection(

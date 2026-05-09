@@ -1,5 +1,7 @@
 using GestaoImoveisAPI.Domain.Leasing;
 using GestaoImoveisAPI.Domain.Leasing.Repositories;
+using GestaoImoveisAPI.Domain.Property;
+using GestaoImoveisAPI.Domain.Property.Repositories;
 using SharedClasses.InputDTOs;
 using SharedClasses.OutputsDTOs;
 using SharedClasses.ValueObjects;
@@ -10,19 +12,28 @@ namespace GestaoImoveisAPI.Application.Leasing.CreateContract
     {
         private readonly IRentalContractRepository _contractRepository;
         private readonly IRenterRepository _renterRepository;
+        private readonly IPropertyRepository _propertyRepository;
 
         public CreateContractHandler(
             IRentalContractRepository contractRepository,
-            IRenterRepository renterRepository)
+            IRenterRepository renterRepository,
+            IPropertyRepository propertyRepository)
         {
             _contractRepository = contractRepository;
             _renterRepository = renterRepository;
+            _propertyRepository = propertyRepository;
         }
 
         public async Task<RentalContractOutputModel> HandleAsync(
             RentalContractInputModel input,
             CancellationToken ct = default)
         {
+            var property = await _propertyRepository.GetByIdAsync(input.PropertyId, ct)
+                ?? throw new KeyNotFoundException($"Imóvel {input.PropertyId} não encontrado.");
+
+            if (property.Status != PropertyStatus.Vacant)
+                throw new InvalidOperationException("Imóvel não está disponível para locação.");
+
             if (await _contractRepository.HasActiveContractForCpfAsync(input.Renter.CPF, ct))
                 throw new InvalidOperationException("Já existe um contrato ativo com esse CPF.");
 
@@ -32,14 +43,15 @@ namespace GestaoImoveisAPI.Application.Leasing.CreateContract
             var renter = await _renterRepository.GetByCpfAsync(cpf.Value, ct)
                          ?? await CreateRenterAsync(input.Renter.Name, cpf, phoneNumber, ct);
 
+            // Copia o endereço do imóvel — denormalizado no contrato para preservar histórico
             var address = new Adress(
-                input.Adress.Street,
-                input.Adress.Complement,
-                input.Adress.Number,
-                input.Adress.Neighborhood,
-                input.Adress.City,
-                input.Adress.State,
-                input.Adress.ZipCode);
+                property.Address.Street,
+                property.Address.Complement,
+                property.Address.Number,
+                property.Address.Neighborhood,
+                property.Address.City,
+                property.Address.State,
+                property.Address.ZipCode);
 
             if (!Enum.TryParse<EconomicIndex>(input.PreferredIndex, ignoreCase: true, out var preferredIndex))
                 throw new ArgumentException(
@@ -47,6 +59,7 @@ namespace GestaoImoveisAPI.Application.Leasing.CreateContract
 
             var contract = RentalContract.Create(
                 renter.Id,
+                property.Id,
                 address,
                 input.StartContract,
                 input.EndContract,
@@ -56,8 +69,10 @@ namespace GestaoImoveisAPI.Application.Leasing.CreateContract
             foreach (var b in input.Bills)
                 contract.AddBill(b.Type, b.ValidationDate, new Money(b.Value));
 
+            property.MarkAsOccupied();
+
             await _contractRepository.AddAsync(contract, ct);
-            await _contractRepository.SaveChangesAsync(ct);
+            await _contractRepository.SaveChangesAsync(ct); // salva contrato + status do imóvel (mesmo DbContext)
 
             return ToOutputModel(contract, renter);
         }
@@ -75,6 +90,7 @@ namespace GestaoImoveisAPI.Application.Leasing.CreateContract
             new()
             {
                 Id = contract.Id,
+                PropertyId = contract.PropertyId ?? 0,
                 Renter = new RenterOutputModel
                 {
                     Name = renter.Name,
@@ -83,13 +99,13 @@ namespace GestaoImoveisAPI.Application.Leasing.CreateContract
                 },
                 Adress = new AdressOutputModel
                 {
-                    Street = contract.Adress.Street,
+                    Street = contract.Adress.Street ?? string.Empty,
                     Complement = contract.Adress.Complement,
-                    Number = contract.Adress.Number,
-                    Neighborhood = contract.Adress.Neighborhood,
-                    City = contract.Adress.City,
-                    State = contract.Adress.State,
-                    ZipCode = contract.Adress.ZipCode
+                    Number = contract.Adress.Number ?? string.Empty,
+                    Neighborhood = contract.Adress.Neighborhood ?? string.Empty,
+                    City = contract.Adress.City ?? string.Empty,
+                    State = contract.Adress.State ?? string.Empty,
+                    ZipCode = contract.Adress.ZipCode ?? string.Empty
                 },
                 Bills = contract.Bills.Select(b => new BillsOutputModel
                 {

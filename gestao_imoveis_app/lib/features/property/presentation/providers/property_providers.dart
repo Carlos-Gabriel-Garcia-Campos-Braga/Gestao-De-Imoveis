@@ -59,6 +59,12 @@ class PropertyList extends _$PropertyList {
 Future<Property> propertyDetail(Ref ref, int id) =>
     ref.watch(propertyRepositoryProvider).getById(id);
 
+// ── Vacant properties (for contract creation) ────────────────────────────────
+
+@riverpod
+Future<List<Property>> vacantProperties(Ref ref) =>
+    ref.watch(propertyRepositoryProvider).getByStatus(PropertyStatus.vacant);
+
 // ── Inspections ───────────────────────────────────────────────────────────────
 
 @riverpod

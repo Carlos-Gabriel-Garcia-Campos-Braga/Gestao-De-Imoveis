@@ -30,7 +30,61 @@ class RenterDetailScreen extends ConsumerWidget {
     final contractsAsync = ref.watch(contractListProvider);
 
     return Scaffold(
-      appBar: AppBar(title: const Text('Inquilino')),
+      appBar: AppBar(
+        title: const Text('Inquilino'),
+        actions: [
+          PopupMenuButton<String>(
+            onSelected: (value) async {
+              if (value == 'archive') {
+                final confirmed = await showDialog<bool>(
+                  context: context,
+                  builder: (ctx) => AlertDialog(
+                    title: const Text('Arquivar inquilino'),
+                    content: const Text(
+                      'O inquilino será movido para o arquivo e não aparecerá mais nas listas ativas. Deseja continuar?',
+                    ),
+                    actions: [
+                      TextButton(
+                        onPressed: () => Navigator.pop(ctx, false),
+                        child: const Text('Cancelar'),
+                      ),
+                      FilledButton(
+                        onPressed: () => Navigator.pop(ctx, true),
+                        child: const Text('Arquivar'),
+                      ),
+                    ],
+                  ),
+                );
+                if (confirmed ?? false) {
+                  try {
+                    await ref
+                        .read(renterRepositoryProvider)
+                        .archive(renterId);
+                    ref.invalidate(renterListProvider);
+                    if (context.mounted) context.pop();
+                  } catch (e) {
+                    if (context.mounted) {
+                      ScaffoldMessenger.of(context).showSnackBar(
+                        SnackBar(content: Text(e.toString())),
+                      );
+                    }
+                  }
+                }
+              }
+            },
+            itemBuilder: (_) => const [
+              PopupMenuItem(
+                value: 'archive',
+                child: ListTile(
+                  leading: Icon(Icons.archive_outlined),
+                  title: Text('Arquivar inquilino'),
+                  contentPadding: EdgeInsets.zero,
+                ),
+              ),
+            ],
+          ),
+        ],
+      ),
       body: renterAsync.when(
         loading: () => const SkeletonList(itemHeight: 80),
         error: (error, _) => ErrorView(
